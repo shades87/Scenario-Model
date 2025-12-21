@@ -11,7 +11,7 @@
 
   const { x, y } = hexToPixel(q, r, size);
 
-  console.log(title)
+ 
 </script>
 
 <g transform={`translate(${x}, ${y})`}>

@@ -16,16 +16,16 @@ export function projectGenerations(
   let next = { ...base };
 
   for (let i = 0; i < steps; i++) {
-    for (const gen in next) {
-      next[gen] += next[gen] * TRANSITION[gen];
-    }
+    for (const gen of Object.keys(next) as Generation[]) {
+  next[gen] += next[gen] * TRANSITION[gen];
+}
   }
 
   // normalise back to 1
   const total = Object.values(next).reduce((a, b) => a + b, 0);
-  for (const gen in next) {
-    next[gen] /= total;
-  }
+for (const gen of Object.keys(next) as Generation[]) {
+  next[gen] /= total;
+}
 
   return next;
 }

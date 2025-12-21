@@ -1,13 +1,16 @@
 import { derived } from 'svelte/store';
 import { projectedSeats } from './projectedSeats';
-import type { Party } from '$lib/demographics/generations';
+import type { Party } from '$lib/data/electorates';
 
 export const nationalFp = derived(projectedSeats, ($projectedSeats) => {
   const totals: Record<Party, number> = {
     ALP: 0,
     LNP: 0,
     GRN: 0,
-    OTH: 0
+    IND: 0,
+    KAT: 0,
+    PHON: 0,
+    CA: 0
   };
 
   for (const seat of $projectedSeats) {

@@ -7,21 +7,22 @@
   import { electorates } from '$lib/data/electorates';
   import { writable } from 'svelte/store';
   import { Tabs } from '@skeletonlabs/skeleton-svelte';
-    import { seatTotals } from '$lib/stores/totalSeats';
+  import { seatTotals } from '$lib/stores/totalSeats';
+  
+  //type Party = 'ALP' | 'LNP' | 'GRN' | 'IND' | 'PHON' | 'KAT' | 'CA';
 
   const hoveredSeat = writable<null | typeof $projectedSeats[0]>(null);
 
   const HEX_SIZE = 20;
 
-  const partyColours = {
+  const partyColours:Record<string, string> = {
     ALP: '#d71920',
     LNP: '#005689',
     GRN: '#00a651',
     IND: '#999999',
     PHON: '#F36D24',
     KAT: '#DF1014',
-    CA: '#CC0000',
-    OTH: '#bbbbbb'
+    CA: '#CC0000'
   };
 
     $: bounds = hexBounds(electorates, HEX_SIZE);

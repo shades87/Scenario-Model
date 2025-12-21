@@ -17,7 +17,26 @@ export type Seat = {
 
   // how sensitive this seat is to a national ALP swing
   alpSwingFactor: number;
+
+  generations: {
+  GenZ: number;
+  Millennial: number;
+  GenX: number;
+  Boomer: number;
+  };
 };
+
+/*
+ALP Swing Factor Benchmarks
+
+Safe ALP vs LNP	0.2 – 0.4
+Marginal ALP vs LNP	0.8 – 1.2
+Safe LNP vs ALP	0.3 – 0.6
+Teal IND vs LNP	0.4 – 0.7
+Rural IND vs LNP	0.1 – 0.3
+GRN vs LNP	0.6 – 0.9
+GRN vs ALP	0.5 – 0.8 */
+
 
 //Electorates
 //2PP is correct
@@ -41,6 +60,12 @@ export const electorates: Seat[] = [
       b: 0.331
     },
     alpSwingFactor: 1,
+    generations: {
+  GenZ: 0.14,
+  Millennial: 0.29,
+  GenX: 0.32,
+  Boomer: 0.25
+}
    
   },
   {
@@ -56,6 +81,13 @@ export const electorates: Seat[] = [
       b: 0.495
     },
     alpSwingFactor: 1,
+
+    generations: {
+  GenZ: 0.14,
+  Millennial: 0.29,
+  GenX: 0.32,
+  Boomer: 0.25
+}
   },
   {
     id: 'burt',
@@ -70,6 +102,13 @@ export const electorates: Seat[] = [
       b: 0.343
     },
     alpSwingFactor: 1,
+
+    generations: {
+  GenZ: 0.14,
+  Millennial: 0.29,
+  GenX: 0.32,
+  Boomer: 0.25
+}
   },
   {
     id: 'can',
@@ -84,6 +123,12 @@ export const electorates: Seat[] = [
         b: .434
     },
     alpSwingFactor: 1,
+    generations: {
+  GenZ: 0.14,
+  Millennial: 0.29,
+  GenX: 0.32,
+  Boomer: 0.25
+}
     },
     {
         id: 'cow',
@@ -98,6 +143,12 @@ export const electorates: Seat[] = [
             b: .364
         },
         alpSwingFactor: 1,
+        generations: {
+  GenZ: 0.14,
+  Millennial: 0.29,
+  GenX: 0.32,
+  Boomer: 0.25
+}
     },
     {
         id: 'cur',
@@ -111,7 +162,13 @@ export const electorates: Seat[] = [
             a: .533,
             b: .467
         },
-        alpSwingFactor: .75, //we're guestimating that 75 % of labor's preferences flow to Kate Cheney
+        alpSwingFactor: .5, 
+        generations: {
+  GenZ: 0.14,
+  Millennial: 0.29,
+  GenX: 0.32,
+  Boomer: 0.25
+}
     },
     {
         id: 'Dur',
@@ -126,6 +183,12 @@ export const electorates: Seat[] = [
             b: .398
         },
         alpSwingFactor: 1,
+        generations: {
+  GenZ: 0.14,
+  Millennial: 0.29,
+  GenX: 0.32,
+  Boomer: 0.25
+}
     },
     {
         id: 'for',
@@ -140,6 +203,12 @@ export const electorates: Seat[] = [
             b: .478
         },
         alpSwingFactor: 1,
+        generations: {
+  GenZ: 0.14,
+  Millennial: 0.29,
+  GenX: 0.32,
+  Boomer: 0.25
+}
     },
     {
         id: 'fre',
@@ -154,6 +223,12 @@ export const electorates: Seat[] = [
             b: .493
         },
         alpSwingFactor: 1,
+        generations: {
+  GenZ: 0.14,
+  Millennial: 0.29,
+  GenX: 0.32,
+  Boomer: 0.25
+}
     },
     {
         id: 'has',
@@ -167,7 +242,13 @@ export const electorates: Seat[] = [
             a: .66,
             b: .34
         },
-        alpSwingFactor: 1
+        alpSwingFactor: 1,
+        generations: {
+  GenZ: 0.14,
+  Millennial: 0.29,
+  GenX: 0.32,
+  Boomer: 0.25
+}
         },
         {
             id: 'moo',
@@ -181,7 +262,13 @@ export const electorates: Seat[] = [
                 a: .471,
                 b: .529
             },
-            alpSwingFactor: 1
+            alpSwingFactor: 1,
+            generations: {
+  GenZ: 0.14,
+  Millennial: 0.29,
+  GenX: 0.32,
+  Boomer: 0.25
+}
         },
         {
             id: `O'co`,
@@ -195,7 +282,13 @@ export const electorates: Seat[] = [
                 a: .633,
                 b: .367
             },
-            alpSwingFactor: 1
+            alpSwingFactor: 1,
+            generations: {
+  GenZ: 0.14,
+  Millennial: 0.29,
+  GenX: 0.32,
+  Boomer: 0.25
+}
         },
         {
             id: 'pea',
@@ -209,7 +302,13 @@ export const electorates: Seat[] = [
                 a: .564,
                 b: .436
             },
-            alpSwingFactor: 1
+            alpSwingFactor: 1,
+            generations: {
+  GenZ: 0.14,
+  Millennial: 0.29,
+  GenX: 0.32,
+  Boomer: 0.25
+}
         },
         {
             id: 'per',
@@ -223,7 +322,13 @@ export const electorates: Seat[] = [
                 a: .665,
                 b: .335
             },
-            alpSwingFactor: 1
+            alpSwingFactor: 1,
+            generations: {
+  GenZ: 0.14,
+  Millennial: 0.29,
+  GenX: 0.32,
+  Boomer: 0.25
+}
         },
         {
             id: 'swa',
@@ -237,7 +342,13 @@ export const electorates: Seat[] = [
                 a: .64,
                 b: .36
             },
-            alpSwingFactor: 1
+            alpSwingFactor: 1,
+            generations: {
+  GenZ: 0.14,
+  Millennial: 0.29,
+  GenX: 0.32,
+  Boomer: 0.25
+}
         },
         {
             id: 'tan',
@@ -251,7 +362,13 @@ export const electorates: Seat[] = [
                 a: .57,
                 b: .43
             },
-            alpSwingFactor: 1
+            alpSwingFactor: 1,
+            generations: {
+  GenZ: 0.14,
+  Millennial: 0.29,
+  GenX: 0.32,
+  Boomer: 0.25
+}
         },
 
         //NT
@@ -267,7 +384,13 @@ export const electorates: Seat[] = [
                 a: .581,
                 b: .419
             },
-            alpSwingFactor: 1
+            alpSwingFactor: 1,
+            generations: {
+  GenZ: 0.14,
+  Millennial: 0.29,
+  GenX: 0.32,
+  Boomer: 0.25
+}
         },
         {
             id: 'lin',
@@ -281,7 +404,13 @@ export const electorates: Seat[] = [
                 a: .513,
                 b: .487
             },
-            alpSwingFactor: 1
+            alpSwingFactor: 1,
+            generations: {
+  GenZ: 0.14,
+  Millennial: 0.29,
+  GenX: 0.32,
+  Boomer: 0.25
+}
         },
         //SA
         {
@@ -296,7 +425,13 @@ export const electorates: Seat[] = [
                 a: .691,
                 b: .309
             },
-            alpSwingFactor: 1
+            alpSwingFactor: 1,
+            generations: {
+  GenZ: 0.14,
+  Millennial: 0.29,
+  GenX: 0.32,
+  Boomer: 0.25
+}
         },
         {
             id: 'bar',
@@ -310,6 +445,12 @@ export const electorates: Seat[] = [
                 a: .63,
                 b: .37
             },
-            alpSwingFactor: 1
+            alpSwingFactor: 1,
+            generations: {
+  GenZ: 0.14,
+  Millennial: 0.29,
+  GenX: 0.32,
+  Boomer: 0.25
+}
         }
 ];

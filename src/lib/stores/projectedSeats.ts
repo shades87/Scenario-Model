@@ -6,6 +6,9 @@ import { projectGenerations } from '$lib/demographics/projectGenerations';
 import { seatFirstPreferences } from '$lib/demographics/seatFP';
 import { projectSeat } from '$lib/projection';
 
+type Party = 'ALP' | 'LNP' | 'GRN' | 'IND' | 'CA' | 'KAT'| 'PHON';
+const PARTIES: readonly Party[] = ['ALP', 'LNP', 'GRN', 'IND', 'CA', 'KAT', 'PHON'];
+
 export const projectedSeats = derived(
   [nationalSwing, yearsAhead],
   ([$swing, $years]) =>
@@ -25,7 +28,7 @@ export const projectedSeats = derived(
 
       // normalize so totals sum to 1
       const total = Object.values(projectedFp).reduce((a, b) => a + b, 0);
-      for (const party in projectedFp) {
+      for (const party of PARTIES) {
         projectedFp[party] /= total;
       }
 
