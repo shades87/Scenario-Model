@@ -7,8 +7,11 @@
   export let size = 15;
   export let fill = '#ccc';
   export let label = '';
+  export let title = '';
 
   const { x, y } = hexToPixel(q, r, size);
+
+  console.log(title)
 </script>
 
 <g transform={`translate(${x}, ${y})`}>
@@ -21,10 +24,14 @@
   <text
     text-anchor="middle"
     dominant-baseline="middle"
-    font-size="10"
+    font-size="5"
     fill="#fff"
     pointer-events="none"
   >
     {label}
   </text>
+
+  {#if title}
+    <title>{title}</title>
+  {/if}
 </g>

@@ -2,78 +2,98 @@
   import Hex from '$lib/components/Hex.svelte';
   import { projectedSeats } from '$lib/stores/projectedSeats';
   import { winner } from '$lib/projection';
-  import { yearsAhead } from '$lib/stores/years';
   import { nationalSwing } from '$lib/stores/swing';
   import { hexBounds } from '$lib/hexBounds';
   import { electorates } from '$lib/data/electorates';
-  import { nationalFp } from '$lib/stores/nationalFp';
+  import { writable } from 'svelte/store';
+  import { Tabs } from '@skeletonlabs/skeleton-svelte';
+    import { seatTotals } from '$lib/stores/totalSeats';
 
-  const HEX_SIZE = 60;
+  const hoveredSeat = writable<null | typeof $projectedSeats[0]>(null);
+
+  const HEX_SIZE = 20;
 
   const partyColours = {
     ALP: '#d71920',
     LNP: '#005689',
     GRN: '#00a651',
     IND: '#999999',
+    PHON: '#F36D24',
+    KAT: '#DF1014',
+    CA: '#CC0000',
     OTH: '#bbbbbb'
   };
 
     $: bounds = hexBounds(electorates, HEX_SIZE);
+
+
 </script>
+<Tabs defaultValue="2PP">
+    <Tabs.List>
+        <Tabs.Trigger value="2PP">National 2PP</Tabs.Trigger>
+        <Tabs.Trigger value="Demographics">Demographics</Tabs.Trigger>
+    </Tabs.List>
 
-<div class="controls">
-  <div>
-    <label>
-      National ALP 2PP swing:
-      {(($nationalSwing * 100)).toFixed(1)}%
+<Tabs.Content value="2PP">
+    <div class="controls">
+  <div class="flex justify-center items-center text-primary-700">
+    <label class="flex flex-col items-center">
+      <h1 class="h1 text-center">
+        National ALP 2PP swing: {(($nationalSwing * 100)).toFixed(1)}%
+      </h1>
+      <input
+        type="range"
+        min="-0.1"
+        max="0.1"
+        step="0.005"
+        bind:value={$nationalSwing}
+        class="mt-2 w-64" 
+      />
     </label>
-    <input
-      type="range"
-      min="-0.1"
-      max="0.1"
-      step="0.005"
-      bind:value={$nationalSwing}
-    />
-  </div>
-
-  <div style="margin-top: 1rem;">
-    <label>
-      Years ahead: {$yearsAhead}
-    </label>
-    <input
-      type="range"
-      min="0"
-      max="12"
-      step="3"
-      bind:value={$yearsAhead}
-    />
-    <div style="font-size: 0.8rem; opacity: 0.7;">
-      0 = last election · 3 = next · 12 = four elections
-    </div>
   </div>
 </div>
-
-
+<div class="flex justify-center gap-6 mb-2 text-sm">
+  {#each Object.entries($seatTotals) as [party, count]}
+    <div
+      class="flex items-center gap-2"
+      class:text-success-600={count >= 76}
+    >
+      <span
+        class="inline-block w-3 h-3 rounded-sm"
+        style="background-color: {partyColours[party]}"
+      ></span>
+      <span class="font-semibold">{party}</span>
+      <span>
+        {count}
+        {#if count >= 76}
+          <span class="ml-1">(maj)</span>
+        {/if}
+      </span>
+    </div>
+  {/each}
+</div>
 <svg
   viewBox={`${bounds.x} ${bounds.y} ${bounds.width} ${bounds.height}`}
   width="100%"
-  style="max-width: 900px; height: auto;"
+  style="max-width: auto; height: 600px;"
 >
   {#each $projectedSeats as seat}
     <Hex
       q={seat.q}
       r={seat.r}
       fill={partyColours[winner(seat)]}
-      label={seat.name.slice(0, 3)}
-    />
+      label={seat.name}
+      title={`${seat.name} 2025 result — ${seat.tcp.partyA} ${Math.round(seat.tcp.a * 10000) / 100}% vs ${Math.round(seat.tcp.b * 10000) / 100}% ${seat.q} ${seat.r}`}
+      on:mouseenter={() => hoveredSeat.set(seat)}
+      on:mouseleave={() => hoveredSeat.set(null)}
+    >
+    </Hex>
   {/each}
 </svg>
-<div class="national-fp" style="margin-top:1rem;">
-  <h3>National projected first preferences</h3>
-  <ul>
-    <li>ALP: {($nationalFp.ALP * 100).toFixed(1)}%</li>
-    <li>LNP: {($nationalFp.LNP * 100).toFixed(1)}%</li>
-    <li>Greens: {($nationalFp.GRN * 100).toFixed(1)}%</li>
-    <li>Other: {($nationalFp.OTH * 100).toFixed(1)}%</li>
-  </ul>
-</div>
+
+
+</Tabs.Content>
+<Tabs.Content value="Demographics">
+    Here you'll be able to see how demographics shift affect primary votes and public funding
+</Tabs.Content>
+</Tabs>
