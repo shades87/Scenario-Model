@@ -995,5 +995,45 @@ export const electorates: Seat[] = [
                 GenX: 0.32,
                 Boomer: 0.25
             }
+        },
+        {
+            id: 'gra',
+            state: 'NSW',
+            name: 'Grayndler',
+            q: 6,
+            r:8,
+            tcp: {
+                partyA: 'ALP',
+                partyB: 'GRN',
+                a: .669,
+                b: .331
+            },
+            alpSwingFactor: 1,
+            generations: {
+                GenZ: 0.14,
+                Millennial: 0.29,
+                GenX: 0.32,
+                Boomer: 0.25
+            }
+        },
+        {
+            id: 'gre',
+            state: 'NSW',
+            name: 'Greenway',
+            q: 3,
+            r: 6,
+            tcp: {
+                partyA: 'ALP',
+                partyB: 'LNP',
+                a: .638,
+                b: .362
+            },
+            alpSwingFactor: 1,
+            generations: {
+                GenZ: 0.14,
+                Millennial: 0.29,
+                GenX: 0.32,
+                Boomer: 0.25
+            }
         }
 ];

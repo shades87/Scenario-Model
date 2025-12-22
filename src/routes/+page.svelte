@@ -29,6 +29,11 @@
 
 
 </script>
+<style>
+ h1 {
+    font-family: 'Mechanical', normal;
+ }
+</style>
 <Tabs  defaultValue="2PP">
     <Tabs.List class="bg-primary-300 text-white pt-2 pl-2">
         <Tabs.Trigger value="2PP">National 2PP</Tabs.Trigger>
