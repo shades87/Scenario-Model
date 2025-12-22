@@ -22,24 +22,24 @@
     IND: '#999999',
     PHON: '#F36D24',
     KAT: '#DF1014',
-    CA: '#CC0000'
+    CA: '#FF5800'
   };
 
     $: bounds = hexBounds(electorates, HEX_SIZE);
 
 
 </script>
-<Tabs defaultValue="2PP">
-    <Tabs.List>
+<Tabs  defaultValue="2PP">
+    <Tabs.List class="bg-primary-300 text-white pt-2 pl-2">
         <Tabs.Trigger value="2PP">National 2PP</Tabs.Trigger>
         <Tabs.Trigger value="Demographics">Demographics</Tabs.Trigger>
     </Tabs.List>
 
 <Tabs.Content value="2PP">
     <div class="controls">
-  <div class="flex justify-center items-center text-primary-700">
+  <div class="flex justify-center items-center">
     <label class="flex flex-col items-center">
-      <h1 class="h1 text-center">
+      <h1 class="h1 text-center text-black">
         National ALP 2PP swing: {(($nationalSwing * 100)).toFixed(1)}%
       </h1>
       <input
@@ -63,7 +63,7 @@
         class="inline-block w-3 h-3 rounded-sm"
         style="background-color: {partyColours[party]}"
       ></span>
-      <span class="font-semibold">{party}</span>
+      <span class="font-semibold text-black">{party}</span>
       <span>
         {count}
         {#if count >= 76}
