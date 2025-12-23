@@ -17,9 +17,9 @@ export function hexBounds(
   const maxY = Math.max(...ys) + size;
 
   return {
-    x: minX,
-    y: minY,
-    width: maxX - minX,
-    height: maxY - minY
+    x: minX - size,
+    y: minY - size,
+    width: (maxX - minX) + size * 2,
+    height: (maxY - minY) + size * 2,
   };
 }

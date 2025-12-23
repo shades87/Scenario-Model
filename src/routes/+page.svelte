@@ -99,24 +99,25 @@
   </svg>
 </div>
 
-<!-- Mobile -->
-<div class="block sm:hidden">
+<!-- Mobile  -->
+<div class="block sm:hidden flex items-center justify-center">
   <svg
-    viewBox={`${bounds.x} ${bounds.y} ${bounds.width-300} ${bounds.height+100}`}
-    class="w-full h-[500px]"
+    viewBox={`${bounds.x} ${bounds.y} ${bounds.width-150} ${bounds.height}`}
+    class="w-full"
     preserveAspectRatio="xMidYMid meet"
   >
     {#each $projectedSeats as seat}
       <Hex
-        q={seat.r}
-        r={seat.q}
+        q={seat.q}
+        r={seat.r}
         fill={partyColours[winner(seat)]}
         label={seat.name}
         title={`${seat.name} 2025 result — ${seat.tcp.partyA} ${Math.round(seat.tcp.a * 10000) / 100}% vs ${Math.round(seat.tcp.b * 10000) / 100}% ${seat.q} ${seat.r}`}
       />
+
     {/each}
   </svg>
-</div>
+</div> 
 
 <div class="flex justify-center mb-10">
 <div class="card p-4 preset-filled-surface-100-900 border-[1px] border-surface-200-800 max-w-md divide-y overflow-hidden">
