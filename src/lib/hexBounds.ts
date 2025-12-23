@@ -16,10 +16,6 @@ export function hexBounds(
   const minY = Math.min(...ys) - size;
   const maxY = Math.max(...ys) + size;
 
-  console.log("minX: " + minX)
-  console.log("maxX: " + maxX)
-  console.log("minY: " + minY)
-  console.log("maxY: " + maxY)
   return {
     x: minX,
     y: minY,

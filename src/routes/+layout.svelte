@@ -7,12 +7,13 @@
 </script>
 <style>
 	    @font-face{
-        font-family: 'Mechanical';
+        font-family: 'Playfair';
         font-style: normal;
         font-display: swap;
         font-weight: 400;
-        src: url($lib/fonts/MechanicalBd.otf)
+        src: url($lib/fonts/playfair-display-latin-900-normal.ttf)
     }
+
 </style>
 
 <svelte:head><link rel="icon" href={favicon} /></svelte:head>
