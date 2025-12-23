@@ -91,6 +91,9 @@
         r={seat.r}
         fill={partyColours[winner(seat)]}
         label={seat.name}
+        title={`${seat.name} 2025 result — ${seat.tcp.partyA} ${Math.round(seat.tcp.a * 10000) / 100}% vs ${Math.round(seat.tcp.b * 10000) / 100}% ${seat.q} ${seat.r}`}
+        on:mouseenter={() => hoveredSeat.set(seat)}
+        on:mouseleave={() => hoveredSeat.set(null)}
       />
     {/each}
   </svg>
@@ -109,6 +112,7 @@
         r={seat.q}
         fill={partyColours[winner(seat)]}
         label={seat.name}
+        title={`${seat.name} 2025 result — ${seat.tcp.partyA} ${Math.round(seat.tcp.a * 10000) / 100}% vs ${Math.round(seat.tcp.b * 10000) / 100}% ${seat.q} ${seat.r}`}
       />
     {/each}
   </svg>

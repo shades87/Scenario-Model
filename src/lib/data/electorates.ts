@@ -2459,5 +2459,24 @@ export const electorates: Seat[] = [
             }
         },
         //qld
-        
+        {
+            id: 'bla',
+            state: 'QLD',
+            name: 'Blair',
+            q: 12,
+            r: 7,
+            tcp: {
+                partyA: 'ALP',
+                partyB: 'LNP',
+                a: .557,
+                b: .443
+            },
+            alpSwingFactor: 1,
+            generations: {
+                GenZ: 0.14,
+                Millennial: 0.29,
+                GenX: 0.32,
+                Boomer: 0.25
+            }
+        }
 ];
