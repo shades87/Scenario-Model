@@ -139,6 +139,9 @@
     <li>
       Swing affects contests without an ALP candidate to a lessor degree
     </li>
+    <li>
+      Instead of making something of value I made this
+    </li>
   </ul>
 </article>
 <footer class="flex items-center justify-between">

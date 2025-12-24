@@ -2959,5 +2959,105 @@ export const electorates: Seat[] = [
                 GenX: 0.32,
                 Boomer: 0.25
             }
+    },
+    {
+        id: 'pet',
+        state: 'QLD',
+        name: 'Petrie',
+        q: 18,
+        r: 8,
+        tcp: {
+            partyA: 'ALP',
+            partyB: 'LNP',
+            a: .512,
+            b: .488
+        },
+        alpSwingFactor: 1,
+            generations: {
+                GenZ: 0.14,
+                Millennial: 0.29,
+                GenX: 0.32,
+                Boomer: 0.25
+            }
+    },
+    {
+        id: 'ran',
+        state: 'QLD',
+        name: 'Rankin',
+        q: 19,
+        r: 5,
+        tcp: {
+            partyA: 'ALP',
+            partyB: 'LNP',
+            a: .656,
+            b: .344
+        },
+        alpSwingFactor: 1,
+            generations: {
+                GenZ: 0.14,
+                Millennial: 0.29,
+                GenX: 0.32,
+                Boomer: 0.25
+            }
+    },
+    {
+        id: 'rya',
+        state: 'QLD',
+        name: 'Ryan',
+        q: 19,
+        r: 4,
+        tcp: {
+            partyA: 'GRN',
+            partyB: 'LNP',
+            a: .533,
+            b: .467
+        },
+        alpSwingFactor: 1,
+            generations: {
+                GenZ: 0.14,
+                Millennial: 0.29,
+                GenX: 0.32,
+                Boomer: 0.25
+            }
+    },
+    {
+        id: 'wid',
+        state: 'QLD',
+        name: 'Wide Bay',
+        q: 18,
+        r: 4,
+        tcp: {
+            partyA: 'LNP',
+            partyB: 'ALP',
+            a: .576,
+            b: .424
+        },
+        alpSwingFactor: 1,
+            generations: {
+                GenZ: 0.14,
+                Millennial: 0.29,
+                GenX: 0.32,
+                Boomer: 0.25
+            }
+    },
+    {
+        id: 'wri',
+        state: 'QLD',
+        name: 'Wright',
+        q: 19,
+        r: 3,
+        tcp: {
+            partyA: 'ALP',
+            partyB: 'LNP',
+            a: .42,
+            b: .58
+        },
+        alpSwingFactor: 1,
+            generations: {
+                GenZ: 0.14,
+                Millennial: 0.29,
+                GenX: 0.32,
+                Boomer: 0.25
+            }
     }
 ];
