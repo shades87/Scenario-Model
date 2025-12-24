@@ -21,7 +21,7 @@
     GRN: '#00a651',
     IND: '#999999',
     PHON: '#F36D24',
-    KAT: '#DF1014',
+    KAT: '#E86046',
     CA: '#FF5800'
   };
 
@@ -81,8 +81,8 @@
 <!-- Desktop / large screens -->
 <div class="hidden sm:block">
   <svg
-    viewBox={`${bounds.x} ${bounds.y} ${bounds.width - 100} ${bounds.height - 50}`}
-    class="w-full h-[600px]"
+    viewBox={`${bounds.x} ${bounds.y} ${bounds.width - 150} ${bounds.height - 50}`}
+    class="w-full h-[500px]"
     preserveAspectRatio="xMidYMid meet"
   >
     {#each $projectedSeats as seat}
@@ -126,6 +126,20 @@
 </header>
 <article class="py-3">
   <p>This is a simple seat predictor based on the 2025 Australian federal election.</p>
+  <ul class="ml-5 list-disc">
+    <li>
+      <p>It assumes that the last 2 candidates in the race at the 2025 election are the last 2 candidates regardless of swingd</p>
+    </li>
+    <li>
+      <p>This isn't a robust prediction, it's more like a what if scenario</p>
+    </li>
+    <li>
+      <span style="font-family: Creepster">Coalition</span> parties are grouped together as the <span style="font-family: Creepster">'LNP'</span>
+    </li>
+    <li>
+      Swing affects contests without an ALP candidate to a lessor degree
+    </li>
+  </ul>
 </article>
 <footer class="flex items-center justify-between">
 		<small class="opacity-60">Danno</small>

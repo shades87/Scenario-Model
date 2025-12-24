@@ -2478,5 +2478,486 @@ export const electorates: Seat[] = [
                 GenX: 0.32,
                 Boomer: 0.25
             }
-        }
+        },
+        {
+            id: 'bon',
+            state: 'QLD',
+            name: 'Bonner',
+            q: 13,
+            r: 7,
+            tcp: {
+                partyA: 'ALP',
+                partyB: 'LNP',
+                a: .55,
+                b: .45
+            },
+            alpSwingFactor: 1,
+            generations: {
+                GenZ: 0.14,
+                Millennial: 0.29,
+                GenX: 0.32,
+                Boomer: 0.25
+            }
+        },
+        {
+            id: 'bow',
+            state: 'QLD',
+            name: 'Bowman',
+            q: 13,
+            r: 8,
+            tcp: {
+                partyA: 'LNP',
+                partyB: 'ALP',
+                a: .524,
+                b: .476
+            },
+            alpSwingFactor: 1,
+            generations: {
+                GenZ: 0.14,
+                Millennial: 0.29,
+                GenX: 0.32,
+                Boomer: 0.25
+            }
+        },
+        {
+            id: 'bri',
+            state: 'QLD',
+            name: 'Brisbane',
+            q: 11,
+            r: 8,
+            tcp: {
+                partyA: 'ALP',
+                partyB: 'LNP',
+                a: .59,
+                b: .41
+            },
+            alpSwingFactor: 1,
+            generations: {
+                GenZ: 0.14,
+                Millennial: 0.29,
+                GenX: 0.32,
+                Boomer: 0.25
+            }
+        },
+        {
+            id: 'cap',
+            state: 'QLD',
+            name: 'Capricornia',
+            q: 12,
+            r: 8,
+            tcp: {
+                partyA: 'LNP',
+                partyB: 'ALP',
+                a: .558,
+                b: .442
+            },
+            alpSwingFactor: 1,
+            generations: {
+                GenZ: 0.14,
+                Millennial: 0.29,
+                GenX: 0.32,
+                Boomer: 0.25
+            }
+        },
+        {
+            id: 'daw',
+            state: 'QLD',
+            name: 'Dawson',
+            q: 10,
+            r: 9,
+            tcp: {
+                partyA: 'ALP',
+                partyB: 'LNP',
+                a: .382,
+                b: .618
+            },
+            alpSwingFactor: 1,
+            generations: {
+                GenZ: 0.14,
+                Millennial: 0.29,
+                GenX: 0.32,
+                Boomer: 0.25
+            }
+        },
+        {
+            id: 'dic',
+            state: 'QLD',
+            name: 'Dickson',
+            q: 11,
+            r: 9,
+            tcp: {
+                partyA: 'ALP',
+                partyB: 'LNP',
+                a: .56,
+                b: .44
+            },
+            alpSwingFactor: 1,
+            generations: {
+                GenZ: 0.14,
+                Millennial: 0.29,
+                GenX: 0.32,
+                Boomer: 0.25
+            }
+        },
+        {
+            id: 'fad',
+            state: 'QLD',
+            name: 'Fadden',
+            q: 12,
+            r: 9,
+            tcp: {
+                partyA: 'ALP',
+                partyB: 'LNP',
+                a: .431,
+                b: .569
+            },
+            alpSwingFactor: 1,
+            generations: {
+                GenZ: 0.14,
+                Millennial: 0.29,
+                GenX: 0.32,
+                Boomer: 0.25
+            }
+        },
+        {
+            id: 'fai',
+            state: 'QLD',
+            name: 'Fairfax',
+            q: 13,
+            r: 9,
+            tcp: {
+                partyA: 'ALP',
+                partyB: 'LNP',
+                a: .468,
+                b: .532
+            },
+            alpSwingFactor: 1,
+            generations: {
+                GenZ: 0.14,
+                Millennial: 0.29,
+                GenX: 0.32,
+                Boomer: 0.25
+            }
+        },
+        {
+            id: 'fis',
+            state: 'QLD',
+            name: 'Fisher',
+            q: 14,
+            r: 7,
+            tcp: {
+                partyA: 'ALP',
+                partyB: 'LNP',
+                a: .44,
+                b: .56
+            },
+            alpSwingFactor: 1,
+            generations: {
+                GenZ: 0.14,
+                Millennial: 0.29,
+                GenX: 0.32,
+                Boomer: 0.25
+            }
+        },
+        {
+            id: 'fly',
+            state: 'QLD',
+            name: 'Flynn',
+            q: 14,
+            r: 8,
+            tcp: {
+                partyA: 'LNP',
+                partyB: 'ALP',
+                a: .602,
+                b: 39.2
+            },
+            alpSwingFactor: 1,
+            generations: {
+                GenZ: 0.14,
+                Millennial: 0.29,
+                GenX: 0.32,
+                Boomer: 0.25
+            }
+        },
+        {
+            id: 'for',
+            state: 'QLD',
+            name: 'Forde',
+            q: 14,
+            r: 9,
+            tcp: {
+                partyA: 'ALP',
+                partyB: 'LNP',
+                a: .518,
+                b: .482
+            },
+            alpSwingFactor: 1,
+            generations: {
+                GenZ: 0.14,
+                Millennial: 0.29,
+                GenX: 0.32,
+                Boomer: 0.25
+            }
+        },
+        {
+            id: 'gri',
+            state: 'QLD',
+            name: 'Griffith',
+            q: 15,
+            r: 7,
+            tcp: {
+                partyA: 'ALP',
+                partyB: 'GRN',
+                a: .606,
+                b: .394
+            },
+            alpSwingFactor: 1,
+            generations: {
+                GenZ: 0.14,
+                Millennial: 0.29,
+                GenX: 0.32,
+                Boomer: 0.25
+            }
+        },
+        {
+            id: 'gro',
+            state: 'QLD',
+            name: 'Groom',
+            q: 15,
+            r: 8,
+            tcp: {
+                partyA: 'LNP',
+                partyB: 'IND',
+                a: .557,
+                b: .443
+            },
+            alpSwingFactor: 1,
+            generations: {
+                GenZ: 0.14,
+                Millennial: 0.29,
+                GenX: 0.32,
+                Boomer: 0.25
+            }
+        },
+        {
+            id: 'her',
+            state: 'QLD',
+            name: 'Herbert',
+            q: 15,
+            r: 9,
+            tcp: {
+                partyA: 'LNP',
+                partyB: 'ALP',
+                a: .634,
+                b: .366
+            },
+            alpSwingFactor: 1,
+            generations: {
+                GenZ: 0.14,
+                Millennial: 0.29,
+                GenX: 0.32,
+                Boomer: 0.25
+            }
+        },
+        {
+            id: 'hin',
+            state: 'QLD',
+            name: 'Hinkler',
+            q: 16,
+            r: 7,
+            tcp: {
+                partyA: 'LNP',
+                partyB: 'ALP',
+                a: .563,
+                b: .437
+            },
+            alpSwingFactor: 1,
+            generations: {
+                GenZ: 0.14,
+                Millennial: 0.29,
+                GenX: 0.32,
+                Boomer: 0.25
+            }
+        },
+        {
+            id: 'ken',
+            state: 'QLD',
+            name: 'Kennedy',
+            q: 16,
+            r: 8,
+            tcp: {
+                partyA: 'KAT',
+                partyB: 'LNP',
+                a: .658,
+                b: .342
+            },
+            alpSwingFactor: 1,
+            generations: {
+                GenZ: 0.14,
+                Millennial: 0.29,
+                GenX: 0.32,
+                Boomer: 0.25
+            }
+        },
+        {
+            id: 'lei',
+            state: 'QLD',
+            name: 'Leichhardt',
+            q: 16,
+            r: 9,
+            tcp: {
+                partyA: 'ALP',
+                partyB: 'LNP',
+                a: .56,
+                b: .44
+            },
+            alpSwingFactor: 1,
+            generations: {
+                GenZ: 0.14,
+                Millennial: 0.29,
+                GenX: 0.32,
+                Boomer: 0.25
+            }
+        },
+        {
+            id: 'lil',
+            state: 'QLD',
+            name: 'Lilley',
+            q: 17,
+            r: 7,
+            tcp: {
+                partyA: 'ALP',
+                partyB: 'LNP',
+                a: .645,
+                b: .355,
+                
+            },
+            alpSwingFactor: 1,
+            generations: {
+                GenZ: 0.14,
+                Millennial: 0.29,
+                GenX: 0.32,
+                Boomer: 0.25
+            }
+        },
+        {
+            id: 'lon',
+            state: 'QLD',
+            name: 'Longman',
+            q: 17,
+            r: 8,
+            tcp: {
+                partyA: 'LNP',
+                partyB: 'ALP',
+                a: .499,
+                b: .512
+            },
+            alpSwingFactor: 1,
+            generations: {
+                GenZ: 0.14,
+                Millennial: 0.29,
+                GenX: 0.32,
+                Boomer: 0.25
+            }
+        },
+        {
+            id: 'mar',
+            state: 'QLD',
+            name: 'Maranoa',
+            q: 17,
+            r: 9,
+            tcp: {
+                partyA: 'LNP',
+                partyB: 'PHON',
+                a: .701,
+                b: .299
+            },
+            alpSwingFactor: 1,
+            generations: {
+                GenZ: 0.14,
+                Millennial: 0.29,
+                GenX: 0.32,
+                Boomer: 0.25
+            }
+        },
+        {
+            id: 'mac',
+            state: 'QLD',
+            name: 'McPherson',
+            q: 17,
+            r: 6,
+            tcp: {
+                partyA: 'LNP',
+                partyB: 'ALP',
+                a: .544,
+                b: .456
+            },
+            alpSwingFactor: 1,
+            generations: {
+                GenZ: 0.14,
+                Millennial: 0.29,
+                GenX: 0.32,
+                Boomer: 0.25
+            }
+        },
+        {
+            id: 'mon',
+            state: 'QLD',
+            name: 'Moncrieff',
+            q: 18,
+            r: 5,
+            tcp: {
+                partyA: 'LNP',
+                partyB: 'ALP',
+                a: .588,
+                b: .412
+            },
+            alpSwingFactor: 1,
+            generations: {
+                GenZ: 0.14,
+                Millennial: 0.29,
+                GenX: 0.32,
+                Boomer: 0.25
+            }
+        },
+    {
+        id: 'mor',
+        state: 'QLD',
+        name: 'Moreton',
+        q: 18,
+        r: 6,
+        tcp: {
+            partyA: 'ALP',
+            partyB: 'LNP',
+            a: .661,
+            b: .339
+        },
+        alpSwingFactor: 1,
+            generations: {
+                GenZ: 0.14,
+                Millennial: 0.29,
+                GenX: 0.32,
+                Boomer: 0.25
+            }
+    },
+    {
+        id: 'oxl',
+        state: 'QLD',
+        name: 'Oxley',
+        q: 18,
+        r: 7,
+        tcp: {
+            partyA: 'ALP',
+            partyB: 'LNP',
+            a: .692,
+            b: .308
+        },
+        alpSwingFactor: 1,
+            generations: {
+                GenZ: 0.14,
+                Millennial: 0.29,
+                GenX: 0.32,
+                Boomer: 0.25
+            }
+    }
 ];

@@ -13,7 +13,13 @@
         font-weight: 400;
         src: url($lib/fonts/playfair-display-latin-900-normal.ttf)
     }
-
+        @font-face{
+            font-family: 'Creepster';
+            font-style: normal;
+            font-display: swap;
+            font-weight: 400;
+            src: url($lib/fonts/creepster-latin-400-normal.ttf)
+        }
 </style>
 
 <svelte:head><link rel="icon" href={favicon} /></svelte:head>
