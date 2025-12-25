@@ -38,6 +38,7 @@
     <Tabs.List class="bg-primary-300 text-white pt-2 pl-2">
         <Tabs.Trigger value="2PP">National 2PP</Tabs.Trigger>
         <Tabs.Trigger value="Demographics">Demographics</Tabs.Trigger>
+        <Tabs.Trigger value="Blog">Blog</Tabs.Trigger>
     </Tabs.List>
 
 <Tabs.Content value="2PP">
@@ -91,7 +92,7 @@
         r={seat.r}
         fill={partyColours[winner(seat)]}
         label={seat.name}
-        title={`${seat.name} 2025 result — ${seat.tcp.partyA} ${Math.round(seat.tcp.a * 10000) / 100}% vs ${Math.round(seat.tcp.b * 10000) / 100}% ${seat.q} ${seat.r}`}
+        title={`${seat.name} 2025 result — ${seat.tcp.partyA} ${Math.round(seat.tcp.a * 10000) / 100}% vs ${Math.round(seat.tcp.b * 10000) / 100}%`}
         on:mouseenter={() => hoveredSeat.set(seat)}
         on:mouseleave={() => hoveredSeat.set(null)}
       />
@@ -112,7 +113,7 @@
         r={seat.r}
         fill={partyColours[winner(seat)]}
         label={seat.name}
-        title={`${seat.name} 2025 result — ${seat.tcp.partyA} ${Math.round(seat.tcp.a * 10000) / 100}% vs ${Math.round(seat.tcp.b * 10000) / 100}% ${seat.q} ${seat.r}`}
+        title={`${seat.name} 2025 result — ${seat.tcp.partyA} ${Math.round(seat.tcp.a * 10000) / 100}% vs ${Math.round(seat.tcp.b * 10000) / 100}%`}
       />
 
     {/each}
@@ -128,7 +129,7 @@
   <p>This is a simple seat predictor based on the 2025 Australian federal election.</p>
   <ul class="ml-5 list-disc">
     <li>
-      <p>It assumes that the last 2 candidates in the race at the 2025 election are the last 2 candidates regardless of swingd</p>
+      <p>It assumes that the last 2 candidates from the 2025 election are the only candidates that can win the seat</p>
     </li>
     <li>
       <p>This isn't a robust prediction, it's more like a what if scenario</p>
@@ -144,7 +145,7 @@
     </li>
   </ul>
 </article>
-<footer class="flex items-center justify-between">
+<footer class="flex items-center justify-center">
 		<small class="opacity-60">Danno</small>
 		<small class="opacity-60">{new Date("2025-12-22").toLocaleDateString()}</small>
 	</footer>
@@ -153,6 +154,11 @@
 
 </Tabs.Content>
 <Tabs.Content value="Demographics">
-    Here you'll be able to see how demographics shift affect primary votes and public funding
+  <div class="ml-5 flex justify-center items-center">
+    <h2 class="h2">How does the primary vote change over time?</h2>
+  </div>
+</Tabs.Content>
+<Tabs.Content value="Blog">
+  Maybe I should have a politics blog?
 </Tabs.Content>
 </Tabs>
