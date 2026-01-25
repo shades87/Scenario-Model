@@ -38,7 +38,6 @@
     <Tabs.List class="bg-primary-300 text-white pt-2 pl-2">
         <Tabs.Trigger value="2PP">National 2PP</Tabs.Trigger>
         <Tabs.Trigger value="Demographics">Demographics</Tabs.Trigger>
-        <Tabs.Trigger value="Blog">Blog</Tabs.Trigger>
     </Tabs.List>
 
 <Tabs.Content value="2PP">
@@ -136,6 +135,7 @@
     </li>
     <li>
       <span style="font-family: Creepster">Coalition</span> parties are grouped together as the <span style="font-family: Creepster">'LNP'</span>
+      <br/>This will be updated now that the <span style="font-family: Creepster">Coalition</span> has split
     </li>
     <li>
       Swing affects contests without an ALP candidate to a lessor degree
@@ -157,6 +157,20 @@
   <div class="ml-5 flex justify-center items-center">
     <h2 class="h2">How does the primary vote change over time?</h2>
   </div>
+  <div class="flex justify-center mt-10">
+<div class="card p-4 preset-filled-surface-100-900 border-[1px] border-surface-200-800 max-w-md divide-y overflow-hidden">
+<header class="pb-3">
+  <h2 class="h2">What the heck is going on here?</h2>
+</header>
+<article class="py-3">
+<h3 class='h3'>Eventually this page will show an estimate of how votes might change over time</h3>
+</article>
+<footer class="flex items-center justify-center">
+		<small class="opacity-60">Danno</small>
+		<small class="opacity-60">{new Date("2025-12-22").toLocaleDateString()}</small>
+	</footer>
+</div>
+</div>
 </Tabs.Content>
 <Tabs.Content value="Blog">
   Maybe I should have a politics blog?
