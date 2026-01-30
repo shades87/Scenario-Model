@@ -5,9 +5,23 @@
   import { nationalSwing } from '$lib/stores/swing';
   import { hexBounds } from '$lib/hexBounds';
   import { electorates } from '$lib/data/electorates';
-  import { writable } from 'svelte/store';
   import { Tabs } from '@skeletonlabs/skeleton-svelte';
   import { seatTotals } from '$lib/stores/totalSeats';
+  import type { Party } from '$lib/data/types';
+
+  //export const yearsForward = writable(0); // 0–20 years
+  import { writable } from 'svelte/store';
+
+
+   import {
+    yearsForward,
+    projectedFpHouse,
+    projectedFpSenate,
+    publicFunding,
+    selectedChamber
+  } from '$lib/stores/demographics';
+
+  //const chamber = writable<'House' | 'Senate'>('House');
 
   //type Party = 'ALP' | 'LNP' | 'GRN' | 'IND' | 'PHON' | 'KAT' | 'CA';
 
@@ -24,6 +38,8 @@
     KAT: '#E86046',
     CA: '#FF5800'
   };
+
+  const fallbackColour = '#cccccc';
 
     $: bounds = hexBounds(electorates, HEX_SIZE);
 
@@ -154,8 +170,99 @@
 
 </Tabs.Content>
 <Tabs.Content value="Demographics">
+   <div class="ml-5 flex justify-center items-center">
+    <h2 class="h2">Generational change & primary votes</h2>
+  </div>
+
+  <div class="flex flex-col items-center gap-6 mt-4">
+
+  <!-- Year slider -->
+  <label class="flex flex-col items-center">
+    <span class="font-semibold">
+      Years after 2025: {$yearsForward}
+    </span>
+    <input
+      type="range"
+      min="0"
+      max="20"
+      step="1"
+      bind:value={$yearsForward}
+      class="w-64 mt-2"
+    />
+  </label>
+
+  <!-- House / Senate toggle -->
+  <div class="flex gap-4">
+    <button on:click={() => selectedChamber.set('House')}>House</button>
+    <button on:click={() => selectedChamber.set('Senate')}>Senate</button>
+  </div>
+
+  <!-- Vote share bars -->
+  <div class="w-full max-w-lg">
+    {#if $selectedChamber === 'House'}
+      {#each Object.entries($projectedFpHouse) as [party, share]}
+  <div class="flex items-center gap-2 mb-1">
+    <span class="w-12 text-sm">{party}</span>
+
+    <div class="flex-1 bg-surface-200 rounded-sm h-4">
+      <div
+        class="h-4 rounded-sm"
+        style="
+          width: {share * 200}%;
+          background-color: {partyColours[party as Party] ?? fallbackColour};
+        "
+      ></div>
+    </div>
+
+    <span class="text-sm">
+      {(share * 100).toFixed(1)}%
+    </span>
+  </div>
+{/each}
+    {:else}
+      {#each Object.entries($projectedFpSenate) as [party, share]}
+  <div class="flex items-center gap-2 mb-1">
+    <span class="w-12 text-sm">{party}</span>
+
+    <div class="flex-1 bg-surface-200 rounded-sm h-4">
+      <div
+        class="h-4 rounded-sm"
+        style="
+          width: {share * 200}%;
+          background-color: {partyColours[party as Party] ?? fallbackColour};
+        "
+      ></div>
+    </div>
+
+    <span class="text-sm">
+      {(share * 100).toFixed(1)}%
+    </span>
+  </div>
+{/each}
+    {/if}
+  </div>
+
+  <!-- Public funding -->
+  <div class="w-full max-w-lg mt-6">
+    <h3 class="h3 mb-2">Public funding from {$selectedChamber} votes (≥ 4%)</h3>
+    {#each Object.entries($publicFunding) as [party, dollars]}
+  <div class="flex justify-between items-center">
+    <span class="flex items-center gap-2">
+      <span
+        class="inline-block w-3 h-3 rounded-sm"
+        style="background-color: {partyColours[party as Party] ?? fallbackColour}"
+      ></span>
+      {party}
+    </span>
+    <span>
+      ${(dollars / 1_000_000).toFixed(1)}m
+    </span>
+  </div>
+{/each}
+  </div>
+
+</div>
   <div class="ml-5 flex justify-center items-center">
-    <h2 class="h2">How does the primary vote change over time?</h2>
   </div>
   <div class="flex justify-center mt-10">
 <div class="card p-4 preset-filled-surface-100-900 border-[1px] border-surface-200-800 max-w-md divide-y overflow-hidden">
@@ -163,7 +270,24 @@
   <h2 class="h2">What the heck is going on here?</h2>
 </header>
 <article class="py-3">
-<h3 class='h3'>Eventually this page will show an estimate of how 1st preferences may change over time</h3>
+ <p>This is a simple seat predictor based on the 2025 Australian federal election.</p>
+  <ul class="ml-5 list-disc">
+    <li>
+      <p>This looks at the first preference vote at the 2025 election and models what might happen in the future</p>
+    </li>
+    <li>
+      <p>This doesn't yet match how the public funding rules of parties really works</p>
+    </li>
+    <li>
+      Vote % are placeholders before I put correct figures in for each party
+    </li>
+    <li>
+      This assumes a population growth of 1.5% per year
+    </li>
+    <li>
+      This calculates based on national % > than 4% where AEC looks at 4% in an electorate
+    </li>
+  </ul>
 </article>
 <footer class="flex items-center justify-center">
 		<small class="opacity-60">Danno</small>
