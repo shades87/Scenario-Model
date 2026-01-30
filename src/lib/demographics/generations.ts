@@ -60,3 +60,14 @@ export const generationFp: Record<Generation, Record<Party, number>> = {
     CA: 0
   }
 };
+
+export type GenerationShares = Record<Generation, number>;
+
+
+export const generationShares2025: GenerationShares = {
+  GenZ: 0.18,
+  Millennial: 0.29,
+  GenX: 0.27,
+  Boomer: 0.26
+};
+

@@ -135,7 +135,7 @@
     </li>
     <li>
       <span style="font-family: Creepster">Coalition</span> parties are grouped together as the <span style="font-family: Creepster">'LNP'</span>
-      <br/>This will be updated now that the <span style="font-family: Creepster">Coalition</span> has split
+      <br/>Since publishing the site the <span style="font-family: Creepster">Coalition</span> has split - will update the calculator eventually if they stay split
     </li>
     <li>
       Swing affects contests without an ALP candidate to a lessor degree
@@ -163,7 +163,7 @@
   <h2 class="h2">What the heck is going on here?</h2>
 </header>
 <article class="py-3">
-<h3 class='h3'>Eventually this page will show an estimate of how votes might change over time</h3>
+<h3 class='h3'>Eventually this page will show an estimate of how 1st preferences may change over time</h3>
 </article>
 <footer class="flex items-center justify-center">
 		<small class="opacity-60">Danno</small>

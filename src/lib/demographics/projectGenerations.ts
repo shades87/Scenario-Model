@@ -1,4 +1,6 @@
-import type { Generation } from './generations';
+import type { Generation, GenerationShares } from './generations';
+import { generationFp } from './generations';
+import type { Party } from "$lib/data/electorates";
 
 const TRANSITION = {
   GenZ: 0.04,
@@ -8,24 +10,47 @@ const TRANSITION = {
 };
 
 export function projectGenerations(
-  base: Record<Generation, number>,
-  yearsAhead: number
-) {
-  const steps = yearsAhead / 3;
-
+  base: GenerationShares,
+  electionsAhead: number
+): GenerationShares {
   let next = { ...base };
 
-  for (let i = 0; i < steps; i++) {
+  for (let i = 0; i < electionsAhead; i++) {
     for (const gen of Object.keys(next) as Generation[]) {
-  next[gen] += next[gen] * TRANSITION[gen];
-}
+      next[gen] += TRANSITION[gen];
+    }
+
+    // normalise
+    const total = Object.values(next).reduce((a, b) => a + b, 0);
+    for (const gen of Object.keys(next) as Generation[]) {
+      next[gen] /= total;
+    }
   }
 
-  // normalise back to 1
-  const total = Object.values(next).reduce((a, b) => a + b, 0);
-for (const gen of Object.keys(next) as Generation[]) {
-  next[gen] /= total;
+  return next;
 }
 
-  return next;
+export function nationalFirstPreferences(
+  generations: GenerationShares
+): Record<Party, number> {
+  const fp: Record<Party, number> = {
+    ALP: 0,
+    LNP: 0,
+    GRN: 0,
+    PHON: 0,
+    IND: 0,
+    KAT: 0,
+    CA: 0
+  };
+
+  for (const gen of Object.keys(generations) as Generation[]) {
+    const weight = generations[gen];
+    const prefs = generationFp[gen];
+
+    for (const party of Object.keys(fp) as Party[]) {
+      fp[party] += prefs[party] * weight;
+    }
+  }
+
+  return fp;
 }
