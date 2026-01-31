@@ -10,11 +10,11 @@ export const yearsForward = writable(0);
 
 //export const populationGrowth = writable<number>(1);
 
-const BASE_VOTERS = 17_000_000;
+const BASE_VOTERS = 18_098_797;
 const ANNUAL_GROWTH = 0.015;
 
 export const totalVoters = derived(yearsForward, $yearsForward => 
-  BASE_VOTERS * Math.pow(1 + ANNUAL_GROWTH, $yearsForward)
+  Math.round(BASE_VOTERS * Math.pow(1 + ANNUAL_GROWTH, $yearsForward))
 );
 
 export const projectedGenerations = derived(

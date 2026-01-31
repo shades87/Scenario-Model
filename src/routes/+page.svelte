@@ -136,7 +136,7 @@
 </div> 
 
 <div class="flex justify-center mb-10">
-<div class="card p-4 preset-filled-surface-100-900 border-[1px] border-surface-200-800 max-w-md divide-y overflow-hidden">
+<div class="card m-1 p-4 preset-filled-surface-100-900 border-[1px] border-surface-200-800 max-w-md divide-y overflow-hidden">
 <header class="pb-3">
   <h2 class="h2">What the heck is going on here?</h2>
 </header>
@@ -150,8 +150,8 @@
       <p>This isn't a robust prediction, it's more like a what if scenario</p>
     </li>
     <li>
-      <span style="font-family: Creepster">Coalition</span> parties are grouped together as the <span style="font-family: Creepster">'LNP'</span>
-      <br/>Since publishing the site the <span style="font-family: Creepster">Coalition</span> has split - will update the calculator eventually if they stay split
+      Coalition parties are grouped together as the 'LNP'
+      <br/>Since publishing the site the Coalition has split - will update the calculator eventually if they stay split
     </li>
     <li>
       Swing affects contests without an ALP candidate to a lessor degree
@@ -180,6 +180,7 @@
   <label class="flex flex-col items-center">
     <span class="font-semibold">
       Years after 2025: {$yearsForward}
+      Electors: {Math.round(18_098_797 * Math.pow(1 + 0.015, $yearsForward)).toLocaleString()}
     </span>
     <input
       type="range"
@@ -193,15 +194,34 @@
 
   <!-- House / Senate toggle -->
   <div class="flex gap-4">
-    <button on:click={() => selectedChamber.set('House')}>House</button>
-    <button on:click={() => selectedChamber.set('Senate')}>Senate</button>
+<button
+  class="px-3 py-1 rounded border 
+         border-transparent hover:border-primary-500
+         focus:outline-none focus:ring-2 focus:ring-primary-500"
+  class:bg-primary-500={$selectedChamber === 'House'}
+  class:text-white={$selectedChamber === 'House'}
+  on:click={() => selectedChamber.set('House')}
+>
+  House
+</button>
+
+<button
+  class="px-3 py-1 rounded border 
+         border-transparent hover:border-primary-500
+         focus:outline-none focus:ring-2 focus:ring-primary-500"
+  class:bg-primary-500={$selectedChamber === 'Senate'}
+  class:text-white={$selectedChamber === 'Senate'}
+  on:click={() => selectedChamber.set('Senate')}
+>
+  Senate
+</button>
   </div>
 
   <!-- Vote share bars -->
-  <div class="w-full max-w-lg">
+  <div class="w-full max-w-lg m-1">
     {#if $selectedChamber === 'House'}
       {#each Object.entries($projectedFpHouse) as [party, share]}
-  <div class="flex items-center gap-2 mb-1">
+  <div class="flex items-center gap-2 mb-1 ml-2 mr-2">
     <span class="w-12 text-sm">{party}</span>
 
     <div class="flex-1 bg-surface-200 rounded-sm h-4">
@@ -221,7 +241,7 @@
 {/each}
     {:else}
       {#each Object.entries($projectedFpSenate) as [party, share]}
-  <div class="flex items-center gap-2 mb-1">
+  <div class="flex items-center gap-2 mb-1 ml-2 mr-2">
     <span class="w-12 text-sm">{party}</span>
 
     <div class="flex-1 bg-surface-200 rounded-sm h-4">
@@ -243,10 +263,10 @@
   </div>
 
   <!-- Public funding -->
-  <div class="w-full max-w-lg mt-6">
+  <div class="w-full max-w-lg mt-6 ml-2 mr-2">
     <h3 class="h3 mb-2">Public funding from {$selectedChamber} votes (≥ 4%)</h3>
     {#each Object.entries($publicFunding) as [party, dollars]}
-  <div class="flex justify-between items-center">
+  <div class="flex justify-between items-center ml-2 mr-2">
     <span class="flex items-center gap-2">
       <span
         class="inline-block w-3 h-3 rounded-sm"
@@ -265,15 +285,18 @@
   <div class="ml-5 flex justify-center items-center">
   </div>
   <div class="flex justify-center mt-10">
-<div class="card p-4 preset-filled-surface-100-900 border-[1px] border-surface-200-800 max-w-md divide-y overflow-hidden">
+<div class="card m-1 p-4 preset-filled-surface-100-900 border-[1px] border-surface-200-800 max-w-md divide-y overflow-hidden">
 <header class="pb-3">
   <h2 class="h2">What the heck is going on here?</h2>
 </header>
 <article class="py-3">
- <p>This is a simple seat predictor based on the 2025 Australian federal election.</p>
+ <p>This is a simple first preference and public funding predictor based on the 2025 Australian federal election.</p>
   <ul class="ml-5 list-disc">
     <li>
       <p>This looks at the first preference vote at the 2025 election and models what might happen in the future</p>
+    </li>
+    <li>
+      This is not a robust prediction, more like a what if scenario
     </li>
     <li>
       <p>This doesn't yet match how the public funding rules of parties really works</p>
@@ -286,6 +309,11 @@
     </li>
     <li>
       This calculates based on national % > than 4% where AEC looks at 4% in an electorate
+    </li>
+    <li>
+      There's a large jump from 0 years to 1 year. This is because at the last election each first preference is $3.5 public funding for that party </li> 
+      <li>
+      From the next election onwards each first preference is $5 of public funding
     </li>
   </ul>
 </article>
