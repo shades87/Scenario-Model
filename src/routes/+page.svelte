@@ -60,9 +60,10 @@
     <div class="controls">
   <div class="flex justify-center items-center">
     <label class="flex flex-col items-center">
-      <h1 class="h1 text-center text-black">
+      <h1 class="h1 text-center text-black">Australian Federal seat calculator</h1>
+      <h2 class="h2 text-center text-black">
         National ALP 2pp swing: {(($nationalSwing * 100)).toFixed(1)}%
-      </h1>
+      </h2>
       <input
         type="range"
         min="-0.1"
