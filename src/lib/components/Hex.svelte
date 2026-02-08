@@ -24,7 +24,8 @@
   <text
     text-anchor="middle"
     dominant-baseline="middle"
-    font-size="5"
+    font-size="4"
+    font-weight='bold'
     fill="#fff"
     pointer-events="none"
   >

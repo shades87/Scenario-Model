@@ -16,14 +16,10 @@ export function hexBounds(
   const minY = Math.min(...ys) - size;
   const maxY = Math.max(...ys) + size;
 
-  console.log("minX: " + minX)
-  console.log("maxX: " + maxX)
-  console.log("minY: " + minY)
-  console.log("maxY: " + maxY)
   return {
-    x: minX,
-    y: minY,
-    width: maxX - minX,
-    height: maxY - minY
+    x: minX - size,
+    y: minY - size,
+    width: (maxX - minX) + size * 2,
+    height: (maxY - minY) + size * 2,
   };
 }

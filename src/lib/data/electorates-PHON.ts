@@ -1,5 +1,7 @@
 export type Party = 'ALP' | 'LNP' | 'GRN' | 'IND' | 'PHON' | 'KAT' | 'CA';
 
+//PHON strong in selected divisions - based on Antony Greens scenario
+
 export type Seat = {
   id: string; //didn't think this through, supposed to be the first 3 letters of division... some have same id
   name: string;//name of electorate
