@@ -9,6 +9,8 @@
   import { seatTotals } from '$lib/stores/totalSeats';
   import type { Party } from '$lib/data/types';
 
+  import { selectedScenario } from '$lib/stores/scenario';
+
   //export const yearsForward = writable(0); // 0–20 years
   import { writable } from 'svelte/store';
 
@@ -95,6 +97,25 @@
     </div>
   {/each}
 </div>
+<div class="flex justify-center items-center">
+  <nav class="btn-group preset-outlined-surface-200-800 flex-col p-2 md:flex-row">
+	
+		<button type="button" class="btn capitalize" class:preset-filled={$selectedScenario === 'baseline'}  on:click={() => selectedScenario.set('baseline')}>
+      Fed 25
+		</button>
+    <button type="button" class="btn capitalize"  class:preset-filled={$selectedScenario === 'coalition-recovery'} on:click={() => selectedScenario.set('coalition-recovery')}>
+      Coalition Recovery
+		</button>
+    <button type="button" class="btn capitalize"  class:preset-filled={$selectedScenario === 'teal-surge'} on:click={() => selectedScenario.set('teal-surge')}>
+      Teal Surge
+		</button>
+    <button type="button" class="btn capitalize"  class:preset-filled={$selectedScenario === 'phon-surge'} on:click={() => selectedScenario.set('phon-surge')}>
+      Phon Surge
+		</button>
+	
+  </nav>
+</div>
+
 <!-- Desktop / large screens -->
 <div class="hidden sm:block">
   <svg

@@ -1,56 +1,7 @@
-export type Party = 'ALP' | 'LNP' | 'GRN' | 'IND' | 'PHON' | 'KAT' | 'CA';
+import type { Seat } from "./electorates"
 
-//PHON strong in selected divisions - based on Antony Greens scenario
-
-export type Seat = {
-  id: string; //didn't think this through, supposed to be the first 3 letters of division... some have same id
-  name: string;//name of electorate
-  state: string;// State or Territory
-  //maybe should add incumbent if I want to show if the seat is gained or retained
-  
-  q: number; //hex coordinate - manually arranged
-  r: number; //hex coordinate
-
-  tcp: {
-    partyA: Party;
-    partyB: Party;
-    a: number; // vote share for partyA 56 percent == .56
-    b: number;//vote share for partyB
-  };
-
-  // how sensitive this seat is to a national ALP swing
-  alpSwingFactor: number;
-
-  //was originally going to try and add a way to predict seat change/2PP based on generational change over time
-  //numbers in seats below aren't correct -- placeholders
-  //will update at a later date if I include this
-  generations: {
-  GenZ: number;
-  Millennial: number;
-  GenX: number;
-  Boomer: number;
-  };
-};
-
-/*
-ALP Swing Factor Benchmarks
-
-Safe ALP vs LNP	0.2 – 0.4
-Marginal ALP vs LNP	0.8 – 1.2
-Safe LNP vs ALP	0.3 – 0.6
-Teal IND vs LNP	0.4 – 0.7
-Rural IND vs LNP	0.1 – 0.3
-GRN vs LNP	0.6 – 0.9
-GRN vs ALP	0.5 – 0.8 */
-
-
-//Electorates
-//2PP is correct
-//Gen info is not
-
-export const electorates: Seat[] = [
-    //WA
-  {
+export const phonSurgeSeats: Seat[] = [
+    {
     id: 'bra',
     name: 'Brand',
     state: 'WA',
@@ -2849,7 +2800,7 @@ export const electorates: Seat[] = [
             q: 17,
             r: 8,
             tcp: {
-                partyA: 'LNP',
+                partyA: 'PHON',
                 partyB: 'ALP',
                 a: .499,
                 b: .512
@@ -3049,7 +3000,7 @@ export const electorates: Seat[] = [
         q: 19,
         r: 3,
         tcp: {
-            partyA: 'ALP',
+            partyA: 'PHON',
             partyB: 'LNP',
             a: .42,
             b: .58
@@ -3062,4 +3013,4 @@ export const electorates: Seat[] = [
                 Boomer: 0.25
             }
     }
-];
+]
