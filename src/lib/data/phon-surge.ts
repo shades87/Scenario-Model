@@ -2800,7 +2800,7 @@ export const phonSurgeSeats: Seat[] = [
             q: 17,
             r: 8,
             tcp: {
-                partyA: 'PHON',
+                partyA: 'LNP',
                 partyB: 'ALP',
                 a: .499,
                 b: .512
