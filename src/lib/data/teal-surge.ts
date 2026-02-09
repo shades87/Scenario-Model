@@ -1,6 +1,7 @@
 import type { Seat } from "./electorates"
 
 export const tealSurgeSeats: Seat[] = [
+//WA
   {
     id: 'bra',
     name: 'Brand',
@@ -554,8 +555,8 @@ export const tealSurgeSeats: Seat[] = [
             q: 5,
             r: 2,
             tcp: {
-                partyA: 'LNP',
-                partyB: 'ALP',
+                partyA: 'ALP',
+                partyB: 'LNP',
                 a: .566,
                 b: .434
             },
@@ -1159,7 +1160,7 @@ export const tealSurgeSeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: 57.7,
+                a: .577,
                 b: .423
             },
             alpSwingFactor: 1,
@@ -2802,8 +2803,8 @@ export const tealSurgeSeats: Seat[] = [
             tcp: {
                 partyA: 'LNP',
                 partyB: 'ALP',
-                a: .499,
-                b: .512
+                a: .501,
+                b: .499
             },
             alpSwingFactor: 1,
             generations: {

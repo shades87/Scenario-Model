@@ -11,7 +11,7 @@ export type ScenarioId =
   | 'teal-surge';
 
 export const scenarioSeatData: Record<ScenarioId, Seat[]> = {
-  baseline: electorates,
+  'baseline': electorates,
   'phon-surge': phonSurgeSeats,
   'coalition-recovery': coalitionRecoverySeats,
   'teal-surge': tealSurgeSeats
