@@ -1860,7 +1860,7 @@ export const phonSurgeSeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: 52.8,
+                a: .528,
                 b: .472
             },
             alpSwingFactor: 1,
@@ -2623,7 +2623,7 @@ export const phonSurgeSeats: Seat[] = [
                 partyA: 'PHON',
                 partyB: 'ALP',
                 a: .602,
-                b: 39.2
+                b: .392
             },
             alpSwingFactor: 1,
             generations: {

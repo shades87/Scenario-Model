@@ -1906,7 +1906,7 @@ export const electorates: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: 52.8,
+                a: .528,
                 b: .472
             },
             alpSwingFactor: 1,
@@ -2669,7 +2669,7 @@ export const electorates: Seat[] = [
                 partyA: 'LNP',
                 partyB: 'ALP',
                 a: .602,
-                b: 39.2
+                b: .392
             },
             alpSwingFactor: 1,
             generations: {

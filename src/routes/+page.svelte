@@ -62,7 +62,7 @@
     <div class="controls">
   <div class="flex justify-center items-center">
     <label class="flex flex-col items-center">
-      <h1 class="h1 text-center text-black">Australian Federal seat calculator</h1>
+      <h1 class="h1 text-center text-black">Australian Federal Election Scenarios</h1>
       <h2 class="h2 text-center text-black">
         National ALP 2pp swing: {(($nationalSwing * 100)).toFixed(1)}%
       </h2>
@@ -106,11 +106,8 @@
     <button type="button" class="btn capitalize"  class:preset-filled={$selectedScenario === 'coalition-recovery'} on:click={() => selectedScenario.set('coalition-recovery')}>
       Coalition Recovery
 		</button>
-    <button type="button" class="btn capitalize"  class:preset-filled={$selectedScenario === 'teal-surge'} on:click={() => selectedScenario.set('teal-surge')}>
-      Teal Surge
-		</button>
     <button type="button" class="btn capitalize"  class:preset-filled={$selectedScenario === 'phon-surge'} on:click={() => selectedScenario.set('phon-surge')}>
-      Phon Surge
+      PHON Surge
 		</button>
 	
   </nav>
@@ -172,8 +169,10 @@
       <p>This isn't a robust prediction, it's more like a what if scenario</p>
     </li>
     <li>
-      Coalition parties are grouped together as the 'LNP'
-      <br/>Since publishing the site the Coalition has split - will update the calculator eventually if they stay split
+        <p>Coalition Recovery scenario adds 5 2PP to LNP in contests where their opponent is an ALP candidate</p>
+    </li>
+    <li>
+        <p>PHON Surge scenario replaces LNP in 25 target seats (where they weren't already in the final 2) identified in Antony Green's blog<a class="text-primary-500" href="https://antonygreen.com.au/one-nations-poll-surge-the-first-25-seats-to-watch/">[1]</a></p>
     </li>
     <li>
       Swing affects contests without an ALP candidate to a lessor degree
@@ -184,8 +183,8 @@
   </ul>
 </article>
 <footer class="flex items-center justify-center">
-		<small class="opacity-60">Danno</small>
-		<small class="opacity-60">{new Date("2025-12-22").toLocaleDateString()}</small>
+		<small class="opacity-60">Danno </small>
+		<small class="opacity-60 ml-3">{new Date("2026-02-09").toLocaleDateString("en-au")}</small>
 	</footer>
 </div>
 </div>
@@ -341,7 +340,7 @@
 </article>
 <footer class="flex items-center justify-center">
 		<small class="opacity-60">Danno</small>
-		<small class="opacity-60">{new Date("2025-12-22").toLocaleDateString()}</small>
+		<small class="opacity-60 ml-3">{new Date("2025-12-22").toLocaleDateString("en-au")}</small>
 	</footer>
 </div>
 </div>

@@ -11,8 +11,8 @@ export const coalitionRecoverySeats: Seat[] = [
     tcp: {
       partyA: 'ALP',
       partyB: 'LNP',
-      a: 0.669,
-      b: 0.331
+      a: 0.619,
+      b: 0.381
     },
     alpSwingFactor: 1,
     generations: {
@@ -32,8 +32,8 @@ export const coalitionRecoverySeats: Seat[] = [
     tcp: {
       partyA: 'ALP',
       partyB: 'LNP',
-      a: 0.505,
-      b: 0.495
+      a: 0.465,
+      b: 0.545
     },
     alpSwingFactor: 1,
 
@@ -53,8 +53,8 @@ export const coalitionRecoverySeats: Seat[] = [
     tcp: {
       partyA: 'ALP',
       partyB: 'LNP',
-      a: 0.657,
-      b: 0.343
+      a: 0.607,
+      b: 0.393
     },
     alpSwingFactor: 1,
 
@@ -74,8 +74,8 @@ export const coalitionRecoverySeats: Seat[] = [
     tcp: {
         partyA: 'LNP',
         partyB: 'ALP',
-        a: .566,
-        b: .434
+        a: .601,
+        b: .399
     },
     alpSwingFactor: 1,
     generations: {
@@ -94,8 +94,8 @@ export const coalitionRecoverySeats: Seat[] = [
         tcp: {
             partyA: 'ALP',
             partyB: 'LNP',
-            a: .636,
-            b: .364
+            a: .586,
+            b: .414
         },
         alpSwingFactor: 1,
         generations: {
@@ -114,8 +114,8 @@ export const coalitionRecoverySeats: Seat[] = [
         tcp: {
             partyA: 'IND',
             partyB: 'LNP',
-            a: .533,
-            b: .467
+            a: .483,
+            b: .517
         },
         alpSwingFactor: .5, 
         generations: {
@@ -134,8 +134,8 @@ export const coalitionRecoverySeats: Seat[] = [
         tcp: {
             partyA: 'LNP',
             partyB: 'ALP',
-            a: .602,
-            b: .398
+            a: .552,
+            b: .448
         },
         alpSwingFactor: 1,
         generations: {
@@ -154,8 +154,8 @@ export const coalitionRecoverySeats: Seat[] = [
         tcp: {
             partyA: 'LNP',
             partyB: 'ALP',
-            a: .522,
-            b: .478
+            a: .572,
+            b: .428
         },
         alpSwingFactor: 1,
         generations: {
@@ -194,8 +194,8 @@ export const coalitionRecoverySeats: Seat[] = [
         tcp: {
             partyA: 'ALP',
             partyB: 'LNP',
-            a: .66,
-            b: .34
+            a: .61,
+            b: .39
         },
         alpSwingFactor: 1,
         generations: {
@@ -214,8 +214,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'LNP',
                 partyB: 'ALP',
-                a: .471,
-                b: .529
+                a: .521,
+                b: .479
             },
             alpSwingFactor: 1,
             generations: {
@@ -234,8 +234,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'LNP',
                 partyB: 'ALP',
-                a: .633,
-                b: .367
+                a: .683,
+                b: .417
             },
             alpSwingFactor: 1,
             generations: {
@@ -254,8 +254,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .564,
-                b: .436
+                a: .514,
+                b: .486
             },
             alpSwingFactor: 1,
             generations: {
@@ -274,8 +274,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .665,
-                b: .335
+                a: .615,
+                b: .385
             },
             alpSwingFactor: 1,
             generations: {
@@ -294,8 +294,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .64,
-                b: .36
+                a: .59,
+                b: .41
             },
             alpSwingFactor: 1,
             generations: {
@@ -314,8 +314,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .57,
-                b: .43
+                a: .52,
+                b: .48
             },
             alpSwingFactor: 1,
             generations: {
@@ -336,8 +336,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .581,
-                b: .419
+                a: .531,
+                b: .469
             },
             alpSwingFactor: 1,
             generations: {
@@ -356,8 +356,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .513,
-                b: .487
+                a: .463,
+                b: .437
             },
             alpSwingFactor: 1,
             generations: {
@@ -377,8 +377,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .691,
-                b: .309
+                a: .641,
+                b: .359
             },
             alpSwingFactor: 1,
             generations: {
@@ -397,8 +397,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'LNP',
                 partyB: 'ALP',
-                a: .63,
-                b: .37
+                a: .58,
+                b: .42
             },
             alpSwingFactor: 1,
             generations: {
@@ -417,8 +417,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .611,
-                b: .389
+                a: .561,
+                b: .439
             },
             alpSwingFactor: 1,
             generations: {
@@ -437,8 +437,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'LNP',
                 partyB: 'ALP',
-                a: .546,
-                b: .454
+                a: .496,
+                b: .504
             },
             alpSwingFactor: 1,
             generations: {
@@ -457,8 +457,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .663,
-                b: .337
+                a: .613,
+                b: .387
             },
             alpSwingFactor: 1,
             generations: {
@@ -477,8 +477,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .707,
-                b: .293
+                a: .657,
+                b: .343
             },
             alpSwingFactor: 1,
             generations: {
@@ -497,8 +497,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .647,
-                b: .353
+                a: .597,
+                b: .403
             },
             alpSwingFactor: 1,
             generations: {
@@ -517,8 +517,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'CA',
                 partyB: 'ALP',
-                a: .649,
-                b: .351
+                a: .599,
+                b: .401
             },
             alpSwingFactor: 1,
             generations: {
@@ -537,8 +537,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .653,
-                b: .347
+                a: .603,
+                b: .397
             },
             alpSwingFactor: 1,
             generations: {
@@ -557,8 +557,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .566,
-                b: .434
+                a: .516,
+                b: .484
             },
             alpSwingFactor: 1,
             generations: {
@@ -579,8 +579,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'IND',
-                a: .503,
-                b: .497
+                a: .453,
+                b: .547
             },
             alpSwingFactor: 1,
             generations: {
@@ -599,8 +599,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'GRN',
-                a: .695,
-                b: .305
+                a: .645,
+                b: .355
             },
             alpSwingFactor: 1,
             generations: {
@@ -619,8 +619,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .721,
-                b: .279
+                a: .671,
+                b: .329
             },
             alpSwingFactor: 1,
             generations: {
@@ -640,8 +640,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .524,
-                b: .476
+                a: .474,
+                b: .526
             },
             alpSwingFactor: 1,
             generations: {
@@ -660,8 +660,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .660,
-                b: .340
+                a: .610,
+                b: .390
             },
             alpSwingFactor: 1,
             generations: {
@@ -680,8 +680,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .593,
-                b: .407
+                a: .543,
+                b: .457
             },
             alpSwingFactor: 1,
             generations: {
@@ -700,8 +700,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'LNP',
                 partyB: 'ALP',
-                a: .516,
-                b: .484
+                a: .566,
+                b: .434
             },
             alpSwingFactor: 1,
             generations: {
@@ -720,8 +720,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .719,
-                b: .281
+                a: .669,
+                b: .331
             },
             alpSwingFactor: 1,
             generations: {
@@ -780,8 +780,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .698,
-                b: .302
+                a: .648,
+                b: .352
             },
             alpSwingFactor: 1,
             generations: {
@@ -800,8 +800,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'LNP',
                 partyB: 'ALP',
-                a: .572,
-                b: .428
+                a: .522,
+                b: .478
             },
             alpSwingFactor: 1,
             generations: {
@@ -840,8 +840,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .675,
-                b: .325
+                a: .625,
+                b: .375
             },
             alpSwingFactor: 1,
             generations: {
@@ -860,8 +860,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .594,
-                b: .406
+                a: .544,
+                b: .456
             },
             alpSwingFactor: 1,
             generations: {
@@ -880,8 +880,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .572,
-                b: .428
+                a: .522,
+                b: .478
             },
             alpSwingFactor: 1,
             generations: {
@@ -940,8 +940,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .551,
-                b: .449
+                a: .501,
+                b: .499
             },
             alpSwingFactor: 1,
             generations: {
@@ -980,8 +980,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .638,
-                b: .362
+                a: .588,
+                b: .412
             },
             alpSwingFactor: 1,
             generations: {
@@ -1000,8 +1000,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .531,
-                b: .469
+                a: .481,
+                b: .519
             },
             alpSwingFactor: 1,
             generations: {
@@ -1020,8 +1020,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'LNP',
                 partyB: 'ALP',
-                a: .581,
-                b: .419
+                a: .531,
+                b: .469
             },
             alpSwingFactor: 1,
             generations: {
@@ -1060,8 +1060,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .672,
-                b: .328
+                a: .622,
+                b: .378
             },
             alpSwingFactor: 1,
             generations: {
@@ -1080,8 +1080,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'LNP',
                 partyB: 'ALP',
-                a: .528,
-                b: .472
+                a: .478,
+                b: .522
             },
             alpSwingFactor: 1,
             generations: {
@@ -1100,8 +1100,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'LNP',
                 partyB: 'ALP',
-                a: .598,
-                b: .402
+                a: .648,
+                b: .352
             },
             alpSwingFactor: 1,
             generations: {
@@ -1120,8 +1120,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .656,
-                b: 344
+                a: .606,
+                b: 394
             },
             alpSwingFactor: 1,
             generations: {
@@ -1160,8 +1160,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .577,
-                b: .423
+                a: .527,
+                b: .473
             },
             alpSwingFactor: 1,
             generations: {
@@ -1180,8 +1180,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .59,
-                b: .41
+                a: .54,
+                b: .46
             },
             alpSwingFactor: 1,
             generations: {
@@ -1200,8 +1200,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'LNP',
                 partyB: 'ALP',
-                a: .538,
-                b: .462
+                a: .488,
+                b: .512
             },
             alpSwingFactor: 1,
             generations: {
@@ -1240,8 +1240,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'LNP',
                 partyB: 'ALP',
-                a: .671,
-                b: .329
+                a: .721,
+                b: .279
             },
             alpSwingFactor: 1,
             generations: {
@@ -1260,8 +1260,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'LNP',
                 partyB: 'ALP',
-                a: .593,
-                b: .407
+                a: .643,
+                b: .357
             },
             alpSwingFactor: 1,
             generations: {
@@ -1280,8 +1280,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'LNP',
                 partyB: 'ALP',
-                a: .63,
-                b: .37
+                a: .68,
+                b: .32
             },
             alpSwingFactor: 1,
             generations: {
@@ -1300,8 +1300,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .625,
-                b: .375
+                a: .475,
+                b: .425
             },
             alpSwingFactor: 1,
             generations: {
@@ -1320,8 +1320,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .569,
-                b: .431
+                a: .519,
+                b: .491
             },
             alpSwingFactor: 1,
             generations: {
@@ -1340,8 +1340,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .62,
-                b: .38
+                a: .57,
+                b: .43
             },
             alpSwingFactor: 1,
             generations: {
@@ -1360,8 +1360,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .6,
-                b: .4
+                a: .55,
+                b: .45
             },
             alpSwingFactor: 1,
             generations: {
@@ -1380,8 +1380,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'LNP',
                 partyB: 'ALP',
-                a: .62,
-                b: .38
+                a: .67,
+                b: .33
             },
             alpSwingFactor: 1,
             generations: {
@@ -1400,8 +1400,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .594,
-                b: .406
+                a: .544,
+                b: .456
             },
             alpSwingFactor: 1,
             generations: {
@@ -1420,8 +1420,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .615,
-                b: .385
+                a: .565,
+                b: .435
             },
             alpSwingFactor: 1,
             generations: {
@@ -1520,8 +1520,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .568,
-                b: .432
+                a: .528,
+                b: .482
             },
             alpSwingFactor: 1,
             generations: {
@@ -1540,8 +1540,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .562,
-                b: .438
+                a: .512,
+                b: .488
             },
             alpSwingFactor: 1,
             generations: {
@@ -1560,8 +1560,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .58,
-                b: .42
+                a: .53,
+                b: .47
             },
             alpSwingFactor: 1,
             generations: {
@@ -1580,8 +1580,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .572,
-                b: .428
+                a: .522,
+                b: .478
             },
             alpSwingFactor: 1,
             generations: {
@@ -1640,8 +1640,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .616,
-                b: .384
+                a: .566,
+                b: .434
             },
             alpSwingFactor: 1,
             generations: {
@@ -1660,8 +1660,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .534,
-                b: .466
+                a: .484,
+                b: .516
             },
             alpSwingFactor: 1,
             generations: {
@@ -1680,8 +1680,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .607,
-                b: .393
+                a: .557,
+                b: .443
             },
             alpSwingFactor: 1,
             generations: {
@@ -1700,8 +1700,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .514,
-                b: .486
+                a: .464,
+                b: .536
             },
             alpSwingFactor: 1,
             generations: {
@@ -1720,8 +1720,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .646,
-                b: .354
+                a: .596,
+                b: .404
             },
             alpSwingFactor: 1,
             generations: {
@@ -1760,8 +1760,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'LNP',
                 partyB: 'ALP',
-                a: .529,
-                b: .471
+                a: .579,
+                b: .421
             },
             alpSwingFactor: 1,
             generations: {
@@ -1780,8 +1780,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .557,
-                b: .443
+                a: .507,
+                b: .493
             },
             alpSwingFactor: 1,
             generations: {
@@ -1820,8 +1820,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .58,
-                b: .42
+                a: .53,
+                b: .47
             },
             alpSwingFactor: 1,
             generations: {
@@ -1840,8 +1840,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .632,
-                b: .368
+                a: .582,
+                b: .418
             },
             alpSwingFactor: 1,
             generations: {
@@ -1860,8 +1860,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: 52.8,
-                b: .472
+                a: .478,
+                b: .522
             },
             alpSwingFactor: 1,
             generations: {
@@ -1880,8 +1880,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .571,
-                b: .429
+                a: .521,
+                b: .479
             },
             alpSwingFactor: 1,
             generations: {
@@ -1940,8 +1940,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .651,
-                b: .349
+                a: .601,
+                b: .399
             },
             alpSwingFactor: 1,
             generations: {
@@ -1960,8 +1960,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'LNP',
                 partyB: 'ALP',
-                a: .694,
-                b: .306
+                a: .744,
+                b: .256
             },
             alpSwingFactor: 1,
             generations: {
@@ -2000,8 +2000,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .603,
-                b: .397
+                a: .553,
+                b: .447
             },
             alpSwingFactor: 1,
             generations: {
@@ -2020,8 +2020,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp:{
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .576,
-                b: .424
+                a: .526,
+                b: .474
             },
             alpSwingFactor: 1,
             generations: {
@@ -2040,8 +2040,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .64,
-                b: .36
+                a: .59,
+                b: .41
             },
             alpSwingFactor: 1,
             generations: {
@@ -2060,8 +2060,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .669,
-                b: .331
+                a: .619,
+                b: .381
             },
             alpSwingFactor: 1,
             generations: {
@@ -2100,8 +2100,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .643,
-                b: .357
+                a: .593,
+                b: .407
             },
             alpSwingFactor: 1,
             generations: {
@@ -2120,8 +2120,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .629,
-                b: .371
+                a: .579,
+                b: .421
             },
             alpSwingFactor: 1,
             generations: {
@@ -2160,8 +2160,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .632,
-                b: .368
+                a: .582,
+                b: .418
             },
             alpSwingFactor: 1,
             generations: {
@@ -2180,8 +2180,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'LNP',
                 partyB: 'ALP',
-                a: .521,
-                b: .479
+                a: .571,
+                b: .429
             },
             alpSwingFactor: 1,
             generations: {
@@ -2200,8 +2200,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .618,
-                b: .382
+                a: .568,
+                b: .432
             },
             alpSwingFactor: 1,
             generations: {
@@ -2220,8 +2220,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'LNP',
                 partyB: 'ALP',
-                a: .69,
-                b: .31
+                a: .74,
+                b: .26
             },
             alpSwingFactor: 1,
             generations: {
@@ -2240,8 +2240,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .626,
-                b: .374
+                a: .576,
+                b: .424
             },
             alpSwingFactor: 1,
             generations: {
@@ -2260,8 +2260,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .548,
-                b: .452
+                a: .498,
+                b: .502
             },
             alpSwingFactor: 1,
             generations: {
@@ -2300,8 +2300,8 @@ export const coalitionRecoverySeats: Seat[] = [
                 tcp: {
                     partyA: 'LNP',
                     partyB: 'ALP',
-                    a: .489,
-                    b: .511
+                    a: .539,
+                    b: .461
                 },
                 alpSwingFactor: 1,
                 generations: {
@@ -2320,8 +2320,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'LNP',
                 partyB: 'ALP',
-                a: .541,
-                b: .459
+                a: .591,
+                b: .409
             },
             alpSwingFactor: 1,
             generations: {
@@ -2340,8 +2340,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .356,
-                b: .644
+                a: .306,
+                b: .694
             },
             alpSwingFactor: 1,
             generations: {
@@ -2360,8 +2360,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .643,
-                b: .357
+                a: .593,
+                b: .407
     ,
         },
             alpSwingFactor: 1,
@@ -2422,8 +2422,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .557,
-                b: .443
+                a: .507,
+                b: .493
             },
             alpSwingFactor: 1,
             generations: {
@@ -2442,8 +2442,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .55,
-                b: .45
+                a: .501,
+                b: .499
             },
             alpSwingFactor: 1,
             generations: {
@@ -2462,8 +2462,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'LNP',
                 partyB: 'ALP',
-                a: .524,
-                b: .476
+                a: .574,
+                b: .426
             },
             alpSwingFactor: 1,
             generations: {
@@ -2482,8 +2482,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .59,
-                b: .41
+                a: .54,
+                b: .46
             },
             alpSwingFactor: 1,
             generations: {
@@ -2502,8 +2502,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'LNP',
                 partyB: 'ALP',
-                a: .558,
-                b: .442
+                a: .608,
+                b: .392
             },
             alpSwingFactor: 1,
             generations: {
@@ -2522,8 +2522,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .382,
-                b: .618
+                a: .332,
+                b: .668
             },
             alpSwingFactor: 1,
             generations: {
@@ -2542,8 +2542,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .56,
-                b: .44
+                a: .51,
+                b: .49
             },
             alpSwingFactor: 1,
             generations: {
@@ -2562,8 +2562,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .431,
-                b: .569
+                a: .381,
+                b: .619
             },
             alpSwingFactor: 1,
             generations: {
@@ -2582,8 +2582,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .468,
-                b: .532
+                a: .418,
+                b: .582
             },
             alpSwingFactor: 1,
             generations: {
@@ -2602,8 +2602,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .44,
-                b: .56
+                a: .39,
+                b: .61
             },
             alpSwingFactor: 1,
             generations: {
@@ -2622,8 +2622,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'LNP',
                 partyB: 'ALP',
-                a: .602,
-                b: 39.2
+                a: .652,
+                b: .342
             },
             alpSwingFactor: 1,
             generations: {
@@ -2642,8 +2642,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .518,
-                b: .482
+                a: .468,
+                b: .532
             },
             alpSwingFactor: 1,
             generations: {
@@ -2702,8 +2702,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'LNP',
                 partyB: 'ALP',
-                a: .634,
-                b: .366
+                a: .684,
+                b: .316
             },
             alpSwingFactor: 1,
             generations: {
@@ -2722,8 +2722,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'LNP',
                 partyB: 'ALP',
-                a: .563,
-                b: .437
+                a: .613,
+                b: .387
             },
             alpSwingFactor: 1,
             generations: {
@@ -2762,8 +2762,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .56,
-                b: .44
+                a: .51,
+                b: .49
             },
             alpSwingFactor: 1,
             generations: {
@@ -2782,8 +2782,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'ALP',
                 partyB: 'LNP',
-                a: .645,
-                b: .355,
+                a: .595,
+                b: .405,
                 
             },
             alpSwingFactor: 1,
@@ -2803,8 +2803,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'LNP',
                 partyB: 'ALP',
-                a: .501,
-                b: .499
+                a: .541,
+                b: .449
             },
             alpSwingFactor: 1,
             generations: {
@@ -2843,8 +2843,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'LNP',
                 partyB: 'ALP',
-                a: .544,
-                b: .456
+                a: .594,
+                b: .406
             },
             alpSwingFactor: 1,
             generations: {
@@ -2863,8 +2863,8 @@ export const coalitionRecoverySeats: Seat[] = [
             tcp: {
                 partyA: 'LNP',
                 partyB: 'ALP',
-                a: .588,
-                b: .412
+                a: .638,
+                b: .362
             },
             alpSwingFactor: 1,
             generations: {
@@ -2883,8 +2883,8 @@ export const coalitionRecoverySeats: Seat[] = [
         tcp: {
             partyA: 'ALP',
             partyB: 'LNP',
-            a: .661,
-            b: .339
+            a: .611,
+            b: .389
         },
         alpSwingFactor: 1,
             generations: {
@@ -2903,8 +2903,8 @@ export const coalitionRecoverySeats: Seat[] = [
         tcp: {
             partyA: 'ALP',
             partyB: 'LNP',
-            a: .692,
-            b: .308
+            a: .642,
+            b: .358
         },
         alpSwingFactor: 1,
             generations: {
@@ -2923,8 +2923,8 @@ export const coalitionRecoverySeats: Seat[] = [
         tcp: {
             partyA: 'ALP',
             partyB: 'LNP',
-            a: .512,
-            b: .488
+            a: .462,
+            b: .538
         },
         alpSwingFactor: 1,
             generations: {
@@ -2943,8 +2943,8 @@ export const coalitionRecoverySeats: Seat[] = [
         tcp: {
             partyA: 'ALP',
             partyB: 'LNP',
-            a: .656,
-            b: .344
+            a: .606,
+            b: .394
         },
         alpSwingFactor: 1,
             generations: {
@@ -2983,8 +2983,8 @@ export const coalitionRecoverySeats: Seat[] = [
         tcp: {
             partyA: 'LNP',
             partyB: 'ALP',
-            a: .576,
-            b: .424
+            a: .626,
+            b: .384
         },
         alpSwingFactor: 1,
             generations: {
@@ -3003,8 +3003,8 @@ export const coalitionRecoverySeats: Seat[] = [
         tcp: {
             partyA: 'ALP',
             partyB: 'LNP',
-            a: .42,
-            b: .58
+            a: .37,
+            b: .63
         },
         alpSwingFactor: 1,
             generations: {
