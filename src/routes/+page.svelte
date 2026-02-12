@@ -38,6 +38,9 @@
     IND: '#999999',
     PHON: '#F36D24',
     KAT: '#E86046',
+    LIB: '#005689',
+    NAT: '#006946',
+    LCA: '#228B22',
     CA: '#FF5800'
   };
 
@@ -106,9 +109,12 @@
     <button type="button" class="btn capitalize"  class:preset-filled={$selectedScenario === 'coalition-recovery'} on:click={() => selectedScenario.set('coalition-recovery')}>
       Coalition Recovery
 		</button>
+    <button type="button" class="btn capitalize"  class:preset-filled={$selectedScenario === 'phon-targets'} on:click={() => selectedScenario.set('phon-targets')}>
+      PHON Targets
+		</button>
     <button type="button" class="btn capitalize"  class:preset-filled={$selectedScenario === 'phon-surge'} on:click={() => selectedScenario.set('phon-surge')}>
       PHON Surge
-		</button>
+    </button>
 	
   </nav>
 </div>
@@ -172,7 +178,10 @@
         <p>Coalition Recovery scenario adds 5 2PP to LNP in contests where their opponent is an ALP candidate</p>
     </li>
     <li>
-        <p>PHON Surge scenario replaces LNP in 25 target seats (where they weren't already in the final 2) identified in Antony Green's blog<a class="text-primary-500" href="https://antonygreen.com.au/one-nations-poll-surge-the-first-25-seats-to-watch/">[1]</a></p>
+        <p>PHON Target Seats scenario replaces LNP in 25 target seats (where they weren't already in the final 2) identified in Antony Green's blog<a class="text-primary-500" href="https://antonygreen.com.au/one-nations-poll-surge-the-first-25-seats-to-watch/">[1]</a></p>
+    </li>
+    <li>
+      <p>PHON Surge scenario has PHON Target seats and replaces LNP in more rural seats in VIC, QLD and NSW</p>
     </li>
     <li>
       Swing affects contests without an ALP candidate to a lessor degree
@@ -323,9 +332,6 @@
       <p>This doesn't yet match how the public funding rules of parties really works</p>
     </li>
     <li>
-      Vote % are placeholders before I put correct figures in for each party
-    </li>
-    <li>
       This assumes a population growth of 1.5% per year
     </li>
     <li>
@@ -333,14 +339,15 @@
     </li>
     <li>
       There's a large jump from 0 years to 1 year. This is because at the last election each first preference is $3.5 public funding for that party </li> 
-      <li>
       From the next election onwards each first preference is $5 of public funding
+    <li>
+      A bug seems to be applying generation change at year 0 - % of FP votes at 0 years should be the same as the election
     </li>
   </ul>
 </article>
 <footer class="flex items-center justify-center">
 		<small class="opacity-60">Danno</small>
-		<small class="opacity-60 ml-3">{new Date("2025-12-22").toLocaleDateString("en-au")}</small>
+		<small class="opacity-60 ml-3">{new Date("2026-02-26").toLocaleDateString("en-au")}</small>
 	</footer>
 </div>
 </div>

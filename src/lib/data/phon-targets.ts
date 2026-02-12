@@ -1,6 +1,6 @@
 import type { Seat } from "./electorates"
 
-export const phonSurgeSeats: Seat[] = [
+export const phonTargetSeats: Seat[] = [
 //WA
   {
     id: 'bra',
@@ -759,7 +759,7 @@ export const phonSurgeSeats: Seat[] = [
             r: 6,
             tcp: {
                 partyA: 'IND',
-                partyB: 'PHON',
+                partyB: 'LNP',
                 a: .568,
                 b: .432
             },
@@ -818,7 +818,7 @@ export const phonSurgeSeats: Seat[] = [
             q: 5,
             r: 7,
             tcp: {
-                partyA: 'PHON',
+                partyA: 'LNP',
                 partyB: 'IND',
                 a: .525,
                 b: .475
@@ -1098,7 +1098,7 @@ export const phonSurgeSeats: Seat[] = [
             q: 3,
             r: 9,
             tcp: {
-                partyA: 'PHON',
+                partyA: 'LNP',
                 partyB: 'ALP',
                 a: .598,
                 b: .402
@@ -1198,7 +1198,7 @@ export const phonSurgeSeats: Seat[] = [
             q: 8,
             r: 4,
             tcp: {
-                partyA: 'PHON',
+                partyA: 'LNP',
                 partyB: 'ALP',
                 a: .538,
                 b: .462
@@ -1258,7 +1258,7 @@ export const phonSurgeSeats: Seat[] = [
             q: 8,
             r: 7,
             tcp: {
-                partyA: 'PHON',
+                partyA: 'LNP',
                 partyB: 'ALP',
                 a: .593,
                 b: .407
@@ -1898,7 +1898,7 @@ export const phonSurgeSeats: Seat[] = [
             q: 13,
             r: 1,
             tcp: {
-                partyA: 'PHON',
+                partyA: 'LNP',
                 partyB: 'IND',
                 a: .523,
                 b: .477
@@ -2460,7 +2460,7 @@ export const phonSurgeSeats: Seat[] = [
             q: 13,
             r: 8,
             tcp: {
-                partyA: 'PHON',
+                partyA: 'LNP',
                 partyB: 'ALP',
                 a: .524,
                 b: .476
@@ -2581,7 +2581,7 @@ export const phonSurgeSeats: Seat[] = [
             r: 9,
             tcp: {
                 partyA: 'ALP',
-                partyB: 'PHON',
+                partyB: 'LNP',
                 a: .468,
                 b: .532
             },
@@ -2680,7 +2680,7 @@ export const phonSurgeSeats: Seat[] = [
             q: 15,
             r: 8,
             tcp: {
-                partyA: 'PHON',
+                partyA: 'LNP',
                 partyB: 'IND',
                 a: .557,
                 b: .443
@@ -2821,8 +2821,8 @@ export const phonSurgeSeats: Seat[] = [
             q: 17,
             r: 9,
             tcp: {
-                partyA: 'PHON',
-                partyB: 'LNP',
+                partyA: 'LNP',
+                partyB: 'PHON',
                 a: .701,
                 b: .299
             },
@@ -2861,7 +2861,7 @@ export const phonSurgeSeats: Seat[] = [
             q: 18,
             r: 5,
             tcp: {
-                partyA: 'PHON',
+                partyA: 'LNP',
                 partyB: 'ALP',
                 a: .588,
                 b: .412
