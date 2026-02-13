@@ -65,8 +65,8 @@
     <div class="controls">
   <div class="flex justify-center items-center">
     <label class="flex flex-col items-center">
-      <h1 class="h1 text-center text-black">Australian Federal Election Scenarios</h1>
-      <h2 class="h2 text-center text-black">
+      <h1 class="h1 text-center">Australian Federal Election Scenarios</h1>
+      <h2 class="h2 text-center">
         National ALP 2pp swing: {(($nationalSwing * 100)).toFixed(1)}%
       </h2>
       <input
@@ -90,7 +90,7 @@
         class="inline-block w-3 h-3 rounded-sm"
         style="background-color: {partyColours[party]}"
       ></span>
-      <span class="font-semibold text-black">{party}</span>
+      <span class="font-semibold">{party}</span>
       <span>
         {count}
         {#if count >= 76}
