@@ -1,7 +1,7 @@
-<script>
+<script lang="ts">
   export let sim;
 
-  function coalitionSeats(sim) {
+  function coalitionSeats(sim:  {Liberal:number, Nationals:number}) {
     return sim.Liberal + sim.Nationals;
   }
 

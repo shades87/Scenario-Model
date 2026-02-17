@@ -10,7 +10,7 @@
   import type { Party } from '$lib/data/types';
   import results from '$lib/data/monte_carlos_results/2026-02-15.json';
   import Summary from '$lib/components/Summary.svelte';
-  import SimulationChart from '$lib/components/SimulationChart.svelte';
+  import SimulationLineChart from '$lib/components/SimulationLineChart.svelte';
 
   import { selectedScenario } from '$lib/stores/scenario';
 
@@ -364,10 +364,9 @@
 <Tabs.Content value="Vic Simulation">
   <div class="m-3">
     <Summary {results} />
-    <SimulationChart
-  simulations={results.visual_simulations}
-  majority={results.summary.majority_threshold}
-/>
+    <SimulationLineChart
+    simulations={results.visual_simulations}
+    totalSeats={88} />
   </div>
 </Tabs.Content>
 <Tabs.Content value="Blog">
