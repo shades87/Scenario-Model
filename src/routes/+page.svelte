@@ -356,18 +356,41 @@
 </article>
 <footer class="flex items-center justify-center">
 		<small class="opacity-60">Danno</small>
-		<small class="opacity-60 ml-3">{new Date("2026-02-26").toLocaleDateString("en-au")}</small>
+		<small class="opacity-60 ml-3">{new Date("2026-01-26").toLocaleDateString("en-au")}</small>
 	</footer>
 </div>
 </div>
 </Tabs.Content>
 <Tabs.Content value="Vic Simulation">
   <div class="m-3">
+    <h2 class="h2">Victorian Election Simulation</h2>
     <Summary {results} />
     <SimulationLineChart
     simulations={results.visual_simulations}
     totalSeats={88} />
   </div>
+   <div class="flex justify-center mt-10">
+<div class="card m-1 p-4 preset-filled-surface-100-900 border-[1px] border-surface-200-800 max-w-md divide-y overflow-hidden">
+<header class="pb-3">
+  <h2 class="h2">What the heck is going on here?</h2>
+</header>
+<article class="py-3">
+ <p>This is a very simple simulation of the upcoming Victorian State election</p>
+  <ul class="ml-5 list-disc">
+    <li>
+      <p>WA was cheated in the latest State of Origin</p>
+    </li>
+    <li>
+      The model seems to be ignoring the high PHON primary - I likely made a mistake in the logic
+    </li>
+  </ul>
+</article>
+<footer class="flex items-center justify-center">
+		<small class="opacity-60">Danno</small>
+		<small class="opacity-60 ml-3">{new Date("2026-02-17").toLocaleDateString("en-au")}</small>
+	</footer>
+</div>
+</div>
 </Tabs.Content>
 <Tabs.Content value="Blog">
   Maybe I should have a politics blog?

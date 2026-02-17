@@ -64,7 +64,7 @@
       options: {
         responsive: true,
         maintainAspectRatio: true,
-        aspectRatio: 3, // wide & flat
+        aspectRatio: 5, // wide & flat
         showLine: true,
         plugins: {
           tooltip: {
