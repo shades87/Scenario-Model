@@ -8,6 +8,9 @@
   import { Tabs } from '@skeletonlabs/skeleton-svelte';
   import { seatTotals } from '$lib/stores/totalSeats';
   import type { Party } from '$lib/data/types';
+  import results from '$lib/data/monte_carlos_results/2026-02-15.json';
+  import Summary from '$lib/components/Summary.svelte';
+  import SimulationGrid from '$lib/components/SimulationGrid.svelte';
 
   import { selectedScenario } from '$lib/stores/scenario';
 
@@ -59,6 +62,7 @@
     <Tabs.List class="bg-primary-300 text-white pt-2 pl-2">
         <Tabs.Trigger value="2PP">National 2PP</Tabs.Trigger>
         <Tabs.Trigger value="Demographics">Demographics</Tabs.Trigger>
+        <Tabs.Trigger value="Vic Simulation">Victoria Simulation</Tabs.Trigger>
     </Tabs.List>
 
 <Tabs.Content value="2PP">
@@ -251,7 +255,9 @@
   <div class="w-full max-w-lg m-1">
     {#if $selectedChamber === 'House'}
       {#each Object.entries($projectedFpHouse) as [party, share]}
-  <div class="flex items-center gap-2 mb-1 ml-2 mr-2">
+      {#if share > 0}
+      <div class="flex items-center gap-2 mb-1 ml-2 mr-2">
+    
     <span class="w-12 text-sm">{party}</span>
 
     <div class="flex-1 bg-surface-200 rounded-sm h-4">
@@ -268,10 +274,12 @@
       {(share * 100).toFixed(1)}%
     </span>
   </div>
+  {/if}
 {/each}
     {:else}
       {#each Object.entries($projectedFpSenate) as [party, share]}
-  <div class="flex items-center gap-2 mb-1 ml-2 mr-2">
+      {#if share > 0}
+      <div class="flex items-center gap-2 mb-1 ml-2 mr-2">
     <span class="w-12 text-sm">{party}</span>
 
     <div class="flex-1 bg-surface-200 rounded-sm h-4">
@@ -288,6 +296,7 @@
       {(share * 100).toFixed(1)}%
     </span>
   </div>
+  {/if}
 {/each}
     {/if}
   </div>
@@ -351,6 +360,12 @@
 	</footer>
 </div>
 </div>
+</Tabs.Content>
+<Tabs.Content value="Vic Simulation">
+  <div class="m-3">
+    <Summary {results} />
+    <SimulationGrid simulations={results.visual_simulations} />  
+  </div>
 </Tabs.Content>
 <Tabs.Content value="Blog">
   Maybe I should have a politics blog?
