@@ -8,7 +8,7 @@
   import { Tabs } from '@skeletonlabs/skeleton-svelte';
   import { seatTotals } from '$lib/stores/totalSeats';
   import type { Party } from '$lib/data/types';
-  import results from '$lib/data/monte_carlos_results/2026-02-15.json';
+  import results from '$lib/data/monte_carlos_results/2026-02-18.json';
   import Summary from '$lib/components/Summary.svelte';
   import SimulationLineChart from '$lib/components/SimulationLineChart.svelte';
 
@@ -378,7 +378,10 @@
  <p>This is a very simple simulation of the upcoming Victorian State election</p>
   <ul class="ml-5 list-disc">
     <li>
-      <p>WA was cheated in the latest State of Origin</p>
+      <p>The election is simulated 50K times adding in random polling errors</p>
+    </li>
+    <li>
+      100 simulated elections are shown on a line graph, sorted from highest incumbant seats to least
     </li>
     <li>
       The model seems to be ignoring the high PHON primary - I likely made a mistake in the logic

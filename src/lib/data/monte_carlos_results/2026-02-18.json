@@ -1,0 +1,1074 @@
+{
+  "pollster": "Resolve",
+  "date": "2026-02-18",
+  "summary": {
+    "majority_threshold": 45,
+    "parties": {
+      "ALP": {
+        "average": 41.06644,
+        "min": 12,
+        "max": 60,
+        "p5": 30,
+        "p95": 50,
+        "majority_probability": 0.32014
+      },
+      "Liberal": {
+        "average": 35.42634,
+        "min": 16,
+        "max": 67,
+        "p5": 26,
+        "p95": 47,
+        "majority_probability": 0.09526
+      },
+      "Nationals": {
+        "average": 5.06914,
+        "min": 4,
+        "max": 7,
+        "p5": 5,
+        "p95": 6,
+        "majority_probability": 0.0
+      },
+      "Greens": {
+        "average": 3.63518,
+        "min": 0,
+        "max": 7,
+        "p5": 2,
+        "p95": 4,
+        "majority_probability": 0.0
+      },
+      "PHON": {
+        "average": 0.01978,
+        "min": 0,
+        "max": 1,
+        "p5": 0,
+        "p95": 0,
+        "majority_probability": 0.0
+      },
+      "Other": {
+        "average": 2.78312,
+        "min": 0,
+        "max": 12,
+        "p5": 0,
+        "p95": 5,
+        "majority_probability": 0.0
+      }
+    },
+    "coalition": {
+      "average": 40.49548,
+      "min": 21,
+      "max": 72,
+      "p5": 31,
+      "p95": 52,
+      "majority_probability": 0.25072
+    }
+  },
+  "visual_simulations": [
+    {
+      "outcome": "ALP",
+      "ALP": 45,
+      "Liberal": 29,
+      "Nationals": 6,
+      "Coalition": 35,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 4
+    },
+    {
+      "outcome": "ALP",
+      "ALP": 49,
+      "Liberal": 28,
+      "Nationals": 5,
+      "Coalition": 33,
+      "Greens": 3,
+      "PHON": 0,
+      "Other": 3
+    },
+    {
+      "outcome": "ALP",
+      "ALP": 50,
+      "Liberal": 29,
+      "Nationals": 5,
+      "Coalition": 34,
+      "Greens": 2,
+      "PHON": 0,
+      "Other": 2
+    },
+    {
+      "outcome": "ALP",
+      "ALP": 45,
+      "Liberal": 33,
+      "Nationals": 5,
+      "Coalition": 38,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 1
+    },
+    {
+      "outcome": "ALP",
+      "ALP": 47,
+      "Liberal": 31,
+      "Nationals": 5,
+      "Coalition": 36,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 1
+    },
+    {
+      "outcome": "ALP",
+      "ALP": 48,
+      "Liberal": 27,
+      "Nationals": 5,
+      "Coalition": 32,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 4
+    },
+    {
+      "outcome": "ALP",
+      "ALP": 46,
+      "Liberal": 28,
+      "Nationals": 5,
+      "Coalition": 33,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 5
+    },
+    {
+      "outcome": "ALP",
+      "ALP": 46,
+      "Liberal": 32,
+      "Nationals": 5,
+      "Coalition": 37,
+      "Greens": 3,
+      "PHON": 0,
+      "Other": 2
+    },
+    {
+      "outcome": "ALP",
+      "ALP": 45,
+      "Liberal": 29,
+      "Nationals": 5,
+      "Coalition": 34,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 5
+    },
+    {
+      "outcome": "ALP",
+      "ALP": 52,
+      "Liberal": 26,
+      "Nationals": 5,
+      "Coalition": 31,
+      "Greens": 3,
+      "PHON": 0,
+      "Other": 2
+    },
+    {
+      "outcome": "ALP",
+      "ALP": 47,
+      "Liberal": 30,
+      "Nationals": 6,
+      "Coalition": 36,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 1
+    },
+    {
+      "outcome": "ALP",
+      "ALP": 46,
+      "Liberal": 32,
+      "Nationals": 5,
+      "Coalition": 37,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 1
+    },
+    {
+      "outcome": "ALP",
+      "ALP": 57,
+      "Liberal": 20,
+      "Nationals": 5,
+      "Coalition": 25,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 2
+    },
+    {
+      "outcome": "ALP",
+      "ALP": 46,
+      "Liberal": 29,
+      "Nationals": 5,
+      "Coalition": 34,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 4
+    },
+    {
+      "outcome": "ALP",
+      "ALP": 50,
+      "Liberal": 26,
+      "Nationals": 5,
+      "Coalition": 31,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 3
+    },
+    {
+      "outcome": "ALP",
+      "ALP": 47,
+      "Liberal": 31,
+      "Nationals": 5,
+      "Coalition": 36,
+      "Greens": 1,
+      "PHON": 0,
+      "Other": 4
+    },
+    {
+      "outcome": "ALP",
+      "ALP": 48,
+      "Liberal": 28,
+      "Nationals": 5,
+      "Coalition": 33,
+      "Greens": 3,
+      "PHON": 0,
+      "Other": 4
+    },
+    {
+      "outcome": "ALP",
+      "ALP": 50,
+      "Liberal": 28,
+      "Nationals": 5,
+      "Coalition": 33,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 1
+    },
+    {
+      "outcome": "ALP",
+      "ALP": 52,
+      "Liberal": 25,
+      "Nationals": 5,
+      "Coalition": 30,
+      "Greens": 3,
+      "PHON": 0,
+      "Other": 3
+    },
+    {
+      "outcome": "ALP",
+      "ALP": 50,
+      "Liberal": 28,
+      "Nationals": 5,
+      "Coalition": 33,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 1
+    },
+    {
+      "outcome": "ALP",
+      "ALP": 46,
+      "Liberal": 30,
+      "Nationals": 5,
+      "Coalition": 35,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 3
+    },
+    {
+      "outcome": "ALP",
+      "ALP": 45,
+      "Liberal": 32,
+      "Nationals": 5,
+      "Coalition": 37,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 2
+    },
+    {
+      "outcome": "ALP",
+      "ALP": 49,
+      "Liberal": 27,
+      "Nationals": 5,
+      "Coalition": 32,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 3
+    },
+    {
+      "outcome": "ALP",
+      "ALP": 49,
+      "Liberal": 28,
+      "Nationals": 5,
+      "Coalition": 33,
+      "Greens": 3,
+      "PHON": 0,
+      "Other": 3
+    },
+    {
+      "outcome": "ALP",
+      "ALP": 47,
+      "Liberal": 30,
+      "Nationals": 5,
+      "Coalition": 35,
+      "Greens": 3,
+      "PHON": 0,
+      "Other": 3
+    },
+    {
+      "outcome": "ALP",
+      "ALP": 46,
+      "Liberal": 32,
+      "Nationals": 5,
+      "Coalition": 37,
+      "Greens": 3,
+      "PHON": 0,
+      "Other": 2
+    },
+    {
+      "outcome": "ALP",
+      "ALP": 47,
+      "Liberal": 31,
+      "Nationals": 5,
+      "Coalition": 36,
+      "Greens": 2,
+      "PHON": 0,
+      "Other": 3
+    },
+    {
+      "outcome": "ALP",
+      "ALP": 47,
+      "Liberal": 31,
+      "Nationals": 5,
+      "Coalition": 36,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 1
+    },
+    {
+      "outcome": "ALP",
+      "ALP": 48,
+      "Liberal": 31,
+      "Nationals": 5,
+      "Coalition": 36,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 0
+    },
+    {
+      "outcome": "ALP",
+      "ALP": 45,
+      "Liberal": 29,
+      "Nationals": 6,
+      "Coalition": 35,
+      "Greens": 3,
+      "PHON": 0,
+      "Other": 5
+    },
+    {
+      "outcome": "ALP",
+      "ALP": 47,
+      "Liberal": 27,
+      "Nationals": 5,
+      "Coalition": 32,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 5
+    },
+    {
+      "outcome": "ALP",
+      "ALP": 45,
+      "Liberal": 33,
+      "Nationals": 5,
+      "Coalition": 38,
+      "Greens": 3,
+      "PHON": 0,
+      "Other": 2
+    },
+    {
+      "outcome": "ALP",
+      "ALP": 48,
+      "Liberal": 28,
+      "Nationals": 5,
+      "Coalition": 33,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 3
+    },
+    {
+      "outcome": "Hung",
+      "ALP": 44,
+      "Liberal": 34,
+      "Nationals": 5,
+      "Coalition": 39,
+      "Greens": 3,
+      "PHON": 0,
+      "Other": 2
+    },
+    {
+      "outcome": "Hung",
+      "ALP": 40,
+      "Liberal": 38,
+      "Nationals": 5,
+      "Coalition": 43,
+      "Greens": 3,
+      "PHON": 0,
+      "Other": 2
+    },
+    {
+      "outcome": "Hung",
+      "ALP": 39,
+      "Liberal": 35,
+      "Nationals": 5,
+      "Coalition": 40,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 5
+    },
+    {
+      "outcome": "Hung",
+      "ALP": 44,
+      "Liberal": 33,
+      "Nationals": 5,
+      "Coalition": 38,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 2
+    },
+    {
+      "outcome": "Hung",
+      "ALP": 41,
+      "Liberal": 36,
+      "Nationals": 5,
+      "Coalition": 41,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 2
+    },
+    {
+      "outcome": "Hung",
+      "ALP": 40,
+      "Liberal": 39,
+      "Nationals": 5,
+      "Coalition": 44,
+      "Greens": 3,
+      "PHON": 0,
+      "Other": 1
+    },
+    {
+      "outcome": "Hung",
+      "ALP": 39,
+      "Liberal": 38,
+      "Nationals": 5,
+      "Coalition": 43,
+      "Greens": 2,
+      "PHON": 0,
+      "Other": 4
+    },
+    {
+      "outcome": "Hung",
+      "ALP": 43,
+      "Liberal": 32,
+      "Nationals": 5,
+      "Coalition": 37,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 4
+    },
+    {
+      "outcome": "Hung",
+      "ALP": 40,
+      "Liberal": 36,
+      "Nationals": 5,
+      "Coalition": 41,
+      "Greens": 3,
+      "PHON": 0,
+      "Other": 4
+    },
+    {
+      "outcome": "Hung",
+      "ALP": 43,
+      "Liberal": 36,
+      "Nationals": 5,
+      "Coalition": 41,
+      "Greens": 3,
+      "PHON": 0,
+      "Other": 1
+    },
+    {
+      "outcome": "Hung",
+      "ALP": 42,
+      "Liberal": 35,
+      "Nationals": 5,
+      "Coalition": 40,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 2
+    },
+    {
+      "outcome": "Hung",
+      "ALP": 42,
+      "Liberal": 34,
+      "Nationals": 5,
+      "Coalition": 39,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 3
+    },
+    {
+      "outcome": "Hung",
+      "ALP": 42,
+      "Liberal": 35,
+      "Nationals": 5,
+      "Coalition": 40,
+      "Greens": 3,
+      "PHON": 0,
+      "Other": 3
+    },
+    {
+      "outcome": "Hung",
+      "ALP": 37,
+      "Liberal": 38,
+      "Nationals": 5,
+      "Coalition": 43,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 4
+    },
+    {
+      "outcome": "Hung",
+      "ALP": 40,
+      "Liberal": 35,
+      "Nationals": 6,
+      "Coalition": 41,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 3
+    },
+    {
+      "outcome": "Hung",
+      "ALP": 40,
+      "Liberal": 36,
+      "Nationals": 5,
+      "Coalition": 41,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 3
+    },
+    {
+      "outcome": "Hung",
+      "ALP": 38,
+      "Liberal": 37,
+      "Nationals": 5,
+      "Coalition": 42,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 4
+    },
+    {
+      "outcome": "Hung",
+      "ALP": 44,
+      "Liberal": 32,
+      "Nationals": 5,
+      "Coalition": 37,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 3
+    },
+    {
+      "outcome": "Hung",
+      "ALP": 35,
+      "Liberal": 39,
+      "Nationals": 5,
+      "Coalition": 44,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 5
+    },
+    {
+      "outcome": "Hung",
+      "ALP": 40,
+      "Liberal": 35,
+      "Nationals": 5,
+      "Coalition": 40,
+      "Greens": 3,
+      "PHON": 0,
+      "Other": 5
+    },
+    {
+      "outcome": "Hung",
+      "ALP": 40,
+      "Liberal": 34,
+      "Nationals": 6,
+      "Coalition": 40,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 4
+    },
+    {
+      "outcome": "Hung",
+      "ALP": 38,
+      "Liberal": 38,
+      "Nationals": 5,
+      "Coalition": 43,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 3
+    },
+    {
+      "outcome": "Hung",
+      "ALP": 40,
+      "Liberal": 38,
+      "Nationals": 5,
+      "Coalition": 43,
+      "Greens": 3,
+      "PHON": 0,
+      "Other": 2
+    },
+    {
+      "outcome": "Hung",
+      "ALP": 44,
+      "Liberal": 32,
+      "Nationals": 5,
+      "Coalition": 37,
+      "Greens": 3,
+      "PHON": 1,
+      "Other": 3
+    },
+    {
+      "outcome": "Hung",
+      "ALP": 43,
+      "Liberal": 31,
+      "Nationals": 5,
+      "Coalition": 36,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 5
+    },
+    {
+      "outcome": "Hung",
+      "ALP": 35,
+      "Liberal": 38,
+      "Nationals": 5,
+      "Coalition": 43,
+      "Greens": 5,
+      "PHON": 0,
+      "Other": 5
+    },
+    {
+      "outcome": "Hung",
+      "ALP": 43,
+      "Liberal": 35,
+      "Nationals": 5,
+      "Coalition": 40,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 1
+    },
+    {
+      "outcome": "Hung",
+      "ALP": 37,
+      "Liberal": 38,
+      "Nationals": 5,
+      "Coalition": 43,
+      "Greens": 3,
+      "PHON": 0,
+      "Other": 5
+    },
+    {
+      "outcome": "Hung",
+      "ALP": 43,
+      "Liberal": 35,
+      "Nationals": 5,
+      "Coalition": 40,
+      "Greens": 3,
+      "PHON": 0,
+      "Other": 2
+    },
+    {
+      "outcome": "Hung",
+      "ALP": 43,
+      "Liberal": 34,
+      "Nationals": 5,
+      "Coalition": 39,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 2
+    },
+    {
+      "outcome": "Hung",
+      "ALP": 37,
+      "Liberal": 38,
+      "Nationals": 5,
+      "Coalition": 43,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 4
+    },
+    {
+      "outcome": "Hung",
+      "ALP": 43,
+      "Liberal": 34,
+      "Nationals": 5,
+      "Coalition": 39,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 2
+    },
+    {
+      "outcome": "Hung",
+      "ALP": 43,
+      "Liberal": 34,
+      "Nationals": 5,
+      "Coalition": 39,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 2
+    },
+    {
+      "outcome": "Hung",
+      "ALP": 44,
+      "Liberal": 31,
+      "Nationals": 6,
+      "Coalition": 37,
+      "Greens": 3,
+      "PHON": 0,
+      "Other": 4
+    },
+    {
+      "outcome": "Hung",
+      "ALP": 43,
+      "Liberal": 35,
+      "Nationals": 5,
+      "Coalition": 40,
+      "Greens": 3,
+      "PHON": 0,
+      "Other": 2
+    },
+    {
+      "outcome": "Hung",
+      "ALP": 42,
+      "Liberal": 33,
+      "Nationals": 6,
+      "Coalition": 39,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 3
+    },
+    {
+      "outcome": "Hung",
+      "ALP": 39,
+      "Liberal": 38,
+      "Nationals": 5,
+      "Coalition": 43,
+      "Greens": 3,
+      "PHON": 0,
+      "Other": 3
+    },
+    {
+      "outcome": "Hung",
+      "ALP": 44,
+      "Liberal": 33,
+      "Nationals": 5,
+      "Coalition": 38,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 2
+    },
+    {
+      "outcome": "Coalition",
+      "ALP": 20,
+      "Liberal": 58,
+      "Nationals": 5,
+      "Coalition": 63,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 1
+    },
+    {
+      "outcome": "Coalition",
+      "ALP": 32,
+      "Liberal": 48,
+      "Nationals": 5,
+      "Coalition": 53,
+      "Greens": 3,
+      "PHON": 0,
+      "Other": 0
+    },
+    {
+      "outcome": "Coalition",
+      "ALP": 38,
+      "Liberal": 40,
+      "Nationals": 5,
+      "Coalition": 45,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 1
+    },
+    {
+      "outcome": "Coalition",
+      "ALP": 35,
+      "Liberal": 41,
+      "Nationals": 5,
+      "Coalition": 46,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 3
+    },
+    {
+      "outcome": "Coalition",
+      "ALP": 37,
+      "Liberal": 42,
+      "Nationals": 5,
+      "Coalition": 47,
+      "Greens": 2,
+      "PHON": 0,
+      "Other": 2
+    },
+    {
+      "outcome": "Coalition",
+      "ALP": 31,
+      "Liberal": 45,
+      "Nationals": 5,
+      "Coalition": 50,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 3
+    },
+    {
+      "outcome": "Coalition",
+      "ALP": 30,
+      "Liberal": 43,
+      "Nationals": 5,
+      "Coalition": 48,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 6
+    },
+    {
+      "outcome": "Coalition",
+      "ALP": 35,
+      "Liberal": 42,
+      "Nationals": 5,
+      "Coalition": 47,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 2
+    },
+    {
+      "outcome": "Coalition",
+      "ALP": 37,
+      "Liberal": 41,
+      "Nationals": 5,
+      "Coalition": 46,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 1
+    },
+    {
+      "outcome": "Coalition",
+      "ALP": 37,
+      "Liberal": 40,
+      "Nationals": 5,
+      "Coalition": 45,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 2
+    },
+    {
+      "outcome": "Coalition",
+      "ALP": 35,
+      "Liberal": 41,
+      "Nationals": 5,
+      "Coalition": 46,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 3
+    },
+    {
+      "outcome": "Coalition",
+      "ALP": 34,
+      "Liberal": 42,
+      "Nationals": 5,
+      "Coalition": 47,
+      "Greens": 3,
+      "PHON": 0,
+      "Other": 4
+    },
+    {
+      "outcome": "Coalition",
+      "ALP": 34,
+      "Liberal": 42,
+      "Nationals": 5,
+      "Coalition": 47,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 3
+    },
+    {
+      "outcome": "Coalition",
+      "ALP": 38,
+      "Liberal": 40,
+      "Nationals": 5,
+      "Coalition": 45,
+      "Greens": 2,
+      "PHON": 0,
+      "Other": 3
+    },
+    {
+      "outcome": "Coalition",
+      "ALP": 35,
+      "Liberal": 44,
+      "Nationals": 5,
+      "Coalition": 49,
+      "Greens": 2,
+      "PHON": 0,
+      "Other": 2
+    },
+    {
+      "outcome": "Coalition",
+      "ALP": 32,
+      "Liberal": 43,
+      "Nationals": 5,
+      "Coalition": 48,
+      "Greens": 4,
+      "PHON": 1,
+      "Other": 3
+    },
+    {
+      "outcome": "Coalition",
+      "ALP": 35,
+      "Liberal": 43,
+      "Nationals": 5,
+      "Coalition": 48,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 1
+    },
+    {
+      "outcome": "Coalition",
+      "ALP": 36,
+      "Liberal": 41,
+      "Nationals": 5,
+      "Coalition": 46,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 2
+    },
+    {
+      "outcome": "Coalition",
+      "ALP": 34,
+      "Liberal": 44,
+      "Nationals": 5,
+      "Coalition": 49,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 1
+    },
+    {
+      "outcome": "Coalition",
+      "ALP": 36,
+      "Liberal": 40,
+      "Nationals": 5,
+      "Coalition": 45,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 3
+    },
+    {
+      "outcome": "Coalition",
+      "ALP": 26,
+      "Liberal": 52,
+      "Nationals": 5,
+      "Coalition": 57,
+      "Greens": 3,
+      "PHON": 0,
+      "Other": 2
+    },
+    {
+      "outcome": "Coalition",
+      "ALP": 31,
+      "Liberal": 45,
+      "Nationals": 5,
+      "Coalition": 50,
+      "Greens": 3,
+      "PHON": 0,
+      "Other": 4
+    },
+    {
+      "outcome": "Coalition",
+      "ALP": 36,
+      "Liberal": 43,
+      "Nationals": 5,
+      "Coalition": 48,
+      "Greens": 3,
+      "PHON": 0,
+      "Other": 1
+    },
+    {
+      "outcome": "Coalition",
+      "ALP": 34,
+      "Liberal": 43,
+      "Nationals": 6,
+      "Coalition": 49,
+      "Greens": 2,
+      "PHON": 0,
+      "Other": 3
+    },
+    {
+      "outcome": "Coalition",
+      "ALP": 37,
+      "Liberal": 41,
+      "Nationals": 5,
+      "Coalition": 46,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 1
+    },
+    {
+      "outcome": "Coalition",
+      "ALP": 27,
+      "Liberal": 54,
+      "Nationals": 5,
+      "Coalition": 59,
+      "Greens": 2,
+      "PHON": 0,
+      "Other": 0
+    },
+    {
+      "outcome": "Coalition",
+      "ALP": 29,
+      "Liberal": 46,
+      "Nationals": 5,
+      "Coalition": 51,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 4
+    },
+    {
+      "outcome": "Coalition",
+      "ALP": 38,
+      "Liberal": 41,
+      "Nationals": 5,
+      "Coalition": 46,
+      "Greens": 4,
+      "PHON": 0,
+      "Other": 0
+    },
+    {
+      "outcome": "Coalition",
+      "ALP": 28,
+      "Liberal": 47,
+      "Nationals": 5,
+      "Coalition": 52,
+      "Greens": 3,
+      "PHON": 0,
+      "Other": 5
+    }
+  ],
+  "first_preferences": {
+    "ALP": 28.0,
+    "Liberal": 30,
+    "Greens": 12,
+    "PHON": 11,
+    "Other": 18
+  }
+}
