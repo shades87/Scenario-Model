@@ -11,6 +11,7 @@
   import results from '$lib/data/monte_carlos_results/2026-02-15.json';
   import Summary from '$lib/components/Summary.svelte';
   import SimulationGrid from '$lib/components/SimulationGrid.svelte';
+  import SimulationChart from '$lib/components/SimulationChart.svelte';
 
   import { selectedScenario } from '$lib/stores/scenario';
 
@@ -364,7 +365,11 @@
 <Tabs.Content value="Vic Simulation">
   <div class="m-3">
     <Summary {results} />
-    <SimulationGrid simulations={results.visual_simulations} />  
+    <SimulationGrid simulations={results.visual_simulations} /> 
+    <SimulationChart
+  simulations={results.visual_simulations}
+  majority={results.summary.majority_threshold}
+/>
   </div>
 </Tabs.Content>
 <Tabs.Content value="Blog">
