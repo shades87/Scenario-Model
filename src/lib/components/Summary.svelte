@@ -1,14 +1,28 @@
-<script>
+<script lang="ts">
   export let results;
 
   const parties = results.summary.parties;
   const coalition = results.summary.coalition;
   const majority = results.summary.majority_threshold;
   const primaries = results.first_preferences
-</script>
 
-<h3 class="h3">{results.pollster} – {results.date}</h3>
-<p>Majority threshold: {majority} seats</p>
+    const partyColours:Record<string, string> = {
+    ALP: '#d71920',
+    LNP: '#005689',
+    GRN: '#00a651',
+    IND: '#999999',
+    PHON: '#F36D24',
+    KAT: '#E86046',
+    LIB: '#005689',
+    NAT: '#006946',
+    LCA: '#228B22',
+    CA: '#FF5800'
+  };
+</script>
+<div class="flex flex-col items-center">
+  <h3 class="h3">{results.pollster} – {results.date}</h3>
+  <p class='mb-2'>Majority threshold: {majority} seats</p>
+</div>
 
 <div class="summary-grid">
 
@@ -59,7 +73,11 @@
 }
 
 .alp { background: #d32f2f; }
-.coalition { background: #1976d2; }
-.green { background: #008000; }
+.coalition { background: #005689; }
+.green { background: #00a651; }
 .phon { background: #F36D24 ;}
+
+ h3{
+    font-family: 'Playfair', normal;
+ }
 </style>

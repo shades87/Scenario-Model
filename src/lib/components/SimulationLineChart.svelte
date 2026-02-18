@@ -30,22 +30,22 @@
       },
       {
         label: 'Coalition',
-        borderColor: '#1976d2',
-        backgroundColor: '#1976d2',
+        borderColor: '#005689',
+        backgroundColor: '#005689',
         fill: false,
         data: sorted.map((sim, i) => ({ x: i + 1, y: coalitionSeats(sim) }))
       },
       {
         label: 'Greens',
-        borderColor: '#66bb6a',
-        backgroundColor: '#66bb6a',
+        borderColor: '#00a651',
+        backgroundColor: '#00a651',
         fill: false,
         data: sorted.map((sim, i) => ({ x: i + 1, y: sim.Greens }))
       },
       {
         label: 'PHON',
-        borderColor: '#ffa000',
-        backgroundColor: '#ffa000',
+        borderColor: '#F36D24',
+        backgroundColor: '#F36D24',
         fill: false,
         data: sorted.map((sim, i) => ({ x: i + 1, y: sim.PHON }))
       },

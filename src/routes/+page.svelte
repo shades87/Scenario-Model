@@ -363,7 +363,9 @@
 </Tabs.Content>
 <Tabs.Content value="Vic Simulation">
   <div class="m-3">
-    <h2 class="h2">Victorian Election Simulation</h2>
+    <div class="flex flex-col items-center">
+        <h2 class="h2">Victorian Election Simulation</h2>
+    </div>
     <Summary {results} />
     <SimulationLineChart
     simulations={results.visual_simulations}
@@ -381,10 +383,16 @@
       <p>The election is simulated 50K times adding in random polling errors</p>
     </li>
     <li>
-      100 simulated elections are shown on a line graph, sorted from highest incumbant seats to least
+      100 simulated elections are shown on a line graph, sorted from highest incumbant seats to least incumbant seats
     </li>
     <li>
-      The model seems to be ignoring the high PHON primary - I likely made a mistake in the logic
+      Preference flows are correct for the 2 major parties, adjustments are needed for minor parties and others
+    </li>
+    <li>
+      This model is limited and likely under predicting crossbench seats
+    </li>
+    <li>
+      Seemingly paradoxically I think that it's also overestimating the chance of a hung parliament
     </li>
   </ul>
 </article>
