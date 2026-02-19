@@ -2,25 +2,36 @@
   import { onMount } from 'svelte';
   import Chart from 'chart.js/auto';
 
-  export let simulations;
-  export let totalSeats = 88; // adjust to your parliament size
+   type Simulation = {
+    ALP: number;
+    Liberal: number;
+    Nationals: number;
+    Greens: number;
+    PHON: number;
+    Other: number;
+  };
+
+  export let simulations:Simulation[];
+  export let totalSeats = 88;
 
   let canvas: HTMLCanvasElement;
+  let chart: Chart;
 
-  function coalitionSeats(sim: {Liberal:number, Nationals:number}) {
+  function coalitionSeats(sim: { Liberal: number; Nationals: number }) {
     return sim.Liberal + sim.Nationals;
   }
 
-  onMount(() => {
-    // 1️⃣ Sort simulations from strongest ALP → strongest Coalition
+  function updateChart() {
+    if (!chart || !simulations) return;
+
+    // Sort simulations strongest ALP -> strongest Coalition
     const sorted = [...simulations].sort((a, b) => {
       const marginA = a.ALP - coalitionSeats(a);
       const marginB = b.ALP - coalitionSeats(b);
       return marginB - marginA;
     });
 
-    // 2️⃣ Prepare datasets for each party
-    const dataset = [
+    chart.data.datasets = [
       {
         label: 'ALP',
         borderColor: '#d32f2f',
@@ -58,54 +69,46 @@
       }
     ];
 
-    new Chart(canvas, {
+    chart.update();
+  }
+
+  onMount(() => {
+    chart = new Chart(canvas, {
       type: 'scatter',
-      data: { datasets: dataset },
+      data: { datasets: [] }, // empty initially
       options: {
         responsive: true,
         maintainAspectRatio: true,
-        aspectRatio: 5, // wide & flat
+        aspectRatio: 5,
         showLine: true,
         plugins: {
           tooltip: {
-    mode: 'index',
-    intersect: false,
-    callbacks: {
-        // hide default labels for each dataset
-        label: function() { return ''; },
-
-        // show everything in the footer instead
-        footer: function(tooltipItems) {
-            // tooltipItems is an array of points at the same X
-            const simIndex = tooltipItems[0].dataIndex;
-            const sim = sorted[simIndex];
-
-            return [
-                `ALP: ${sim.ALP}`,
-                `Coalition: ${coalitionSeats(sim)}`,
-                `Greens: ${sim.Greens}`,
-                `PHON: ${sim.PHON}`,
-                `Other: ${sim.Other}`
-            ];
-        }
-    },
-    displayColors: false // optional: hide color squares in tooltip
-},
+            mode: 'index',
+            intersect: false,
+            callbacks: {
+              label: () => '',
+              footer: (tooltipItems) => {
+                const simIndex = tooltipItems[0].dataIndex;
+                const sim = simulations[simIndex];
+                return [
+                  `ALP: ${sim.ALP}`,
+                  `Coalition: ${coalitionSeats(sim)}`,
+                  `Greens: ${sim.Greens}`,
+                  `PHON: ${sim.PHON}`,
+                  `Other: ${sim.Other}`
+                ];
+              }
+            },
+            displayColors: false
+          },
           legend: { position: 'bottom' }
         },
-        
         scales: {
           x: {
-            title: {
-              display: true,
-              text: 'Simulations (ALP strongest → Coalition strongest)'
-            }
+            title: { display: true, text: 'Simulations (ALP → Coalition strongest)' }
           },
           y: {
-            title: {
-              display: true,
-              text: 'Seats'
-            },
+            title: { display: true, text: 'Seats' },
             min: 0,
             max: totalSeats,
             ticks: { stepSize: 10 }
@@ -113,28 +116,33 @@
         }
       },
       plugins: [
-  {
-    id: 'majorityLine',
-    afterDraw: (chart) => {
-      const { ctx, scales } = chart;
-      const yScale = scales.y;
+        {
+          id: 'majorityLine',
+          afterDraw: (chart) => {
+            const { ctx, scales } = chart;
+            const majority = Math.floor(totalSeats / 2) + 1;
+            const y = scales.y.getPixelForValue(majority);
 
-      const majority = Math.floor(totalSeats / 2) + 1;
-      const y = yScale.getPixelForValue(majority);
-
-      ctx.save();
-      ctx.beginPath();
-      ctx.moveTo(scales.x.left, y);
-      ctx.lineTo(scales.x.right, y);
-      ctx.lineWidth = 1.5;
-      ctx.strokeStyle = 'black';
-      ctx.stroke();
-      ctx.restore();
-    }
-  }
-]
+            ctx.save();
+            ctx.beginPath();
+            ctx.moveTo(scales.x.left, y);
+            ctx.lineTo(scales.x.right, y);
+            ctx.lineWidth = 1.5;
+            ctx.strokeStyle = 'black';
+            ctx.stroke();
+            ctx.restore();
+          }
+        }
+      ]
     });
+
+    updateChart();
   });
+
+  // 🔁 Reactive update whenever `simulations` changes
+  $: if (chart && simulations) {
+    updateChart();
+  }
 </script>
 
 <canvas bind:this={canvas} height="50"></canvas>

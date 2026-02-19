@@ -8,7 +8,6 @@
   import { Tabs } from '@skeletonlabs/skeleton-svelte';
   import { seatTotals } from '$lib/stores/totalSeats';
   import type { Party } from '$lib/data/types';
-  import results from '$lib/data/monte_carlos_results/2026-02-19.json';
   import Summary from '$lib/components/Summary.svelte';
   import SimulationLineChart from '$lib/components/SimulationLineChart.svelte';
 
@@ -80,7 +79,7 @@
     <Tabs.List class="bg-primary-300 text-white pt-2 pl-2">
         <Tabs.Trigger value="2PP">National 2PP</Tabs.Trigger>
         <Tabs.Trigger value="Demographics">Demographics</Tabs.Trigger>
-        <Tabs.Trigger value="Vic Simulation">Victoria Simulation</Tabs.Trigger>
+        <Tabs.Trigger class="hidden md:block" value="Vic Simulation">Victoria Simulation</Tabs.Trigger>
     </Tabs.List>
 
 <Tabs.Content value="2PP">
@@ -383,11 +382,19 @@
   <div class="m-3">
     <div class="flex flex-col items-center">
         <h2 class="h2">Victorian Election Simulation</h2>
+        <div class="flex gap-3">
+          <button class="px-3 py-1 rounded border 
+         border-transparent hover:border-primary-500
+         focus:outline-none focus:ring-2 focus:ring-primary-500" on:click={prev} disabled={index === 0}>Back</button>
+          <button class="px-3 py-1 rounded border 
+         border-transparent hover:border-primary-500
+         focus:outline-none focus:ring-2 focus:ring-primary-500" on:click={next} disabled={index === polls.length - 1}>Forward</button>
+        </div>
     </div>
-
-    <Summary results={results} />
+    
+    <Summary results={currentPoll} />
     <SimulationLineChart
-    simulations={results.visual_simulations}
+    simulations={currentPoll.visual_simulations}
     totalSeats={88} />
   </div>
    <div class="flex justify-center mt-10">

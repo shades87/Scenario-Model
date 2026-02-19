@@ -1,23 +1,10 @@
 <script lang="ts">
   export let results;
 
-  const parties = results.summary.parties;
-  const coalition = results.summary.coalition;
-  const majority = results.summary.majority_threshold;
-  const primaries = results.first_preferences
-
-    const partyColours:Record<string, string> = {
-    ALP: '#d71920',
-    LNP: '#005689',
-    GRN: '#00a651',
-    IND: '#999999',
-    PHON: '#F36D24',
-    KAT: '#E86046',
-    LIB: '#005689',
-    NAT: '#006946',
-    LCA: '#228B22',
-    CA: '#FF5800'
-  };
+  $: parties = results.summary.parties;
+  $: coalition = results.summary.coalition;
+  $: majority = results.summary.majority_threshold;
+  $: primaries = results.first_preferences
 </script>
 <div class="flex flex-col items-center">
   <h3 class="h3">{results.pollster} – {results.date}</h3>
