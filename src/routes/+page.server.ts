@@ -12,7 +12,11 @@ export async function load() {
   });
 
   // Sort by poll date inside JSON
-  polls.sort((a, b) => new Date(a.poll_date) - new Date(b.poll_date));
+  polls.sort(
+  (a, b) =>
+    new Date(a.poll_date).getTime() -
+    new Date(b.poll_date).getTime()
+);
 
   return { polls };
 }
