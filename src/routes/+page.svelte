@@ -8,6 +8,10 @@
   import { Tabs } from '@skeletonlabs/skeleton-svelte';
   import { seatTotals } from '$lib/stores/totalSeats';
   import type { Party } from '$lib/data/types';
+  import Summary from '$lib/components/Summary.svelte';
+  import SimulationLineChart from '$lib/components/SimulationLineChart.svelte';
+
+  import { selectedScenario } from '$lib/stores/scenario';
 
   //export const yearsForward = writable(0); // 0–20 years
   import { writable } from 'svelte/store';
@@ -20,6 +24,24 @@
     publicFunding,
     selectedChamber
   } from '$lib/stores/demographics';
+  
+  export let data;
+
+  let polls = data.polls;
+  let index = polls.length - 1; // start with most recent
+
+  $: currentPoll = polls[index];
+
+  function next() {
+    if (index < polls.length - 1) index++;
+  }
+
+  function prev() {
+    if (index > 0) index--;
+  }
+  
+  
+  
 
   //const chamber = writable<'House' | 'Senate'>('House');
 
@@ -36,6 +58,9 @@
     IND: '#999999',
     PHON: '#F36D24',
     KAT: '#E86046',
+    LIB: '#005689',
+    NAT: '#006946',
+    LCA: '#228B22',
     CA: '#FF5800'
   };
 
@@ -54,14 +79,15 @@
     <Tabs.List class="bg-primary-300 text-white pt-2 pl-2">
         <Tabs.Trigger value="2PP">National 2PP</Tabs.Trigger>
         <Tabs.Trigger value="Demographics">Demographics</Tabs.Trigger>
+        <Tabs.Trigger class="hidden md:block" value="Vic Simulation">Victoria Simulation</Tabs.Trigger>
     </Tabs.List>
 
 <Tabs.Content value="2PP">
     <div class="controls">
   <div class="flex justify-center items-center">
     <label class="flex flex-col items-center">
-      <h1 class="h1 text-center text-black">Australian Federal seat calculator</h1>
-      <h2 class="h2 text-center text-black">
+      <h1 class="h1 text-center">Australian Federal Election Scenarios</h1>
+      <h2 class="h2 text-center">
         National ALP 2pp swing: {(($nationalSwing * 100)).toFixed(1)}%
       </h2>
       <input
@@ -85,7 +111,7 @@
         class="inline-block w-3 h-3 rounded-sm"
         style="background-color: {partyColours[party]}"
       ></span>
-      <span class="font-semibold text-black">{party}</span>
+      <span class="font-semibold">{party}</span>
       <span>
         {count}
         {#if count >= 76}
@@ -95,6 +121,25 @@
     </div>
   {/each}
 </div>
+<div class="flex justify-center items-center">
+  <nav class="btn-group preset-outlined-surface-200-800 flex-col p-2 md:flex-row">
+	
+		<button type="button" class="btn capitalize" class:preset-filled={$selectedScenario === 'baseline'}  on:click={() => selectedScenario.set('baseline')}>
+      Fed 25
+		</button>
+    <button type="button" class="btn capitalize"  class:preset-filled={$selectedScenario === 'coalition-recovery'} on:click={() => selectedScenario.set('coalition-recovery')}>
+      Coalition Recovery
+		</button>
+    <button type="button" class="btn capitalize"  class:preset-filled={$selectedScenario === 'phon-targets'} on:click={() => selectedScenario.set('phon-targets')}>
+      PHON Targets
+		</button>
+    <button type="button" class="btn capitalize"  class:preset-filled={$selectedScenario === 'phon-surge'} on:click={() => selectedScenario.set('phon-surge')}>
+      PHON Surge
+    </button>
+	
+  </nav>
+</div>
+
 <!-- Desktop / large screens -->
 <div class="hidden sm:block">
   <svg
@@ -151,8 +196,13 @@
       <p>This isn't a robust prediction, it's more like a what if scenario</p>
     </li>
     <li>
-      Coalition parties are grouped together as the 'LNP'
-      <br/>Since publishing the site the Coalition has split - will update the calculator eventually if they stay split
+        <p>Coalition Recovery scenario adds 5 2PP to LNP in contests where their opponent is an ALP candidate</p>
+    </li>
+    <li>
+        <p>PHON Target Seats scenario replaces LNP in 25 target seats (where they weren't already in the final 2) identified in Antony Green's blog<a class="text-primary-500" href="https://antonygreen.com.au/one-nations-poll-surge-the-first-25-seats-to-watch/">[1]</a></p>
+    </li>
+    <li>
+      <p>PHON Surge scenario has PHON Target seats and replaces LNP in more rural seats in VIC, QLD and NSW</p>
     </li>
     <li>
       Swing affects contests without an ALP candidate to a lessor degree
@@ -163,8 +213,8 @@
   </ul>
 </article>
 <footer class="flex items-center justify-center">
-		<small class="opacity-60">Danno</small>
-		<small class="opacity-60">{new Date("2025-12-22").toLocaleDateString()}</small>
+		<small class="opacity-60">Danno </small>
+		<small class="opacity-60 ml-3">{new Date("2026-02-09").toLocaleDateString("en-au")}</small>
 	</footer>
 </div>
 </div>
@@ -222,7 +272,9 @@
   <div class="w-full max-w-lg m-1">
     {#if $selectedChamber === 'House'}
       {#each Object.entries($projectedFpHouse) as [party, share]}
-  <div class="flex items-center gap-2 mb-1 ml-2 mr-2">
+      {#if share > 0}
+      <div class="flex items-center gap-2 mb-1 ml-2 mr-2">
+    
     <span class="w-12 text-sm">{party}</span>
 
     <div class="flex-1 bg-surface-200 rounded-sm h-4">
@@ -239,10 +291,12 @@
       {(share * 100).toFixed(1)}%
     </span>
   </div>
+  {/if}
 {/each}
     {:else}
       {#each Object.entries($projectedFpSenate) as [party, share]}
-  <div class="flex items-center gap-2 mb-1 ml-2 mr-2">
+      {#if share > 0}
+      <div class="flex items-center gap-2 mb-1 ml-2 mr-2">
     <span class="w-12 text-sm">{party}</span>
 
     <div class="flex-1 bg-surface-200 rounded-sm h-4">
@@ -259,6 +313,7 @@
       {(share * 100).toFixed(1)}%
     </span>
   </div>
+  {/if}
 {/each}
     {/if}
   </div>
@@ -303,9 +358,6 @@
       <p>This doesn't yet match how the public funding rules of parties really works</p>
     </li>
     <li>
-      Vote % are placeholders before I put correct figures in for each party
-    </li>
-    <li>
       This assumes a population growth of 1.5% per year
     </li>
     <li>
@@ -313,14 +365,66 @@
     </li>
     <li>
       There's a large jump from 0 years to 1 year. This is because at the last election each first preference is $3.5 public funding for that party </li> 
-      <li>
       From the next election onwards each first preference is $5 of public funding
+    <li>
+      A bug seems to be applying generation change at year 0 - % of FP votes at 0 years should be the same as the election
     </li>
   </ul>
 </article>
 <footer class="flex items-center justify-center">
 		<small class="opacity-60">Danno</small>
-		<small class="opacity-60">{new Date("2025-12-22").toLocaleDateString()}</small>
+		<small class="opacity-60 ml-3">{new Date("2026-01-26").toLocaleDateString("en-au")}</small>
+	</footer>
+</div>
+</div>
+</Tabs.Content>
+<Tabs.Content value="Vic Simulation">
+  <div class="m-3">
+    <div class="flex flex-col items-center">
+        <h2 class="h2">Victorian Election Simulation</h2>
+        <div class="flex gap-3">
+          <button class="px-3 py-1 rounded border 
+         border-transparent hover:border-primary-500
+         focus:outline-none focus:ring-2 focus:ring-primary-500" on:click={prev} disabled={index === 0}>Back</button>
+          <button class="px-3 py-1 rounded border 
+         border-transparent hover:border-primary-500
+         focus:outline-none focus:ring-2 focus:ring-primary-500" on:click={next} disabled={index === polls.length - 1}>Forward</button>
+        </div>
+    </div>
+    
+    <Summary results={currentPoll} />
+    <SimulationLineChart
+    simulations={currentPoll.visual_simulations}
+    totalSeats={88} />
+  </div>
+   <div class="flex justify-center mt-10">
+<div class="card m-1 p-4 preset-filled-surface-100-900 border-[1px] border-surface-200-800 max-w-md divide-y overflow-hidden">
+<header class="pb-3">
+  <h2 class="h2">What the heck is going on here?</h2>
+</header>
+<article class="py-3">
+ <p>This is a very simple simulation of the upcoming Victorian State election</p>
+  <ul class="ml-5 list-disc">
+    <li>
+      <p>The election is simulated 50K times adding in random polling errors</p>
+    </li>
+    <li>
+      100 simulated elections are shown on a line graph, sorted from highest incumbant seats to least incumbant seats
+    </li>
+    <li>
+      Preference flows are correct for the 2 major parties, adjustments are needed for minor parties and others
+    </li>
+    <li>
+      This model is limited and likely under predicting crossbench seats
+    </li>
+    <li>
+      Seemingly paradoxically I think that it's also overestimating the chance of a hung parliament
+    </li>
+  </ul>
+</article>
+<footer class="flex items-center justify-center">
+		<small class="opacity-60">Danno</small>
+		<small class="opacity-60 ml-3">{new Date("2026-02-17").toLocaleDateString("en-au")}</small>
 	</footer>
 </div>
 </div>

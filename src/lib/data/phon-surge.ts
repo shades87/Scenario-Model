@@ -1,53 +1,7 @@
-export type Party = 'ALP' | 'LNP' | 'GRN' | 'IND' | 'PHON' | 'KAT' | 'CA';
+import type { Seat } from "./electorates"
 
-export type Seat = {
-  id: string; //didn't think this through, supposed to be the first 3 letters of division... some have same id
-  name: string;//name of electorate
-  state: string;// State or Territory
-  //maybe should add incumbent if I want to show if the seat is gained or retained
-  
-  q: number; //hex coordinate - manually arranged
-  r: number; //hex coordinate
-
-  tcp: {
-    partyA: Party;
-    partyB: Party;
-    a: number; // vote share for partyA 56 percent == .56
-    b: number;//vote share for partyB
-  };
-
-  // how sensitive this seat is to a national ALP swing
-  alpSwingFactor: number;
-
-  //was originally going to try and add a way to predict seat change/2PP based on generational change over time
-  //numbers in seats below aren't correct -- placeholders
-  //will update at a later date if I include this
-  generations: {
-  GenZ: number;
-  Millennial: number;
-  GenX: number;
-  Boomer: number;
-  };
-};
-
-/*
-ALP Swing Factor Benchmarks
-
-Safe ALP vs LNP	0.2 – 0.4
-Marginal ALP vs LNP	0.8 – 1.2
-Safe LNP vs ALP	0.3 – 0.6
-Teal IND vs LNP	0.4 – 0.7
-Rural IND vs LNP	0.1 – 0.3
-GRN vs LNP	0.6 – 0.9
-GRN vs ALP	0.5 – 0.8 */
-
-
-//Electorates
-//2PP is correct
-//Gen info is not
-
-export const electorates: Seat[] = [
-    //WA
+export const phonSurgeSeats: Seat[] = [
+//WA
   {
     id: 'bra',
     name: 'Brand',
@@ -98,7 +52,7 @@ export const electorates: Seat[] = [
     r: 1,
     tcp: {
       partyA: 'ALP',
-      partyB: 'LNP',
+      partyB: 'PHON',
       a: 0.657,
       b: 0.343
     },
@@ -118,7 +72,7 @@ export const electorates: Seat[] = [
     q: 1,
     r: 0,
     tcp: {
-        partyA: 'LNP',
+        partyA: 'PHON',
         partyB: 'ALP',
         a: .566,
         b: .434
@@ -441,7 +395,7 @@ export const electorates: Seat[] = [
             q: 2,
             r: 3,
             tcp: {
-                partyA: 'LNP',
+                partyA: 'PHON',
                 partyB: 'ALP',
                 a: .63,
                 b: .37
@@ -805,7 +759,7 @@ export const electorates: Seat[] = [
             r: 6,
             tcp: {
                 partyA: 'IND',
-                partyB: 'LNP',
+                partyB: 'PHON',
                 a: .568,
                 b: .432
             },
@@ -864,7 +818,7 @@ export const electorates: Seat[] = [
             q: 5,
             r: 7,
             tcp: {
-                partyA: 'LNP',
+                partyA: 'PHON',
                 partyB: 'IND',
                 a: .525,
                 b: .475
@@ -1064,7 +1018,7 @@ export const electorates: Seat[] = [
             q: 1,
             r: 8,
             tcp: {
-                partyA: 'LNP',
+                partyA: 'PHON',
                 partyB: 'ALP',
                 a: .581,
                 b: .419
@@ -1124,7 +1078,7 @@ export const electorates: Seat[] = [
             q: 2,
             r: 9,
             tcp: {
-                partyA: 'LNP',
+                partyA: 'PHON',
                 partyB: 'ALP',
                 a: .528,
                 b: .472
@@ -1144,7 +1098,7 @@ export const electorates: Seat[] = [
             q: 3,
             r: 9,
             tcp: {
-                partyA: 'LNP',
+                partyA: 'PHON',
                 partyB: 'ALP',
                 a: .598,
                 b: .402
@@ -1244,7 +1198,7 @@ export const electorates: Seat[] = [
             q: 8,
             r: 4,
             tcp: {
-                partyA: 'LNP',
+                partyA: 'PHON',
                 partyB: 'ALP',
                 a: .538,
                 b: .462
@@ -1284,7 +1238,7 @@ export const electorates: Seat[] = [
             q: 8,
             r: 6,
             tcp: {
-                partyA: 'LNP',
+                partyA: 'PHON',
                 partyB: 'ALP',
                 a: .671,
                 b: .329
@@ -1304,7 +1258,7 @@ export const electorates: Seat[] = [
             q: 8,
             r: 7,
             tcp: {
-                partyA: 'LNP',
+                partyA: 'PHON',
                 partyB: 'ALP',
                 a: .593,
                 b: .407
@@ -1324,7 +1278,7 @@ export const electorates: Seat[] = [
             q: 8,
             r: 8,
             tcp: {
-                partyA: 'LNP',
+                partyA: 'PHON',
                 partyB: 'ALP',
                 a: .63,
                 b: .37
@@ -1424,7 +1378,7 @@ export const electorates: Seat[] = [
             q: 10,
             r: 5,
             tcp: {
-                partyA: 'LNP',
+                partyA: 'PHON',
                 partyB: 'ALP',
                 a: .62,
                 b: .38
@@ -1625,7 +1579,7 @@ export const electorates: Seat[] = [
             r: 6,
             tcp: {
                 partyA: 'ALP',
-                partyB: 'LNP',
+                partyB: 'PHON',
                 a: .572,
                 b: .428
             },
@@ -1944,7 +1898,7 @@ export const electorates: Seat[] = [
             q: 13,
             r: 1,
             tcp: {
-                partyA: 'LNP',
+                partyA: 'PHON',
                 partyB: 'IND',
                 a: .523,
                 b: .477
@@ -2004,7 +1958,7 @@ export const electorates: Seat[] = [
             q: 14,
             r: 0,
             tcp: {
-                partyA: 'LNP',
+                partyA: 'PHON',
                 partyB: 'ALP',
                 a: .694,
                 b: .306
@@ -2264,7 +2218,7 @@ export const electorates: Seat[] = [
             q: 16,
             r: 2,
             tcp: {
-                partyA: 'LNP',
+                partyA: 'PHON',
                 partyB: 'ALP',
                 a: .69,
                 b: .31
@@ -2385,7 +2339,7 @@ export const electorates: Seat[] = [
             r: 5,
             tcp: {
                 partyA: 'ALP',
-                partyB: 'LNP',
+                partyB: 'PHON',
                 a: .356,
                 b: .644
             },
@@ -2467,7 +2421,7 @@ export const electorates: Seat[] = [
             r: 7,
             tcp: {
                 partyA: 'ALP',
-                partyB: 'LNP',
+                partyB: 'PHON',
                 a: .557,
                 b: .443
             },
@@ -2506,7 +2460,7 @@ export const electorates: Seat[] = [
             q: 13,
             r: 8,
             tcp: {
-                partyA: 'LNP',
+                partyA: 'PHON',
                 partyB: 'ALP',
                 a: .524,
                 b: .476
@@ -2546,7 +2500,7 @@ export const electorates: Seat[] = [
             q: 12,
             r: 8,
             tcp: {
-                partyA: 'LNP',
+                partyA: 'PHON',
                 partyB: 'ALP',
                 a: .558,
                 b: .442
@@ -2567,7 +2521,7 @@ export const electorates: Seat[] = [
             r: 9,
             tcp: {
                 partyA: 'ALP',
-                partyB: 'LNP',
+                partyB: 'PHON',
                 a: .382,
                 b: .618
             },
@@ -2607,7 +2561,7 @@ export const electorates: Seat[] = [
             r: 9,
             tcp: {
                 partyA: 'ALP',
-                partyB: 'LNP',
+                partyB: 'PHON',
                 a: .431,
                 b: .569
             },
@@ -2627,7 +2581,7 @@ export const electorates: Seat[] = [
             r: 9,
             tcp: {
                 partyA: 'ALP',
-                partyB: 'LNP',
+                partyB: 'PHON',
                 a: .468,
                 b: .532
             },
@@ -2666,7 +2620,7 @@ export const electorates: Seat[] = [
             q: 14,
             r: 8,
             tcp: {
-                partyA: 'LNP',
+                partyA: 'PHON',
                 partyB: 'ALP',
                 a: .602,
                 b: .392
@@ -2687,7 +2641,7 @@ export const electorates: Seat[] = [
             r: 9,
             tcp: {
                 partyA: 'ALP',
-                partyB: 'LNP',
+                partyB: 'PHON',
                 a: .518,
                 b: .482
             },
@@ -2726,7 +2680,7 @@ export const electorates: Seat[] = [
             q: 15,
             r: 8,
             tcp: {
-                partyA: 'LNP',
+                partyA: 'PHON',
                 partyB: 'IND',
                 a: .557,
                 b: .443
@@ -2766,7 +2720,7 @@ export const electorates: Seat[] = [
             q: 16,
             r: 7,
             tcp: {
-                partyA: 'LNP',
+                partyA: 'PHON',
                 partyB: 'ALP',
                 a: .563,
                 b: .437
@@ -2807,7 +2761,7 @@ export const electorates: Seat[] = [
             r: 9,
             tcp: {
                 partyA: 'ALP',
-                partyB: 'LNP',
+                partyB: 'PHON',
                 a: .56,
                 b: .44
             },
@@ -2847,7 +2801,7 @@ export const electorates: Seat[] = [
             q: 17,
             r: 8,
             tcp: {
-                partyA: 'LNP',
+                partyA: 'PHON',
                 partyB: 'ALP',
                 a: .501,
                 b: .499
@@ -2867,8 +2821,8 @@ export const electorates: Seat[] = [
             q: 17,
             r: 9,
             tcp: {
-                partyA: 'LNP',
-                partyB: 'PHON',
+                partyA: 'PHON',
+                partyB: 'LNP',
                 a: .701,
                 b: .299
             },
@@ -2907,7 +2861,7 @@ export const electorates: Seat[] = [
             q: 18,
             r: 5,
             tcp: {
-                partyA: 'LNP',
+                partyA: 'PHON',
                 partyB: 'ALP',
                 a: .588,
                 b: .412
@@ -3027,7 +2981,7 @@ export const electorates: Seat[] = [
         q: 18,
         r: 4,
         tcp: {
-            partyA: 'LNP',
+            partyA: 'PHON',
             partyB: 'ALP',
             a: .576,
             b: .424
@@ -3048,7 +3002,7 @@ export const electorates: Seat[] = [
         r: 3,
         tcp: {
             partyA: 'ALP',
-            partyB: 'LNP',
+            partyB: 'PHON',
             a: .42,
             b: .58
         },
@@ -3060,4 +3014,4 @@ export const electorates: Seat[] = [
                 Boomer: 0.25
             }
     }
-];
+]
