@@ -93,6 +93,7 @@
 },
           legend: { position: 'bottom' }
         },
+        
         scales: {
           x: {
             title: {
@@ -110,7 +111,28 @@
             ticks: { stepSize: 10 }
           }
         }
-      }
+      },
+      plugins: [
+  {
+    id: 'majorityLine',
+    afterDraw: (chart) => {
+      const { ctx, scales } = chart;
+      const yScale = scales.y;
+
+      const majority = Math.floor(totalSeats / 2) + 1;
+      const y = yScale.getPixelForValue(majority);
+
+      ctx.save();
+      ctx.beginPath();
+      ctx.moveTo(scales.x.left, y);
+      ctx.lineTo(scales.x.right, y);
+      ctx.lineWidth = 1.5;
+      ctx.strokeStyle = 'black';
+      ctx.stroke();
+      ctx.restore();
+    }
+  }
+]
     });
   });
 </script>

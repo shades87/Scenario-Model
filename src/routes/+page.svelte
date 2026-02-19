@@ -8,7 +8,7 @@
   import { Tabs } from '@skeletonlabs/skeleton-svelte';
   import { seatTotals } from '$lib/stores/totalSeats';
   import type { Party } from '$lib/data/types';
-  import results from '$lib/data/monte_carlos_results/2026-02-18.json';
+  import results from '$lib/data/monte_carlos_results/2026-02-19.json';
   import Summary from '$lib/components/Summary.svelte';
   import SimulationLineChart from '$lib/components/SimulationLineChart.svelte';
 
@@ -25,6 +25,24 @@
     publicFunding,
     selectedChamber
   } from '$lib/stores/demographics';
+  
+  export let data;
+
+  let polls = data.polls;
+  let index = polls.length - 1; // start with most recent
+
+  $: currentPoll = polls[index];
+
+  function next() {
+    if (index < polls.length - 1) index++;
+  }
+
+  function prev() {
+    if (index > 0) index--;
+  }
+  
+  
+  
 
   //const chamber = writable<'House' | 'Senate'>('House');
 
@@ -366,7 +384,8 @@
     <div class="flex flex-col items-center">
         <h2 class="h2">Victorian Election Simulation</h2>
     </div>
-    <Summary {results} />
+
+    <Summary results={results} />
     <SimulationLineChart
     simulations={results.visual_simulations}
     totalSeats={88} />
