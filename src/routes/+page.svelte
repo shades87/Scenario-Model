@@ -10,6 +10,7 @@
   import type { Party } from '$lib/data/types';
   import Summary from '$lib/components/Summary.svelte';
   import SimulationLineChart from '$lib/components/SimulationLineChart.svelte';
+  import results from '$lib/data/monte_carlos_results/2026-02-19.json'
 
   import { selectedScenario } from '$lib/stores/scenario';
 
@@ -24,23 +25,7 @@
     publicFunding,
     selectedChamber
   } from '$lib/stores/demographics';
-  
-  export let data;
 
-  let polls = data.polls;
-  let index = polls.length - 1; // start with most recent
-
-  $: currentPoll = polls[index];
-
-  function next() {
-    if (index < polls.length - 1) index++;
-  }
-
-  function prev() {
-    if (index > 0) index--;
-  }
-  
-  
   
 
   //const chamber = writable<'House' | 'Senate'>('House');
@@ -382,19 +367,11 @@
   <div class="m-3">
     <div class="flex flex-col items-center">
         <h2 class="h2">Victorian Election Simulation</h2>
-        <div class="flex gap-3">
-          <button class="px-3 py-1 rounded border 
-         border-transparent hover:border-primary-500
-         focus:outline-none focus:ring-2 focus:ring-primary-500" on:click={prev} disabled={index === 0}>Back</button>
-          <button class="px-3 py-1 rounded border 
-         border-transparent hover:border-primary-500
-         focus:outline-none focus:ring-2 focus:ring-primary-500" on:click={next} disabled={index === polls.length - 1}>Forward</button>
-        </div>
     </div>
     
-    <Summary results={currentPoll} />
+    <Summary results={results} />
     <SimulationLineChart
-    simulations={currentPoll.visual_simulations}
+    simulations={results.visual_simulations}
     totalSeats={88} />
   </div>
    <div class="flex justify-center mt-10">
