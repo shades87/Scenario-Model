@@ -19,8 +19,6 @@ export async function load({ params }) {
   if (!stateNames[state]) {
     throw error(404, 'State not found');
   }
-
-  console.log(state)
   const dir = path.resolve(`src/lib/data/monte_carlos_results/${state}`);
 
   if (!fs.existsSync(dir)) {
