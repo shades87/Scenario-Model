@@ -38,11 +38,13 @@
 						
 			
 		</AppBar.Headline>
+		<!-- 
 		<AppBar.Trail>
 			<button type="button" class="btn-icon hover:preset-tonal"><SearchIcon class="size-6" /></button>
 			<button type="button" class="btn-icon hover:preset-tonal"><CalendarIcon class="size-6" /></button>
 			<button type="button" class="btn-icon hover:preset-tonal"><CircleUserIcon class="size-6" /></button>
 		</AppBar.Trail>
+		-->
 	</AppBar.Toolbar>
 </AppBar>
 {@render children()}
