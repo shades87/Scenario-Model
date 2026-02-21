@@ -1,9 +1,9 @@
 <script lang="ts">
   import Summary from '$lib/components/Summary.svelte';
   import SimulationLineChart from '$lib/components/SimulationLineChart.svelte';
-  import results from '$lib/data/monte_carlos_results/2026-02-19.json'
+  import results from '$lib/data/monte_carlos_results/vic/2026-02-19.json'
 
-
+  export let data;
   //export const yearsForward = writable(0); // 0–20 years
 
   
@@ -15,15 +15,23 @@
 
 </script>
 <style>
- h2 {
+ h1, h2 {
     font-family: 'Playfair', normal;
  }
 </style>
-
+<div class="flex flex-col items-center mt-3">
+  <nav class="btn-group  border-1 border-primary-300 flex-col p-2 md:flex-row">
+    <a href="/simulation/vic"><button type="button" class="btn border-1 border-primary-300 hover:bg-primary-300 hover:text-white">VIC</button></a>
+    <a href="/simulation/sa"><button type="button" class="btn border-1 border-primary-300 hover:bg-primary-300 hover:text-white">SA</button></a>
+  </nav>     
+</div>
 <div class="m-3">
-    <div class="flex flex-col items-center">
-        <h2 class="h2">Victorian Election Simulation</h2>
-    </div>
+  <div class="flex flex-col items-center">
+    <h1 class="h1">{data.stateName} Election Simulation</h1>
+  </div>
+    
+
+
     
     <Summary results={results} />
     <SimulationLineChart

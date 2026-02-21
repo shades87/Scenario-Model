@@ -32,7 +32,7 @@
 		<AppBar.Lead>
 			<a href="/"><button type="button" class="btn border-1 border-white hover:bg-white hover:text-primary-900">Fed 25</button></a>
 			<a href="/demographics"><button type="button" class="btn border-1 border-white hover:bg-white hover:text-primary-900">Demographics</button></a>
-			<a href="/simulation"><button type="button" class="btn border-1 border-white hover:bg-white hover:text-primary-900">FP Simulations</button></a>
+			<a href="/simulation/vic"><button type="button" class="btn border-1 border-white hover:bg-white hover:text-primary-900">FP Simulations</button></a>
 		</AppBar.Lead>
 		<AppBar.Headline>
 						
