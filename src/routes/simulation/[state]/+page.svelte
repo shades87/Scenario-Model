@@ -52,25 +52,25 @@
 <div class="m-3">
   <div class="flex flex-col items-center">
     <h1 class="h1">{data.stateName} Election Simulation</h1>
+
   </div>
-   <div class="mb-4 flex gap-2">
-  <button on:click={prev} disabled={index === 0}>
-    ← Older
-  </button>
-
-  <button on:click={next} disabled={index === polls.length - 1}>
-    Newer →
-  </button>
-</div> 
-
 
     
     <Summary results={currentPoll} />
     <SimulationLineChart
     simulations={currentPoll.visual_simulations}
     totalSeats={total[data.stateCode]} />
+        <div class="flex flex-row gap-2 justify-center">
+        <button class="btn border-1 border-primary-300" on:click={prev} disabled={index === 0}>
+    ← Older
+  </button>
+
+  <button class="btn border-1 border-primary-300" on:click={next} disabled={index === polls.length - 1}>
+    Newer →
+  </button>
+    </div>
   </div>
-   <div class="flex justify-center mt-10">
+   <div class="flex justify-center mt-3">
 <div class="card m-1 p-4 preset-filled-surface-100-900 border-[1px] border-surface-200-800 max-w-md divide-y overflow-hidden">
 <header class="pb-3">
   <h2 class="h2">What the heck is going on here?</h2>
