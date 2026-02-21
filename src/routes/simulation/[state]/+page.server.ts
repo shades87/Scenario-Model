@@ -2,6 +2,8 @@ import fs from 'fs';
 import path from 'path';
 import { error } from '@sveltejs/kit';
 
+const DATA_ROOT = process.env.DATA_ROOT || 'src/lib/data'; // fallback for dev
+
 const stateNames: Record<string, string> = {
   vic: 'Victoria',
   sa: 'South Australia',
@@ -13,13 +15,19 @@ const stateNames: Record<string, string> = {
   qld: 'Queensland'
 };
 
+
+
+
 export async function load({ params }) {
   const state = params.state.toLowerCase();
 
   if (!stateNames[state]) {
     throw error(404, 'State not found');
   }
-  const dir = path.resolve(`src/lib/data/monte_carlos_results/${state}`);
+
+  const dir = path.resolve(`/var/www/demographics.dev/data/monte_carlos_results/${state}`); //change this to /lib/data/monte_carlos_results/ to run locally
+
+
 
   if (!fs.existsSync(dir)) {
     throw error(404, 'No data for this state');

@@ -61,11 +61,11 @@
     simulations={currentPoll.visual_simulations}
     totalSeats={total[data.stateCode]} />
         <div class="flex flex-row gap-2 justify-center">
-        <button class="btn border-1 border-primary-300" on:click={prev} disabled={index === 0}>
+        <button class="btn border-1 border-primary-300 hover:bg-primary-300 hover:text-white" on:click={prev} disabled={index === 0}>
     ← Older
   </button>
 
-  <button class="btn border-1 border-primary-300" on:click={next} disabled={index === polls.length - 1}>
+  <button class="btn border-1 border-primary-300 hover:bg-primary-300 hover:text-white" on:click={next} disabled={index === polls.length - 1}>
     Newer →
   </button>
     </div>
