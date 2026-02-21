@@ -68,7 +68,7 @@
         data: sorted.map((sim, i) => ({ x: i + 1, y: sim.Other }))
       }
     ];
-
+    chart.options.scales!.y!.max = totalSeats;
     chart.update();
   }
 

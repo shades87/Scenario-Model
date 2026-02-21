@@ -23,8 +23,6 @@
 
   //type Party = 'ALP' | 'LNP' | 'GRN' | 'IND' | 'PHON' | 'KAT' | 'CA';
 
-  const HEX_SIZE = 20;
-
   const partyColours:Record<string, string> = {
     ALP: '#d71920',
     LNP: '#005689',

@@ -1,9 +1,33 @@
 <script lang="ts">
   import Summary from '$lib/components/Summary.svelte';
   import SimulationLineChart from '$lib/components/SimulationLineChart.svelte';
-  import results from '$lib/data/monte_carlos_results/vic/2026-02-19.json'
 
   export let data;
+
+  let polls = data.polls;
+
+   $: if (data) {
+    polls = data.polls;
+    index = polls.length - 1; // latest poll
+  }
+
+  const total: Record<string, number> = {
+    vic: 88,
+    sa:  48
+    }
+
+  // Start at latest poll
+  let index = polls.length - 1;
+
+  $: currentPoll = polls[index];
+
+  function next() {
+    if (index < polls.length - 1) index++;
+  }
+
+  function prev() {
+    if (index > 0) index--;
+  }
   //export const yearsForward = writable(0); // 0–20 years
 
   
@@ -21,22 +45,30 @@
 </style>
 <div class="flex flex-col items-center mt-3">
   <nav class="btn-group  border-1 border-primary-300 flex-col p-2 md:flex-row">
-    <a href="/simulation/vic"><button type="button" class="btn border-1 border-primary-300 hover:bg-primary-300 hover:text-white">VIC</button></a>
-    <a href="/simulation/sa"><button type="button" class="btn border-1 border-primary-300 hover:bg-primary-300 hover:text-white">SA</button></a>
+    <a href="/simulation/vic"><button type="button" class="btn border-1 border-primary-300 hover:bg-primary-300 hover:text-white" class:text-white={data.stateCode==='vic'} class:bg-primary-300={data.stateCode==='vic'}>VIC</button></a>
+    <a href="/simulation/sa"><button type="button" class="btn border-1 border-primary-300 hover:bg-primary-300 hover:text-white" class:text-white={data.stateCode==='sa'} class:bg-primary-300={data.stateCode==='sa'}>SA</button></a>
   </nav>     
 </div>
 <div class="m-3">
   <div class="flex flex-col items-center">
     <h1 class="h1">{data.stateName} Election Simulation</h1>
   </div>
-    
+   <div class="mb-4 flex gap-2">
+  <button on:click={prev} disabled={index === 0}>
+    ← Older
+  </button>
+
+  <button on:click={next} disabled={index === polls.length - 1}>
+    Newer →
+  </button>
+</div> 
 
 
     
-    <Summary results={results} />
+    <Summary results={currentPoll} />
     <SimulationLineChart
-    simulations={results.visual_simulations}
-    totalSeats={88} />
+    simulations={currentPoll.visual_simulations}
+    totalSeats={total[data.stateCode]} />
   </div>
    <div class="flex justify-center mt-10">
 <div class="card m-1 p-4 preset-filled-surface-100-900 border-[1px] border-surface-200-800 max-w-md divide-y overflow-hidden">
