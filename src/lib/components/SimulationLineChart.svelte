@@ -2,6 +2,8 @@
   import { onMount } from 'svelte';
   import Chart from 'chart.js/auto';
 
+  let sortedSimulations: any[] = [];
+
    type Simulation = {
     ALP: number;
     Liberal: number;
@@ -11,8 +13,11 @@
     Other: number;
   };
 
+  
   export let simulations:Simulation[];
   export let totalSeats = 88;
+
+  
 
   let canvas: HTMLCanvasElement;
   let chart: Chart;
@@ -30,6 +35,12 @@
       const marginB = b.ALP - coalitionSeats(b);
       return marginB - marginA;
     });
+
+    sortedSimulations = [...simulations].sort((a, b) => {
+    const marginA = a.ALP - coalitionSeats(a);
+    const marginB = b.ALP - coalitionSeats(b);
+    return marginB - marginA;
+  });
 
     chart.data.datasets = [
       {
@@ -89,7 +100,7 @@
               label: () => '',
               footer: (tooltipItems) => {
                 const simIndex = tooltipItems[0].dataIndex;
-                const sim = simulations[simIndex];
+                const sim = sortedSimulations[simIndex];
                 return [
                   `ALP: ${sim.ALP}`,
                   `Coalition: ${coalitionSeats(sim)}`,
