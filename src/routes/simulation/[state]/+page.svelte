@@ -1,7 +1,7 @@
 <script lang="ts">
   import Summary from '$lib/components/Summary.svelte';
   import SimulationLineChart from '$lib/components/SimulationLineChart.svelte';
-
+  import Spinner from '$lib/components/Spinner.svelte';
   export let data;
 
   let polls = data.polls;
@@ -43,6 +43,10 @@
     font-family: 'Playfair', normal;
  }
 </style>
+{#if !data}
+  <Spinner/>
+{:else}
+
 <div class="flex flex-col items-center mt-3">
   <nav class="btn-group  border-1 border-primary-300 flex-col p-2 md:flex-row">
     <a href="/simulation/vic"><button type="button" class="btn border-1 border-primary-300 hover:bg-primary-300 hover:text-white" class:text-white={data.stateCode==='vic'} class:bg-primary-300={data.stateCode==='vic'}>VIC</button></a>
@@ -111,3 +115,4 @@
 	</footer>
 </div>
 </div>
+{/if}
