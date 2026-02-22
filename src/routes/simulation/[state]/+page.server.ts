@@ -1,8 +1,10 @@
 import fs from 'fs';
 import path from 'path';
 import { error } from '@sveltejs/kit';
+import { env } from '$env/dynamic/private';
 
-const DATA_ROOT = process.env.DATA_ROOT || 'src/lib/data'; // fallback for dev
+const DATA_ROOT = env.DATA_ROOT;
+//const DATA_ROOT = process.env.DATA_ROOT || 'src/lib/data'; // fallback for dev
 
 const stateNames: Record<string, string> = {
   vic: 'Victoria',
@@ -25,7 +27,7 @@ export async function load({ params }) {
     throw error(404, 'State not found');
   }
 
-  const dir = path.resolve(`/var/www/demographics.dev/data/monte_carlos_results/${state}`); //change this to /lib/data/monte_carlos_results/ to run locally
+  const dir = path.resolve(`${DATA_ROOT}/${state}`); //change this to /lib/data/monte_carlos_results/ to run locally
 
 
 
