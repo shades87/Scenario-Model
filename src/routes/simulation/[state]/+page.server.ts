@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { error } from '@sveltejs/kit';
 
-const DATA_ROOT = process.env.DATA_ROOT || 'src/lib/data'; // fallback for dev
+//const DATA_ROOT = process.env.DATA_ROOT || 'src/lib/data'; // fallback for dev
 
 const stateNames: Record<string, string> = {
   vic: 'Victoria',

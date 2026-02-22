@@ -1,7 +1,7 @@
 <script lang="ts">
   import Summary from '$lib/components/Summary.svelte';
   import SimulationLineChart from '$lib/components/SimulationLineChart.svelte';
-
+  import Spinner from '$lib/components/Spinner.svelte';
   export let data;
 
   let polls = data.polls;
@@ -43,6 +43,10 @@
     font-family: 'Playfair', normal;
  }
 </style>
+{#if !data}
+  <Spinner/>
+{:else}
+
 <div class="flex flex-col items-center mt-3">
   <nav class="btn-group  border-1 border-primary-300 flex-col p-2 md:flex-row">
     <a href="/simulation/vic"><button type="button" class="btn border-1 border-primary-300 hover:bg-primary-300 hover:text-white" class:text-white={data.stateCode==='vic'} class:bg-primary-300={data.stateCode==='vic'}>VIC</button></a>
@@ -81,7 +85,7 @@
     </div>
   </div>
    <div class="flex justify-center mt-3">
-<div class="card m-1 mb-15 sm:mb-1 p-4 preset-filled-surface-100-900 border-[1px] border-surface-200-800 max-w-md divide-y overflow-hidden">
+<div class="card m-1 mb-17 sm:mb-1 p-4 preset-filled-surface-100-900 border-[1px] border-surface-200-800 max-w-md divide-y overflow-hidden">
 <header class="pb-3">
   <h2 class="h2">What the heck is going on here?</h2>
 </header>
@@ -111,3 +115,4 @@
 	</footer>
 </div>
 </div>
+{/if}

@@ -146,7 +146,7 @@
   </svg>
 </div> 
 
-<div class="flex justify-center mb-10">
+<div class="flex justify-center mb-17">
 <div class="card m-1 p-4 preset-filled-surface-100-900 border-[1px] border-surface-200-800 max-w-md divide-y overflow-hidden">
 <header class="pb-3">
   <h2 class="h2">What the heck is going on here?</h2>
