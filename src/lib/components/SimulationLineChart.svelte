@@ -2,6 +2,8 @@
   import { onMount } from 'svelte';
   import Chart from 'chart.js/auto';
 
+  let sortedSimulations: any[] = [];
+
    type Simulation = {
     ALP: number;
     Liberal: number;
@@ -11,8 +13,11 @@
     Other: number;
   };
 
+  
   export let simulations:Simulation[];
   export let totalSeats = 88;
+  export let aspect = 5;
+  
 
   let canvas: HTMLCanvasElement;
   let chart: Chart;
@@ -30,6 +35,12 @@
       const marginB = b.ALP - coalitionSeats(b);
       return marginB - marginA;
     });
+
+    sortedSimulations = [...simulations].sort((a, b) => {
+    const marginA = a.ALP - coalitionSeats(a);
+    const marginB = b.ALP - coalitionSeats(b);
+    return marginB - marginA;
+  });
 
     chart.data.datasets = [
       {
@@ -68,7 +79,7 @@
         data: sorted.map((sim, i) => ({ x: i + 1, y: sim.Other }))
       }
     ];
-
+    chart.options.scales!.y!.max = totalSeats;
     chart.update();
   }
 
@@ -79,7 +90,7 @@
       options: {
         responsive: true,
         maintainAspectRatio: true,
-        aspectRatio: 5,
+        aspectRatio: aspect,
         showLine: true,
         plugins: {
           tooltip: {
@@ -89,7 +100,7 @@
               label: () => '',
               footer: (tooltipItems) => {
                 const simIndex = tooltipItems[0].dataIndex;
-                const sim = simulations[simIndex];
+                const sim = sortedSimulations[simIndex];
                 return [
                   `ALP: ${sim.ALP}`,
                   `Coalition: ${coalitionSeats(sim)}`,
@@ -145,4 +156,4 @@
   }
 </script>
 
-<canvas bind:this={canvas} height="50"></canvas>
+<canvas bind:this={canvas} height={50}></canvas>

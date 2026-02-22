@@ -2,9 +2,9 @@
 	import './layout.css';
 	
 	import favicon from '$lib/assets/favicon.svg';
-
+	import { Navigation } from '@skeletonlabs/skeleton-svelte';
 	let { children } = $props();
-    import { CalendarIcon, CircleUserIcon, MenuIcon, SearchIcon } from 'lucide-svelte';
+    //import { CalendarIcon, CircleUserIcon, MenuIcon, SearchIcon } from 'lucide-svelte';
 	import { AppBar } from '@skeletonlabs/skeleton-svelte';
 </script>
 <style>
@@ -27,12 +27,12 @@
 <svelte:head><link rel="icon" href={favicon} /></svelte:head>
 
 
-<AppBar class="bg-primary-300 text-white">
+<AppBar class="bg-primary-300 text-white hidden sm:block">
 	<AppBar.Toolbar class="grid-cols-[auto_1fr_auto]">
 		<AppBar.Lead>
 			<a href="/"><button type="button" class="btn border-1 border-white hover:bg-white hover:text-primary-900">Fed 25</button></a>
 			<a href="/demographics"><button type="button" class="btn border-1 border-white hover:bg-white hover:text-primary-900">Demographics</button></a>
-			<a href="/simulation"><button type="button" class="btn border-1 border-white hover:bg-white hover:text-primary-900">FP Simulations</button></a>
+			<a href="/simulation/vic"><button type="button" class="btn border-1 border-white hover:bg-white hover:text-primary-900">FP Simulations</button></a>
 		</AppBar.Lead>
 		<AppBar.Headline>
 						
@@ -48,3 +48,16 @@
 	</AppBar.Toolbar>
 </AppBar>
 {@render children()}
+<Navigation layout="bar" class="bg-primary-300 text-white pb-safe h-16 fixed bottom-0 left-0 w-full z-50 bortder-t sm:hidden">
+	<Navigation.Menu class="grid grid-cols-4 gap-2 ">
+		<Navigation.TriggerAnchor class="border-1 border-white rounded-sm" href="/">
+			<Navigation.TriggerText class="text-sm font-medium">Fed 25</Navigation.TriggerText>
+		</Navigation.TriggerAnchor>
+		<Navigation.TriggerAnchor class="border-1 border-white rounded-sm" href="/demographics">
+			<Navigation.TriggerText class="text-sm font-medium ">Demographics</Navigation.TriggerText>
+		</Navigation.TriggerAnchor>
+		<Navigation.TriggerAnchor class="border-1 border-white rounded-sm" href="/simulation/vic">
+			<Navigation.TriggerText class="text-sm font-medium ">Simulation</Navigation.TriggerText>
+		</Navigation.TriggerAnchor>
+	</Navigation.Menu>
+</Navigation>

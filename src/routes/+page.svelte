@@ -5,27 +5,16 @@
   import { nationalSwing } from '$lib/stores/swing';
   import { hexBounds } from '$lib/hexBounds';
   import { electorates } from '$lib/data/electorates';
-  import { Tabs } from '@skeletonlabs/skeleton-svelte';
+ 
   import { seatTotals } from '$lib/stores/totalSeats';
-  import type { Party } from '$lib/data/types';
-  import Summary from '$lib/components/Summary.svelte';
-  import SimulationLineChart from '$lib/components/SimulationLineChart.svelte';
-  import results from '$lib/data/monte_carlos_results/2026-02-19.json'
-
+ 
   import { selectedScenario } from '$lib/stores/scenario';
 
   //export const yearsForward = writable(0); // 0–20 years
   import { writable } from 'svelte/store';
 
 
-   import {
-    yearsForward,
-    projectedFpHouse,
-    projectedFpSenate,
-    publicFunding,
-    selectedChamber
-  } from '$lib/stores/demographics';
-
+ 
   
 
   //const chamber = writable<'House' | 'Senate'>('House');
@@ -49,8 +38,7 @@
     CA: '#FF5800'
   };
 
-  const fallbackColour = '#cccccc';
-
+ 
     $: bounds = hexBounds(electorates, HEX_SIZE);
 
 
