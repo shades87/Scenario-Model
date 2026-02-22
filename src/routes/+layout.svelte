@@ -48,13 +48,16 @@
 	</AppBar.Toolbar>
 </AppBar>
 {@render children()}
-<Navigation layout="bar" class="bg-primary-300 text-white fixed bottom-0 left-0 w-full z-50 bortder-t sm:hidden">
+<Navigation layout="bar" class="bg-primary-300 text-white pb-safe h-16 fixed bottom-0 left-0 w-full z-50 bortder-t sm:hidden">
 	<Navigation.Menu class="grid grid-cols-4 gap-2 ">
 		<Navigation.TriggerAnchor href="/">
-			<Navigation.TriggerText>Fed 25</Navigation.TriggerText>
+			<Navigation.TriggerText class="text-sm font-medium">Fed 25</Navigation.TriggerText>
 		</Navigation.TriggerAnchor>
 		<Navigation.TriggerAnchor href="/demographics">
-			<Navigation.TriggerText>Demographics</Navigation.TriggerText>
+			<Navigation.TriggerText class="text-sm font-medium">Demographics</Navigation.TriggerText>
+		</Navigation.TriggerAnchor>
+		<Navigation.TriggerAnchor href="/simulation/vic">
+			<Navigation.TriggerText class="text-sm font-medium">Simulation</Navigation.TriggerText>
 		</Navigation.TriggerAnchor>
 	</Navigation.Menu>
 </Navigation>

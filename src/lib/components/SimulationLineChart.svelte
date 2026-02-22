@@ -16,7 +16,7 @@
   
   export let simulations:Simulation[];
   export let totalSeats = 88;
-
+  export let aspect = 5;
   
 
   let canvas: HTMLCanvasElement;
@@ -90,7 +90,7 @@
       options: {
         responsive: true,
         maintainAspectRatio: true,
-        aspectRatio: 5,
+        aspectRatio: aspect,
         showLine: true,
         plugins: {
           tooltip: {
@@ -156,4 +156,4 @@
   }
 </script>
 
-<canvas bind:this={canvas} height="50"></canvas>
+<canvas bind:this={canvas} height={50}></canvas>

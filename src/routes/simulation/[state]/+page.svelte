@@ -55,11 +55,21 @@
 
   </div>
 
-    
-    <Summary results={currentPoll} />
+  <div class="sm:hidden">
+      <Summary results={currentPoll} />
     <SimulationLineChart
     simulations={currentPoll.visual_simulations}
-    totalSeats={total[data.stateCode]} />
+    totalSeats={total[data.stateCode]} 
+    aspect={1}/>
+  </div>
+  <div class="hidden sm:block">
+      <Summary results={currentPoll} />
+    <SimulationLineChart
+    simulations={currentPoll.visual_simulations}
+    totalSeats={total[data.stateCode]} 
+    aspect={5}/>
+  </div>
+    
         <div class="flex flex-row gap-2 justify-center">
         <button class="btn border-1 border-primary-300 hover:bg-primary-300 hover:text-white" on:click={prev} disabled={index === 0}>
     ← Older
@@ -71,7 +81,7 @@
     </div>
   </div>
    <div class="flex justify-center mt-3">
-<div class="card m-1 p-4 preset-filled-surface-100-900 border-[1px] border-surface-200-800 max-w-md divide-y overflow-hidden">
+<div class="card m-1 mb-15 sm:mb-1 p-4 preset-filled-surface-100-900 border-[1px] border-surface-200-800 max-w-md divide-y overflow-hidden">
 <header class="pb-3">
   <h2 class="h2">What the heck is going on here?</h2>
 </header>
