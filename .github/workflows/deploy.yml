@@ -34,7 +34,7 @@ jobs:
       - name: Copy files to droplet
         run: |
           scp -r build package.json package-lock.json \
-            ${{ secrets.DROPLET_USER }}@${{ secrets.DROPLET_HOST }}:/var/www/myapp
+            ${{ secrets.DROPLET_USER }}@${{ secrets.DROPLET_HOST }}:/var/www/demographics.dev
 
       - name: Install prod deps & restart service
         run: |
