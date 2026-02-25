@@ -1,0 +1,69 @@
+[
+    {
+
+        "State": "NSW",
+        "FirstPreferences" : {
+            "ALP": 1876713,
+            "PHON": 302438,
+            "LNP": 1467940,
+            "GRN": 557610
+        }
+    },
+    {
+        "State": "VIC",
+        "FirstPreferences" : {
+            "LNP": 1288356,
+            "ALP": 1422364,
+            "PHON": 182228,
+            "GRN": 510835
+        }
+    },
+    {
+        "State": "QLD",
+        "FirstPreferences" : {
+            "KAT": 151310,
+            "LNP": 997404,
+            "ALP": 982811,
+            "GRN": 337746,
+            "PHON": 229746
+        }
+    },
+    {
+        "State": "WA",
+        "FirstPreferences" : {
+            "GRN": 208327,
+            "ALP": 586692,
+            "PHON": 95230,
+            "LCP": 65340,
+            "LNP": 431607
+        }
+    },
+    {
+        "Electorate": ,
+        "State": ,
+        "FirstPreferences" : {
+            "total":
+        }
+    },
+    {
+        "Electorate": ,
+        "State": ,
+        "FirstPreferences" : {
+            "total":
+        }
+    },
+    {
+        "Electorate": ,
+        "State": ,
+        "FirstPreferences" : {
+            "total":
+        }
+    },
+    {
+        "Electorate": ,
+        "State": ,
+        "FirstPreferences" : {
+            "total":
+        }
+    }
+]
