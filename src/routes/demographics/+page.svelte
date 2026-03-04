@@ -59,7 +59,7 @@ h1, h2 {
   <!-- Year slider -->
   <label class="flex flex-col items-center">
     <span class="font-semibold">
-      Years after 2025: {$yearsForward}
+      Election {$yearsForward} Years after 2025 -
       Electors: {Math.round(18_098_797 * Math.pow(1 + 0.015, $yearsForward)).toLocaleString()}
     </span>
     <input
@@ -178,19 +178,16 @@ h1, h2 {
  <p>This is a simple first preference and public funding predictor based on the 2025 Australian federal election.</p>
   <ul class="ml-5 list-disc">
     <li>
-      <p>This looks at the first preference vote at the 2025 election and models what might happen in the future</p>
+      <p>This looks at the first preference vote at the 2025 election and models future public funding based on demographic change</p>
     </li>
     <li>
       This is not a robust prediction, more like a what if scenario
     </li>
     <li>
-      <p>This doesn't yet match how the public funding rules of parties really works</p>
+      <p>This doesn't yet match how the public funding rules of parties really works and is currently inaccurate</p>
     </li>
     <li>
       This assumes a population growth of 1.5% per year
-    </li>
-    <li>
-      This calculates based on national % > than 4% where AEC looks at 4% in an electorate
     </li>
     <li>
       There's a large jump from 0 years to 1 year. This is because at the last election each first preference is $3.5 public funding for that party </li> 
@@ -198,11 +195,14 @@ h1, h2 {
     <li>
       A bug seems to be applying generation change at year 0 - % of FP votes at 0 years should be the same as the election
     </li>
+    <li>
+      Based on first preference data per generation from 
+    </li>
   </ul>
 </article>
 <footer class="flex items-center justify-center">
 		<small class="opacity-60">Danno</small>
-		<small class="opacity-60 ml-3">{new Date("2026-01-26").toLocaleDateString("en-au")}</small>
+		<small class="opacity-60 ml-3">{new Date("2026-03-04").toLocaleDateString("en-au")}</small>
 	</footer>
 </div>
 </div>

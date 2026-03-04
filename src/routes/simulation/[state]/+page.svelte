@@ -99,13 +99,13 @@
       100 simulated elections are shown on a line graph, sorted from highest incumbant seats to least incumbant seats
     </li>
     <li>
-      Preference flows are correct for the 2 major parties, adjustments are needed for minor parties and others
-    </li>
-    <li>
       This model is limited and likely under predicting crossbench seats
     </li>
     <li>
       Seemingly paradoxically I think that it's also overestimating the chance of a hung parliament
+    </li>
+    <li>
+      Tweaks are needed to preference flows - on a 2PP of ALP 50 - 50 Coalition it seems to unrealistically favour one side by a large margin
     </li>
   </ul>
 </article>
