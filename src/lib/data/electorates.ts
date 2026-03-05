@@ -1,4 +1,4 @@
-export type Party = 'ALP' | 'LNP' | 'GRN' | 'IND' | 'PHON' | 'KAT' | 'CA';
+export type Party = 'ALP' | 'LNP' | 'GRN' | 'IND' | 'PHON' | 'KAT' | 'CA' | 'LIB' | 'NAT' | 'OTH';
 
 export type Seat = {
   id: string; //didn't think this through, supposed to be the first 3 letters of division... some have same id

@@ -1,12 +1,8 @@
 <script lang='ts'>
-  import { projectedSeats } from '$lib/stores/projectedSeats';
-  import { hexBounds } from '$lib/hexBounds';
-  import { electorates } from '$lib/data/electorates';
 
   import type { Party } from '$lib/data/types';
 
   //export const yearsForward = writable(0); // 0–20 years
-  import { writable } from 'svelte/store';
 
 
    import {
