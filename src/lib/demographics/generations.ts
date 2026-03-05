@@ -57,7 +57,7 @@ export const generationFp: Record<Generation, Record<Party, number>> = {
     IND: 0.2135,
     PHON: 0,
     KAT: 0,
-    CA: 0
+    CA: 0 
   }
 };
 
