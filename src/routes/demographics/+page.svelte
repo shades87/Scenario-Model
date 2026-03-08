@@ -49,7 +49,8 @@ h1, h2 {
    
     <h2 class="h2">Generational change & primary votes</h2>
   </div>
-
+  <div class="card p-4 preset-filled-warning-500 mt-5 text-center">
+    <h2 class="h2">Work in progress, not currently accurate</h2></div>
   <div class="flex flex-col items-center gap-6 mt-4">
 
   <!-- Year slider -->
