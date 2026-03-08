@@ -1,5 +1,6 @@
-import type { Party } from "$lib/data/electorates";
 import type { Generation } from "$lib/demographics/generations";
+
+type Party = 'ALP' | 'LNP' | 'GRN' | 'IND' | 'PHON' | 'KAT' | 'CA' // 'LIB' | 'NAT' | 'OTH';
 
 export const generationFpSenate: Record<Generation, Record<Party, number>> = {
   GenZ: {

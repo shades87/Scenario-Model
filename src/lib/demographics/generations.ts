@@ -30,7 +30,10 @@ export const generationFp: Record<Generation, Record<Party, number>> = {
     IND: 0.0618,
     PHON: 0,
     KAT: 0,
-    CA: 0
+    CA: 0,
+    LIB: 0,
+    NAT: 0,
+    OTH: 0
   },
   Millennial: {
     ALP: 0.3744,
@@ -39,7 +42,10 @@ export const generationFp: Record<Generation, Record<Party, number>> = {
     IND: 0.2252,
     PHON: 0,
     KAT: 0,
-    CA: 0
+    CA: 0,
+    LIB: 0,
+    NAT: 0,
+    OTH: 0
   },
   GenX: {
     ALP: 0.3368,
@@ -48,7 +54,10 @@ export const generationFp: Record<Generation, Record<Party, number>> = {
     IND: 0.2883,
     PHON: 0,
     KAT: 0,
-    CA: 0
+    CA: 0, 
+    LIB: 0,
+    NAT: 0,
+    OTH: 0
   },
   Boomer: {
     ALP: 0.3025,

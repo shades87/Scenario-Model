@@ -12,7 +12,10 @@ export function seatFirstPreferences(
     IND: 0,
     KAT: 0,
     CA: 0,
-    PHON: 0
+    PHON: 0,
+    LIB: 0,
+    NAT: 0,
+    OTH: 0
   };
 
   for (const gen of GENERATIONS) {
