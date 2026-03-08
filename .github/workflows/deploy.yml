@@ -39,7 +39,7 @@ jobs:
       - name: Install prod deps & restart service
         run: |
           ssh ${{ secrets.DROPLET_USER }}@${{ secrets.DROPLET_HOST }} << 'EOF'
-            cd /var/www/myapp
+            cd /var/www/demographics.dev
             npm ci --omit=dev
             sudo systemctl restart myapp
           EOF
