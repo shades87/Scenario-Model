@@ -4,6 +4,7 @@
 
   //export const yearsForward = writable(0); // 0–20 years
 
+  import { TriangleAlert } from 'lucide-svelte';
 
    import {
     yearsForward,
@@ -49,8 +50,12 @@ h1, h2 {
    
     <h2 class="h2">Generational change & primary votes</h2>
   </div>
-  <div class="card p-4 preset-filled-warning-500 mt-5 text-center">
+  <div class="card p-4 preset-filled-warning-500 mt-5 items-center">
+    <div class="flex flex-col items-center">
+          <TriangleAlert size={48}/>
     <h2 class="h2">Work in progress, not currently accurate</h2></div>
+    </div>
+
   <div class="flex flex-col items-center gap-6 mt-4">
 
   <!-- Year slider -->
