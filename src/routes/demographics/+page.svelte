@@ -44,7 +44,7 @@ h1, h2 {
 </style>
 
 <div class="ml-5 flex justify-center items-center">
- <h1 class="h1">Public Funding</h1>
+ <h1 class="h1">Federal Public Funding Predictor</h1>
  </div>
 <div class="ml-5 flex justify-center items-center">
    

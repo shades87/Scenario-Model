@@ -90,7 +90,7 @@
   <h2 class="h2">What the heck is going on here?</h2>
 </header>
 <article class="py-3">
- <p>This is a very simple simulation of the upcoming ${data.stateName} State election</p>
+ <p>This is a very simple simulation of the upcoming {data.stateName} State election</p>
   <ul class="ml-5 list-disc">
     <li>
       <p>The election is simulated 50K times adding in random polling errors</p>
