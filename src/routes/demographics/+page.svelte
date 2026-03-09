@@ -102,7 +102,7 @@ h1, h2 {
   <!-- Vote share bars -->
   <div class="w-full max-w-lg m-1">
     {#if $selectedChamber === 'House'}
-      {#each Object.entries($projectedFpHouse) as [party, share]}
+      {#each Object.entries($projectedFpHouse) as [party, share] (party)}
       {#if share > 0}
       <div class="flex items-center gap-2 mb-1 ml-2 mr-2">
     
@@ -125,7 +125,7 @@ h1, h2 {
   {/if}
 {/each}
     {:else}
-      {#each Object.entries($projectedFpSenate) as [party, share]}
+      {#each Object.entries($projectedFpSenate) as [party, share] (party)}
       {#if share > 0}
       <div class="flex items-center gap-2 mb-1 ml-2 mr-2">
     <span class="w-12 text-sm">{party}</span>
@@ -152,7 +152,7 @@ h1, h2 {
   <!-- Public funding -->
   <div class="w-full max-w-lg mt-6 ml-2 mr-2">
     <h3 class="h3 mb-2">Public funding from {$selectedChamber} votes (≥ 4%)</h3>
-    {#each Object.entries($publicFunding) as [party, dollars]}
+    {#each Object.entries($publicFunding) as [party, dollars] (party)}
   <div class="flex justify-between items-center ml-2 mr-2">
     <span class="flex items-center gap-2">
       <span
