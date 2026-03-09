@@ -49,9 +49,9 @@
 {:then report}
 
 <div class="flex flex-col items-center mt-3">
-  <nav class="btn-group  border-1 border-primary-300 flex-col p-2 md:flex-row">
-    <a href={resolve("/simulation/vic")}><button type="button" class="btn border-1 border-primary-300 hover:bg-primary-300 hover:text-white" class:text-white={data.stateCode==='vic'} class:bg-primary-300={data.stateCode==='vic'}>VIC</button></a>
-    <a href={resolve("/simulation/sa")}><button type="button" class="btn border-1 border-primary-300 hover:bg-primary-300 hover:text-white" class:text-white={data.stateCode==='sa'} class:bg-primary-300={data.stateCode==='sa'}>SA</button></a>
+  <nav class="btn-group  border border-primary-300 flex-col p-2 md:flex-row">
+    <a href={resolve("/simulation/vic")}><button type="button" class="btn border border-primary-300 hover:bg-primary-300 hover:text-white" class:text-white={data.stateCode==='vic'} class:bg-primary-300={data.stateCode==='vic'}>VIC</button></a>
+    <a href={resolve("/simulation/sa")}><button type="button" class="btn border border-primary-300 hover:bg-primary-300 hover:text-white" class:text-white={data.stateCode==='sa'} class:bg-primary-300={data.stateCode==='sa'}>SA</button></a>
   </nav>     
 </div>
 <div class="m-3">
@@ -76,17 +76,17 @@
   </div>
     
         <div class="flex flex-row gap-2 justify-center">
-        <button class="btn border-1 border-primary-300 hover:bg-primary-300 hover:text-white" on:click={prev} disabled={index === 0}>
+        <button class="btn border border-primary-300 hover:bg-primary-300 hover:text-white" on:click={prev} disabled={index === 0}>
     ← Older
   </button>
 
-  <button class="btn border-1 border-primary-300 hover:bg-primary-300 hover:text-white" on:click={next} disabled={index === polls.length - 1}>
+  <button class="btn border border-primary-300 hover:bg-primary-300 hover:text-white" on:click={next} disabled={index === polls.length - 1}>
     Newer →
   </button>
     </div>
   </div>
    <div class="flex justify-center mt-3">
-<div class="card m-1 mb-17 sm:mb-1 p-4 preset-filled-surface-100-900 border-[1px] border-surface-200-800 max-w-md divide-y overflow-hidden">
+<div class="card m-1 mb-17 sm:mb-1 p-4 preset-filled-surface-100-900 border border-surface-200-800 max-w-md divide-y overflow-hidden">
 <header class="pb-3">
   <h2 class="h2">What the heck is going on here?</h2>
 </header>
