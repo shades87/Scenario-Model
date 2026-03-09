@@ -2,6 +2,7 @@
   import Summary from '$lib/components/Summary.svelte';
   import SimulationLineChart from '$lib/components/SimulationLineChart.svelte';
   import Spinner from '$lib/components/Spinner.svelte';
+  import { resolve } from '$app/paths'
   export let data;
 
   let polls = data.polls;
@@ -43,19 +44,19 @@
     font-family: 'Playfair', normal;
  }
 </style>
-{#if !data}
+{#await data}
   <Spinner/>
-{:else}
+{:then report}
 
 <div class="flex flex-col items-center mt-3">
   <nav class="btn-group  border-1 border-primary-300 flex-col p-2 md:flex-row">
-    <a href="/simulation/vic"><button type="button" class="btn border-1 border-primary-300 hover:bg-primary-300 hover:text-white" class:text-white={data.stateCode==='vic'} class:bg-primary-300={data.stateCode==='vic'}>VIC</button></a>
-    <a href="/simulation/sa"><button type="button" class="btn border-1 border-primary-300 hover:bg-primary-300 hover:text-white" class:text-white={data.stateCode==='sa'} class:bg-primary-300={data.stateCode==='sa'}>SA</button></a>
+    <a href={resolve("/simulation/vic")}><button type="button" class="btn border-1 border-primary-300 hover:bg-primary-300 hover:text-white" class:text-white={data.stateCode==='vic'} class:bg-primary-300={data.stateCode==='vic'}>VIC</button></a>
+    <a href={resolve("/simulation/sa")}><button type="button" class="btn border-1 border-primary-300 hover:bg-primary-300 hover:text-white" class:text-white={data.stateCode==='sa'} class:bg-primary-300={data.stateCode==='sa'}>SA</button></a>
   </nav>     
 </div>
 <div class="m-3">
   <div class="flex flex-col items-center">
-    <h1 class="h1">{data.stateName} Election Simulation</h1>
+    <h1 class="h1">{report.stateName} Election Simulation</h1>
 
   </div>
 
@@ -115,4 +116,4 @@
 	</footer>
 </div>
 </div>
-{/if}
+{/await}

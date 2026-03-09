@@ -39,7 +39,7 @@
   };
 
  
-    $: bounds = hexBounds(electorates, HEX_SIZE);
+  let bounds = hexBounds(electorates, HEX_SIZE);
 
 
 </script>
@@ -67,7 +67,7 @@
   </div>
 </div>
 <div class="flex flex-wrap justify-center gap-6 mb-2 text-sm">
-  {#each Object.entries($seatTotals) as [party, count]}
+  {#each Object.entries($seatTotals) as [party, count] (party)}
     <div
       class="flex items-center gap-2"
       class:font-bold={count >= 76}
@@ -112,7 +112,7 @@
     class="w-full h-[500px]"
     preserveAspectRatio="xMidYMid meet"
   >
-    {#each $projectedSeats as seat}
+    {#each $projectedSeats as seat (seat.name)}
       <Hex
         q={seat.q}
         r={seat.r}
@@ -133,7 +133,7 @@
     class="w-full"
     preserveAspectRatio="xMidYMid meet"
   >
-    {#each $projectedSeats as seat}
+    {#each $projectedSeats as seat (seat.name)}
       <Hex
         q={seat.q}
         r={seat.r}

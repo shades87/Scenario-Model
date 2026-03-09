@@ -6,6 +6,7 @@
 	let { children } = $props();
     //import { CalendarIcon, CircleUserIcon, MenuIcon, SearchIcon } from 'lucide-svelte';
 	import { AppBar } from '@skeletonlabs/skeleton-svelte';
+	import { resolve } from '$app/paths'
 </script>
 <style>
 	    @font-face{
@@ -30,9 +31,9 @@
 <AppBar class="bg-primary-300 text-white hidden sm:block">
 	<AppBar.Toolbar class="grid-cols-[auto_1fr_auto]">
 		<AppBar.Lead>
-			<a href="/"><button type="button" class="btn border-1 border-white hover:bg-white hover:text-primary-900">Fed 25</button></a>
-			<a href="/demographics"><button type="button" class="btn border-1 border-white hover:bg-white hover:text-primary-900">Demographics</button></a>
-			<a href="/simulation/vic"><button type="button" class="btn border-1 border-white hover:bg-white hover:text-primary-900">FP Simulations</button></a>
+			<a href={resolve("/")}><button type="button" class="btn border-1 border-white hover:bg-white hover:text-primary-900">Fed 25</button></a>
+			<a href={resolve("/demographics")}><button type="button" class="btn border-1 border-white hover:bg-white hover:text-primary-900">Demographics</button></a>
+			<a href={resolve("/simulation/vic")}><button type="button" class="btn border-1 border-white hover:bg-white hover:text-primary-900">FP Simulations</button></a>
 		</AppBar.Lead>
 		<AppBar.Headline>
 						
