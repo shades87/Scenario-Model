@@ -31,9 +31,10 @@
 <AppBar class="bg-primary-300 text-white hidden sm:block">
 	<AppBar.Toolbar class="grid-cols-[auto_1fr_auto]">
 		<AppBar.Lead>
-			<a href={resolve("/")}><button type="button" class="btn border-1 border-white hover:bg-white hover:text-primary-900">Fed 25</button></a>
-			<a href={resolve("/demographics")}><button type="button" class="btn border-1 border-white hover:bg-white hover:text-primary-900">Demographics</button></a>
-			<a href={resolve("/simulation/vic")}><button type="button" class="btn border-1 border-white hover:bg-white hover:text-primary-900">FP Simulations</button></a>
+			<a href={resolve("/")}><button type="button" class="btn border border-white hover:bg-white hover:text-primary-900">Fed 25</button></a>
+			<a href={resolve("/demographics")}><button type="button" class="btn border border-white hover:bg-white hover:text-primary-900">Demographics</button></a>
+			<a href={resolve("/simulation/vic")}><button type="button" class="btn border border-white hover:bg-white hover:text-primary-900">FP Simulations</button></a>
+			<a href={resolve("/world-cup")}><button type="button" class="btn border border-white hover:bg-white hover:text-primary-900">World Cup</button></a>
 		</AppBar.Lead>
 		<AppBar.Headline>
 						
@@ -51,14 +52,17 @@
 {@render children()}
 <Navigation layout="bar" class="bg-primary-300 text-white pb-safe h-12 fixed bottom-0 left-0 w-full z-50 bortder-t sm:hidden">
 	<Navigation.Menu class="grid grid-cols-3 gap-2 ">
-		<Navigation.TriggerAnchor class="border-1 border-white rounded-sm" href="/">
+		<Navigation.TriggerAnchor class="border border-white rounded-sm" href="/">
 			<Navigation.TriggerText class="text-sm font-medium">Fed 25</Navigation.TriggerText>
 		</Navigation.TriggerAnchor>
-		<Navigation.TriggerAnchor class="border-1 border-white rounded-sm" href="/demographics">
+		<Navigation.TriggerAnchor class="border border-white rounded-sm" href="/demographics">
 			<Navigation.TriggerText class="text-sm font-medium ">Demographics</Navigation.TriggerText>
 		</Navigation.TriggerAnchor>
-		<Navigation.TriggerAnchor class="border-1 border-white rounded-sm" href="/simulation/vic">
+		<Navigation.TriggerAnchor class="border border-white rounded-sm" href="/simulation/vic">
 			<Navigation.TriggerText class="text-sm font-medium ">Simulation</Navigation.TriggerText>
+		</Navigation.TriggerAnchor>
+		<Navigation.TriggerAnchor class="border border-white rounded-sm" href="/world-cup">
+			<Navigation.TriggerText class="text-sm font-medium ">World Cup</Navigation.TriggerText>
 		</Navigation.TriggerAnchor>
 	</Navigation.Menu>
 </Navigation>
