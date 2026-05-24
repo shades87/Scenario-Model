@@ -34,6 +34,7 @@
 			<a href={resolve("/")}><button type="button" class="btn border border-white hover:bg-white hover:text-primary-900">Fed 25</button></a>
 			<a href={resolve("/demographics")}><button type="button" class="btn border border-white hover:bg-white hover:text-primary-900">Demographics</button></a>
 			<a href={resolve("/simulation/vic")}><button type="button" class="btn border border-white hover:bg-white hover:text-primary-900">FP Simulations</button></a>
+			<a href={resolve("/world-cup")}><button type="button" class="btn border border-white hover:bg-white hover:text-primary-900">World Cup</button></a>
 		</AppBar.Lead>
 		<AppBar.Headline>
 						
@@ -59,6 +60,9 @@
 		</Navigation.TriggerAnchor>
 		<Navigation.TriggerAnchor class="border border-white rounded-sm" href="/simulation/vic">
 			<Navigation.TriggerText class="text-sm font-medium ">Simulation</Navigation.TriggerText>
+		</Navigation.TriggerAnchor>
+		<Navigation.TriggerAnchor class="border border-white rounded-sm" href="/world-cup">
+			<Navigation.TriggerText class="text-sm font-medium ">World Cup</Navigation.TriggerText>
 		</Navigation.TriggerAnchor>
 	</Navigation.Menu>
 </Navigation>
