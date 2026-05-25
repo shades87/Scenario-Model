@@ -140,19 +140,21 @@ function expectedScore(rA: number, rB: number): number {
   return 1 / (1 + Math.pow(10, (rB - rA) / 400));
 }
 
-function calcPrediction(rA: number, rB: number): { winA: number; draw: number; winB: number } {
+function calcPrediction(rA: number, rB: number) {
   const expA = expectedScore(rA, rB);
   const expB = 1 - expA;
-  const drawBase = 0.25 * Math.exp(-4 * Math.pow(expA - 0.5, 2));
-  const winA = expA * (1 - drawBase * 0.5);
-  const winB = expB * (1 - drawBase * 0.5);
-  const draw = 1 - winA - winB;
-  const total = winA + draw + winB;
-  return {
-    winA: Math.round((winA / total) * 100),
-    draw: Math.round((draw / total) * 100),
-    winB: Math.round((winB / total) * 100),
-  };
+
+  // Draw rate: 27% baseline, falls off gently with rating gap
+  const ratingGap = Math.abs(rA - rB);
+  const draw = 0.27 * Math.exp(-ratingGap / 800);
+  //                           ↑ 800 means a 550pt gap halves draw chance
+
+  const remaining = 1 - draw;
+  const winA = Math.round((expA * remaining) * 100);
+  const winB = Math.round((expB * remaining) * 100);
+  const drawFinal = 100 - winA - winB;
+
+  return { winA, draw: drawFinal, winB };
 }
 
 // Actual score for Elo update: win=1, draw=0.5, loss=0
