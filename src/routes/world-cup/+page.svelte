@@ -10,7 +10,7 @@
     }
   } = $props();
 
-  const GROUPS = ['A','B','C','D','E','F','G','H','I','J','K','L'] as const;
+  const GROUPS = ['All','A','B','C','D','E','F','G','H','I','J','K','L'] as const;
 
   const GROUP_COLORS: Record<string, string> = {
     A:'#1D9E75', B:'#378ADD', C:'#D4537E', D:'#7F77DD',
@@ -27,7 +27,7 @@
 
   const filteredMatches = $derived(
     data.matches.filter(m =>
-      m.group === selectedGroup &&
+      (selectedGroup === 'All' || m.group === selectedGroup) &&
       (selectedMatchday === 'all' || String(m.matchday) === selectedMatchday)
     )
   );
@@ -88,30 +88,35 @@
     URL.revokeObjectURL(a.href);
   }
 </script>
+<style>
+ h1, h2 {
+    font-family: 'Playfair', normal;
+ }
+</style>
 
 <!-- ── Page ──────────────────────────────────────────────────────────────── -->
 <div class="min-h-screen bg-surface-50-950">
 
   <!-- Header -->
-  <header class="bg-white border-b border-surface-200-800 px-6 py-4 flex items-center justify-between gap-4 flex-wrap sticky top-0 z-10">
-    <div>
-      <h1 class="text-base font-medium text-surface-950-50 flex items-center gap-2">
-        <span class="inline-block w-2 h-2 rounded-full bg-success-500"></span>
-        WC 2026 Match Predictor
-      </h1>
-      <p class="text-xs text-surface-500 mt-0.5">Statistical model · FIFA ratings · April 2026</p>
+  <header class="bg-white border-b border-surface-200-800 sticky top-0 z-10">
+  
+  <!-- Top row -->
+  <div class="px-6 py-4 flex flex-col items-center justify-between gap-4 flex-wrap">
+    <div class="flex-1">
+      <div class="flex flex-col items-center justify-center text-center">
+        <h1 class="h1 text-surface-950-50">WC 2026 Match Predictor</h1>
+      </div>
+      <p class="text-xs text-surface-500 mt-0.5 text-center">
+        Statistical model · FIFA ratings · April 2026
+      </p>
     </div>
     <div class="flex gap-2">
-      <button class="btn btn-sm preset-outlined-surface-500" onclick={exportCSV}>
-        ↓ CSV
-      </button>
-      <button class="btn btn-sm preset-outlined-surface-500" onclick={exportJSON}>
-        ↓ JSON
-      </button>
+      <button class="btn btn-sm preset-outlined-surface-500" onclick={exportCSV}>↓ CSV</button>
+      <button class="btn btn-sm preset-outlined-surface-500" onclick={exportJSON}>↓ JSON</button>
     </div>
-  </header>
+  </div>
 
-  <!-- Group + Matchday filters -->
+  <!-- Nav now sits inside header, full width -->
   <nav class="bg-primary-300 border-b border-surface-200-800 px-6 py-3 flex gap-4 items-center flex-wrap">
     <div class="flex items-center gap-2">
       <span class="text-xs font-medium uppercase tracking-widest text-white">Group</span>
@@ -121,8 +126,8 @@
             class="btn btn-sm rounded-full text-xs text-white font-medium"
             class:preset-filled={selectedGroup === g}
             class:preset-outlined-surface-300={selectedGroup !== g}
-            style={selectedGroup === g ? `background:${GROUP_COLORS[g]};border-color:${GROUP_COLORS[g]};color:white` : ''}
-            onclick={() => { selectedGroup = g; selectedMatchday = '1'; }}
+            style={selectedGroup === g && g !== 'All' ? `background:${GROUP_COLORS[g]};border-color:${GROUP_COLORS[g]};color:white` : ''}
+            onclick={() => { selectedGroup = g; }}
           >{g}</button>
         {/each}
       </div>
@@ -146,6 +151,10 @@
     </div>
   </nav>
 
+</header>
+
+  <!-- Group + Matchday filters -->
+  
   <main class="max-w-3xl mx-auto px-4 py-5 space-y-4">
 
     <!-- Scorecard -->
