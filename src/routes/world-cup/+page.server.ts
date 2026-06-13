@@ -202,11 +202,11 @@ function parseResults(raw: string, isJSON: boolean): Record<string, Outcome> {
 export const load = async () => {
   // Load raw results from disk
   let uploadedResults: Record<string, Outcome> = {};
-  const DATA_ROOT = env.DATA_ROOT;
+  const WC_DATA_ROOT = env.WC_DATA_ROOT;
 
-  if (DATA_ROOT) {
-    const jsonPath = join(DATA_ROOT, 'wc2026_results.json');
-    const csvPath  = join(DATA_ROOT, 'wc2026_results.csv');
+  if (WC_DATA_ROOT) {
+    const jsonPath = join(WC_DATA_ROOT, 'wc.json');
+    const csvPath  = join(WC_DATA_ROOT, 'wc2026_results.csv');
     try {
       if (existsSync(jsonPath)) {
         uploadedResults = parseResults(readFileSync(jsonPath, 'utf-8'), true);
