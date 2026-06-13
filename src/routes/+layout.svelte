@@ -51,12 +51,12 @@
 </AppBar>
 {@render children()}
 <Navigation layout="bar" class="bg-primary-300 text-white pb-safe h-12 fixed bottom-0 left-0 w-full z-50 bortder-t sm:hidden">
-	<Navigation.Menu class="grid grid-cols-3 gap-2 ">
+	<Navigation.Menu class="grid grid-cols-4 gap-2 ">
 		<Navigation.TriggerAnchor class="border border-white rounded-sm" href="/">
 			<Navigation.TriggerText class="text-sm font-medium">Fed 25</Navigation.TriggerText>
 		</Navigation.TriggerAnchor>
 		<Navigation.TriggerAnchor class="border border-white rounded-sm" href="/demographics">
-			<Navigation.TriggerText class="text-sm font-medium ">Demographics</Navigation.TriggerText>
+			<Navigation.TriggerText class="text-sm font-medium ">Funding</Navigation.TriggerText>
 		</Navigation.TriggerAnchor>
 		<Navigation.TriggerAnchor class="border border-white rounded-sm" href="/simulation/vic">
 			<Navigation.TriggerText class="text-sm font-medium ">Simulation</Navigation.TriggerText>

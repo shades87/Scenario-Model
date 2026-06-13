@@ -95,7 +95,7 @@
 </style>
 
 <!-- ── Page ──────────────────────────────────────────────────────────────── -->
-<div class="min-h-screen bg-surface-50-950">
+<div class="min-h-screen bg-surface-50-950 mb-10">
 
   <!-- Header -->
   <header class="bg-white border-b border-surface-200-800 sticky top-0 z-10">
