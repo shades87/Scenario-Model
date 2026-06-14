@@ -273,6 +273,16 @@
         <!-- Card footer -->
         <footer class="flex items-center justify-between px-4 py-3">
           <small class="opacity-60">Model picks: <strong>{predictedOutcome(p, match)}</strong></small>
+          
+          {#if actual !== undefined}
+            {#if actual === 'A'}
+             <small class="font-bold">Winner: {match.teamA}</small>
+            {:else if actual === 'B'}
+              <small class="font-bold">Winner: {match.teamB}</small>
+            {:else}
+              <small class="font-bold">Draw</small>
+            {/if}
+          {/if}
           <small class="opacity-60">FIFA model · April 2026</small>
         </footer>
 
