@@ -107,7 +107,7 @@
         <h1 class="h1 text-surface-950-50">WC 2026 Match Predictor</h1>
       </div>
       <p class="text-xs text-surface-500 mt-0.5 text-center">
-        Statistical model · FIFA ratings · April 2026
+        Statistical model · Elo ratings · April 2026
       </p>
     </div>
     <div class="flex gap-2">
@@ -217,12 +217,12 @@
           <div class="grid grid-cols-[1fr_auto_1fr] items-center gap-2">
             <div>
               <p class="text-sm font-medium text-surface-950-50">{match.teamA}</p>
-              <p class="text-xs text-surface-400">FIFA {predictions[match.id]?.ratingA ?? '—'}</p>
+              <p class="text-xs text-surface-400">Elo {predictions[match.id]?.ratingA ?? '—'}</p>
             </div>
             <span class="text-xs text-surface-400 font-medium">vs</span>
             <div class="text-right">
               <p class="text-sm font-medium text-surface-950-50">{match.teamB}</p>
-              <p class="text-xs text-surface-400">FIFA {predictions[match.id]?.ratingB ?? '—'}</p>
+              <p class="text-xs text-surface-400">Elo {predictions[match.id]?.ratingB ?? '—'}</p>
             </div>
           </div>
 
@@ -283,7 +283,7 @@
               <small class="font-bold">Draw</small>
             {/if}
           {/if}
-          <small class="opacity-60">FIFA model · April 2026</small>
+          <small class="opacity-60">Elo model · April 2026</small>
         </footer>
 
       </div>

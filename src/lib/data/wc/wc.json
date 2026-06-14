@@ -4,5 +4,7 @@
   {"match_id": "B1", "actual_outcome": "D"},
   {"match_id":"B2", "actual_outcome": "D"},
   {"match_id":"C1", "actual_outcome": "D"},
-  { "match_id": "D1", "actual_outcome": "A" }
+  {"match_id":"C2", "actual_outcome":"B"},
+  { "match_id": "D1", "actual_outcome": "A" },
+  { "match_id": "D2", "actual_outcome": "A"}
 ]
