@@ -10,9 +10,12 @@ export interface Match {
   group: string;
   matchday: number;
   date: string;
+  round?: 'group' | 'r32' | 'r16' | 'qf' | 'sf' | 'final';
   teamA: string;
   teamB: string;
   venue: string;
+  slotA?: string;
+  slotB?: string
 }
 
 export interface MatchPrediction {
@@ -110,6 +113,8 @@ const ALL_MATCHES: Match[] = [
   { id: 'L4', group: 'L', matchday: 2, date: 'Jun 21', teamA: 'Croatia',       teamB: 'Panama',          venue: 'Boston' },
   { id: 'L5', group: 'L', matchday: 3, date: 'Jun 25', teamA: 'England',       teamB: 'Panama',          venue: 'Miami' },
   { id: 'L6', group: 'L', matchday: 3, date: 'Jun 25', teamA: 'Croatia',       teamB: 'Ghana',           venue: 'New York/NJ' },
+  //r32
+  
 ];
 
 // ── Base FIFA ratings (April 2026) ─────────────────────────────────────────
