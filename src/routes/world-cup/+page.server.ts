@@ -7,15 +7,15 @@ export type Outcome = 'A' | 'D' | 'B';
 
 export interface Match {
   id: string;
-  group: string;
-  matchday: number;
+  group: string;       // group letter for group stage; bracket label (e.g. "R32") for knockouts
+  matchday: number;    // 1-3 for group stage; knockout round order otherwise
+  round: 'group' | 'r32' | 'r16' | 'qf' | 'sf' | 'final';
   date: string;
-  round?: 'group' | 'r32' | 'r16' | 'qf' | 'sf' | 'final';
-  teamA: string;
-  teamB: string;
+  teamA: string | null; // null until the slot is filled in (e.g. pending 3rd-place draw)
+  teamB: string | null;
   venue: string;
-  slotA?: string;
-  slotB?: string
+  slotA?: string;       // optional human label for an undetermined slot, e.g. "Winner Group A"
+  slotB?: string;       // e.g. "3rd C/E/F/H/I"
 }
 
 export interface MatchPrediction {
@@ -30,91 +30,111 @@ export interface MatchPrediction {
 // ── All 48 group stage matches (source of truth, in chronological order) ──
 const ALL_MATCHES: Match[] = [
   // Group A
-  { id: 'A1', group: 'A', matchday: 1, date: 'Jun 11', teamA: 'Mexico',        teamB: 'South Africa',  venue: 'Mexico City' },
-  { id: 'A2', group: 'A', matchday: 1, date: 'Jun 11', teamA: 'South Korea',   teamB: 'Czechia',        venue: 'Guadalajara' },
-  { id: 'A3', group: 'A', matchday: 2, date: 'Jun 15', teamA: 'Mexico',        teamB: 'South Korea',    venue: 'Guadalajara' },
-  { id: 'A4', group: 'A', matchday: 2, date: 'Jun 15', teamA: 'South Africa',  teamB: 'Czechia',        venue: 'Kansas City' },
-  { id: 'A5', group: 'A', matchday: 3, date: 'Jun 19', teamA: 'Mexico',        teamB: 'Czechia',        venue: 'Dallas' },
-  { id: 'A6', group: 'A', matchday: 3, date: 'Jun 19', teamA: 'South Africa',  teamB: 'South Korea',    venue: 'Dallas' },
+  { id: 'A1', group: 'A', matchday: 1, round: 'group', date: 'Jun 11', teamA: 'Mexico',        teamB: 'South Africa',  venue: 'Mexico City' },
+  { id: 'A2', group: 'A', matchday: 1, round: 'group', date: 'Jun 11', teamA: 'South Korea',   teamB: 'Czechia',        venue: 'Guadalajara' },
+  { id: 'A3', group: 'A', matchday: 2, round: 'group', date: 'Jun 15', teamA: 'Mexico',        teamB: 'South Korea',    venue: 'Guadalajara' },
+  { id: 'A4', group: 'A', matchday: 2, round: 'group', date: 'Jun 15', teamA: 'South Africa',  teamB: 'Czechia',        venue: 'Kansas City' },
+  { id: 'A5', group: 'A', matchday: 3, round: 'group', date: 'Jun 19', teamA: 'Mexico',        teamB: 'Czechia',        venue: 'Dallas' },
+  { id: 'A6', group: 'A', matchday: 3, round: 'group', date: 'Jun 19', teamA: 'South Africa',  teamB: 'South Korea',    venue: 'Dallas' },
   // Group B
-  { id: 'B1', group: 'B', matchday: 1, date: 'Jun 12', teamA: 'Canada',        teamB: 'Bosnia & Herz.', venue: 'Toronto' },
-  { id: 'B2', group: 'B', matchday: 1, date: 'Jun 12', teamA: 'Qatar',         teamB: 'Switzerland',    venue: 'San Francisco' },
-  { id: 'B3', group: 'B', matchday: 2, date: 'Jun 16', teamA: 'Canada',        teamB: 'Qatar',          venue: 'Seattle' },
-  { id: 'B4', group: 'B', matchday: 2, date: 'Jun 16', teamA: 'Switzerland',   teamB: 'Bosnia & Herz.', venue: 'Philadelphia' },
-  { id: 'B5', group: 'B', matchday: 3, date: 'Jun 20', teamA: 'Canada',        teamB: 'Switzerland',    venue: 'Toronto' },
-  { id: 'B6', group: 'B', matchday: 3, date: 'Jun 20', teamA: 'Qatar',         teamB: 'Bosnia & Herz.', venue: 'Houston' },
+  { id: 'B1', group: 'B', matchday: 1, round: 'group', date: 'Jun 12', teamA: 'Canada',        teamB: 'Bosnia & Herz.', venue: 'Toronto' },
+  { id: 'B2', group: 'B', matchday: 1, round: 'group', date: 'Jun 12', teamA: 'Qatar',         teamB: 'Switzerland',    venue: 'San Francisco' },
+  { id: 'B3', group: 'B', matchday: 2, round: 'group', date: 'Jun 16', teamA: 'Canada',        teamB: 'Qatar',          venue: 'Seattle' },
+  { id: 'B4', group: 'B', matchday: 2, round: 'group', date: 'Jun 16', teamA: 'Switzerland',   teamB: 'Bosnia & Herz.', venue: 'Philadelphia' },
+  { id: 'B5', group: 'B', matchday: 3, round: 'group', date: 'Jun 20', teamA: 'Canada',        teamB: 'Switzerland',    venue: 'Toronto' },
+  { id: 'B6', group: 'B', matchday: 3, round: 'group', date: 'Jun 20', teamA: 'Qatar',         teamB: 'Bosnia & Herz.', venue: 'Houston' },
   // Group C
-  { id: 'C1', group: 'C', matchday: 1, date: 'Jun 13', teamA: 'Brazil',        teamB: 'Morocco',        venue: 'New York/NJ' },
-  { id: 'C2', group: 'C', matchday: 1, date: 'Jun 13', teamA: 'Haiti',         teamB: 'Scotland',        venue: 'Boston' },
-  { id: 'C3', group: 'C', matchday: 2, date: 'Jun 17', teamA: 'Brazil',        teamB: 'Haiti',           venue: 'Miami' },
-  { id: 'C4', group: 'C', matchday: 2, date: 'Jun 17', teamA: 'Morocco',       teamB: 'Scotland',        venue: 'Atlanta' },
-  { id: 'C5', group: 'C', matchday: 3, date: 'Jun 21', teamA: 'Brazil',        teamB: 'Scotland',        venue: 'Houston' },
-  { id: 'C6', group: 'C', matchday: 3, date: 'Jun 21', teamA: 'Morocco',       teamB: 'Haiti',           venue: 'Dallas' },
+  { id: 'C1', group: 'C', matchday: 1, round: 'group', date: 'Jun 13', teamA: 'Brazil',        teamB: 'Morocco',        venue: 'New York/NJ' },
+  { id: 'C2', group: 'C', matchday: 1, round: 'group', date: 'Jun 13', teamA: 'Haiti',         teamB: 'Scotland',        venue: 'Boston' },
+  { id: 'C3', group: 'C', matchday: 2, round: 'group', date: 'Jun 17', teamA: 'Brazil',        teamB: 'Haiti',           venue: 'Miami' },
+  { id: 'C4', group: 'C', matchday: 2, round: 'group', date: 'Jun 17', teamA: 'Morocco',       teamB: 'Scotland',        venue: 'Atlanta' },
+  { id: 'C5', group: 'C', matchday: 3, round: 'group', date: 'Jun 21', teamA: 'Brazil',        teamB: 'Scotland',        venue: 'Houston' },
+  { id: 'C6', group: 'C', matchday: 3, round: 'group', date: 'Jun 21', teamA: 'Morocco',       teamB: 'Haiti',           venue: 'Dallas' },
   // Group D
-  { id: 'D1', group: 'D', matchday: 1, date: 'Jun 12', teamA: 'United States', teamB: 'Paraguay',       venue: 'Los Angeles' },
-  { id: 'D2', group: 'D', matchday: 1, date: 'Jun 12', teamA: 'Australia',     teamB: 'Türkiye',         venue: 'Vancouver' },
-  { id: 'D3', group: 'D', matchday: 2, date: 'Jun 17', teamA: 'United States', teamB: 'Australia',      venue: 'Seattle' },
-  { id: 'D4', group: 'D', matchday: 2, date: 'Jun 17', teamA: 'Türkiye',       teamB: 'Paraguay',        venue: 'Miami' },
-  { id: 'D5', group: 'D', matchday: 3, date: 'Jun 21', teamA: 'United States', teamB: 'Türkiye',         venue: 'Los Angeles' },
-  { id: 'D6', group: 'D', matchday: 3, date: 'Jun 21', teamA: 'Australia',     teamB: 'Paraguay',        venue: 'San Francisco' },
+  { id: 'D1', group: 'D', matchday: 1, round: 'group', date: 'Jun 12', teamA: 'United States', teamB: 'Paraguay',       venue: 'Los Angeles' },
+  { id: 'D2', group: 'D', matchday: 1, round: 'group', date: 'Jun 12', teamA: 'Australia',     teamB: 'Türkiye',         venue: 'Vancouver' },
+  { id: 'D3', group: 'D', matchday: 2, round: 'group', date: 'Jun 17', teamA: 'United States', teamB: 'Australia',      venue: 'Seattle' },
+  { id: 'D4', group: 'D', matchday: 2, round: 'group', date: 'Jun 17', teamA: 'Türkiye',       teamB: 'Paraguay',        venue: 'Miami' },
+  { id: 'D5', group: 'D', matchday: 3, round: 'group', date: 'Jun 21', teamA: 'United States', teamB: 'Türkiye',         venue: 'Los Angeles' },
+  { id: 'D6', group: 'D', matchday: 3, round: 'group', date: 'Jun 21', teamA: 'Australia',     teamB: 'Paraguay',        venue: 'San Francisco' },
   // Group E
-  { id: 'E1', group: 'E', matchday: 1, date: 'Jun 14', teamA: 'Germany',       teamB: 'Curaçao',         venue: 'Philadelphia' },
-  { id: 'E2', group: 'E', matchday: 1, date: 'Jun 14', teamA: 'Ivory Coast',   teamB: 'Ecuador',         venue: 'Houston' },
-  { id: 'E3', group: 'E', matchday: 2, date: 'Jun 18', teamA: 'Germany',       teamB: 'Ivory Coast',    venue: 'Atlanta' },
-  { id: 'E4', group: 'E', matchday: 2, date: 'Jun 18', teamA: 'Ecuador',       teamB: 'Curaçao',         venue: 'Kansas City' },
-  { id: 'E5', group: 'E', matchday: 3, date: 'Jun 22', teamA: 'Germany',       teamB: 'Ecuador',         venue: 'Dallas' },
-  { id: 'E6', group: 'E', matchday: 3, date: 'Jun 22', teamA: 'Ivory Coast',   teamB: 'Curaçao',         venue: 'Los Angeles' },
+  { id: 'E1', group: 'E', matchday: 1, round: 'group', date: 'Jun 14', teamA: 'Germany',       teamB: 'Curaçao',         venue: 'Philadelphia' },
+  { id: 'E2', group: 'E', matchday: 1, round: 'group', date: 'Jun 14', teamA: 'Ivory Coast',   teamB: 'Ecuador',         venue: 'Houston' },
+  { id: 'E3', group: 'E', matchday: 2, round: 'group', date: 'Jun 18', teamA: 'Germany',       teamB: 'Ivory Coast',    venue: 'Atlanta' },
+  { id: 'E4', group: 'E', matchday: 2, round: 'group', date: 'Jun 18', teamA: 'Ecuador',       teamB: 'Curaçao',         venue: 'Kansas City' },
+  { id: 'E5', group: 'E', matchday: 3, round: 'group', date: 'Jun 22', teamA: 'Germany',       teamB: 'Ecuador',         venue: 'Dallas' },
+  { id: 'E6', group: 'E', matchday: 3, round: 'group', date: 'Jun 22', teamA: 'Ivory Coast',   teamB: 'Curaçao',         venue: 'Los Angeles' },
   // Group F
-  { id: 'F1', group: 'F', matchday: 1, date: 'Jun 14', teamA: 'Netherlands',   teamB: 'Japan',           venue: 'Boston' },
-  { id: 'F2', group: 'F', matchday: 1, date: 'Jun 14', teamA: 'Sweden',        teamB: 'Tunisia',         venue: 'New York/NJ' },
-  { id: 'F3', group: 'F', matchday: 2, date: 'Jun 18', teamA: 'Netherlands',   teamB: 'Sweden',          venue: 'Kansas City' },
-  { id: 'F4', group: 'F', matchday: 2, date: 'Jun 18', teamA: 'Japan',         teamB: 'Tunisia',         venue: 'Seattle' },
-  { id: 'F5', group: 'F', matchday: 3, date: 'Jun 22', teamA: 'Netherlands',   teamB: 'Tunisia',         venue: 'Miami' },
-  { id: 'F6', group: 'F', matchday: 3, date: 'Jun 22', teamA: 'Japan',         teamB: 'Sweden',          venue: 'San Francisco' },
+  { id: 'F1', group: 'F', matchday: 1, round: 'group', date: 'Jun 14', teamA: 'Netherlands',   teamB: 'Japan',           venue: 'Boston' },
+  { id: 'F2', group: 'F', matchday: 1, round: 'group', date: 'Jun 14', teamA: 'Sweden',        teamB: 'Tunisia',         venue: 'New York/NJ' },
+  { id: 'F3', group: 'F', matchday: 2, round: 'group', date: 'Jun 18', teamA: 'Netherlands',   teamB: 'Sweden',          venue: 'Kansas City' },
+  { id: 'F4', group: 'F', matchday: 2, round: 'group', date: 'Jun 18', teamA: 'Japan',         teamB: 'Tunisia',         venue: 'Seattle' },
+  { id: 'F5', group: 'F', matchday: 3, round: 'group', date: 'Jun 22', teamA: 'Netherlands',   teamB: 'Tunisia',         venue: 'Miami' },
+  { id: 'F6', group: 'F', matchday: 3, round: 'group', date: 'Jun 22', teamA: 'Japan',         teamB: 'Sweden',          venue: 'San Francisco' },
   // Group G
-  { id: 'G1', group: 'G', matchday: 1, date: 'Jun 15', teamA: 'Belgium',       teamB: 'Egypt',           venue: 'Seattle' },
-  { id: 'G2', group: 'G', matchday: 1, date: 'Jun 15', teamA: 'Iran',          teamB: 'New Zealand',     venue: 'Los Angeles' },
-  { id: 'G3', group: 'G', matchday: 2, date: 'Jun 19', teamA: 'Belgium',       teamB: 'Iran',            venue: 'New York/NJ' },
-  { id: 'G4', group: 'G', matchday: 2, date: 'Jun 19', teamA: 'Egypt',         teamB: 'New Zealand',     venue: 'Toronto' },
-  { id: 'G5', group: 'G', matchday: 3, date: 'Jun 23', teamA: 'Belgium',       teamB: 'New Zealand',    venue: 'Atlanta' },
-  { id: 'G6', group: 'G', matchday: 3, date: 'Jun 23', teamA: 'Egypt',         teamB: 'Iran',            venue: 'Houston' },
+  { id: 'G1', group: 'G', matchday: 1, round: 'group', date: 'Jun 15', teamA: 'Belgium',       teamB: 'Egypt',           venue: 'Seattle' },
+  { id: 'G2', group: 'G', matchday: 1, round: 'group', date: 'Jun 15', teamA: 'Iran',          teamB: 'New Zealand',     venue: 'Los Angeles' },
+  { id: 'G3', group: 'G', matchday: 2, round: 'group', date: 'Jun 19', teamA: 'Belgium',       teamB: 'Iran',            venue: 'New York/NJ' },
+  { id: 'G4', group: 'G', matchday: 2, round: 'group', date: 'Jun 19', teamA: 'Egypt',         teamB: 'New Zealand',     venue: 'Toronto' },
+  { id: 'G5', group: 'G', matchday: 3, round: 'group', date: 'Jun 23', teamA: 'Belgium',       teamB: 'New Zealand',    venue: 'Atlanta' },
+  { id: 'G6', group: 'G', matchday: 3, round: 'group', date: 'Jun 23', teamA: 'Egypt',         teamB: 'Iran',            venue: 'Houston' },
   // Group H
-  { id: 'H1', group: 'H', matchday: 1, date: 'Jun 15', teamA: 'Spain',         teamB: 'Cape Verde',     venue: 'Atlanta' },
-  { id: 'H2', group: 'H', matchday: 1, date: 'Jun 15', teamA: 'Saudi Arabia',  teamB: 'Uruguay',        venue: 'Miami' },
-  { id: 'H3', group: 'H', matchday: 2, date: 'Jun 19', teamA: 'Spain',         teamB: 'Saudi Arabia',   venue: 'Dallas' },
-  { id: 'H4', group: 'H', matchday: 2, date: 'Jun 19', teamA: 'Uruguay',       teamB: 'Cape Verde',     venue: 'Philadelphia' },
-  { id: 'H5', group: 'H', matchday: 3, date: 'Jun 23', teamA: 'Spain',         teamB: 'Uruguay',        venue: 'Los Angeles' },
-  { id: 'H6', group: 'H', matchday: 3, date: 'Jun 23', teamA: 'Saudi Arabia',  teamB: 'Cape Verde',     venue: 'San Francisco' },
+  { id: 'H1', group: 'H', matchday: 1, round: 'group', date: 'Jun 15', teamA: 'Spain',         teamB: 'Cape Verde',     venue: 'Atlanta' },
+  { id: 'H2', group: 'H', matchday: 1, round: 'group', date: 'Jun 15', teamA: 'Saudi Arabia',  teamB: 'Uruguay',        venue: 'Miami' },
+  { id: 'H3', group: 'H', matchday: 2, round: 'group', date: 'Jun 19', teamA: 'Spain',         teamB: 'Saudi Arabia',   venue: 'Dallas' },
+  { id: 'H4', group: 'H', matchday: 2, round: 'group', date: 'Jun 19', teamA: 'Uruguay',       teamB: 'Cape Verde',     venue: 'Philadelphia' },
+  { id: 'H5', group: 'H', matchday: 3, round: 'group', date: 'Jun 23', teamA: 'Spain',         teamB: 'Uruguay',        venue: 'Los Angeles' },
+  { id: 'H6', group: 'H', matchday: 3, round: 'group', date: 'Jun 23', teamA: 'Saudi Arabia',  teamB: 'Cape Verde',     venue: 'San Francisco' },
   // Group I
-  { id: 'I1', group: 'I', matchday: 1, date: 'Jun 16', teamA: 'France',        teamB: 'Senegal',        venue: 'New York/NJ' },
-  { id: 'I2', group: 'I', matchday: 1, date: 'Jun 16', teamA: 'Iraq',          teamB: 'Norway',          venue: 'Boston' },
-  { id: 'I3', group: 'I', matchday: 2, date: 'Jun 20', teamA: 'France',        teamB: 'Iraq',            venue: 'Atlanta' },
-  { id: 'I4', group: 'I', matchday: 2, date: 'Jun 20', teamA: 'Senegal',       teamB: 'Norway',          venue: 'Kansas City' },
-  { id: 'I5', group: 'I', matchday: 3, date: 'Jun 24', teamA: 'France',        teamB: 'Norway',          venue: 'Seattle' },
-  { id: 'I6', group: 'I', matchday: 3, date: 'Jun 24', teamA: 'Senegal',       teamB: 'Iraq',            venue: 'Houston' },
+  { id: 'I1', group: 'I', matchday: 1, round: 'group', date: 'Jun 16', teamA: 'France',        teamB: 'Senegal',        venue: 'New York/NJ' },
+  { id: 'I2', group: 'I', matchday: 1, round: 'group', date: 'Jun 16', teamA: 'Iraq',          teamB: 'Norway',          venue: 'Boston' },
+  { id: 'I3', group: 'I', matchday: 2, round: 'group', date: 'Jun 20', teamA: 'France',        teamB: 'Iraq',            venue: 'Atlanta' },
+  { id: 'I4', group: 'I', matchday: 2, round: 'group', date: 'Jun 20', teamA: 'Senegal',       teamB: 'Norway',          venue: 'Kansas City' },
+  { id: 'I5', group: 'I', matchday: 3, round: 'group', date: 'Jun 24', teamA: 'France',        teamB: 'Norway',          venue: 'Seattle' },
+  { id: 'I6', group: 'I', matchday: 3, round: 'group', date: 'Jun 24', teamA: 'Senegal',       teamB: 'Iraq',            venue: 'Houston' },
   // Group J
-  { id: 'J1', group: 'J', matchday: 1, date: 'Jun 16', teamA: 'Argentina',     teamB: 'Algeria',        venue: 'Kansas City' },
-  { id: 'J2', group: 'J', matchday: 1, date: 'Jun 16', teamA: 'Austria',       teamB: 'Jordan',          venue: 'San Francisco' },
-  { id: 'J3', group: 'J', matchday: 2, date: 'Jun 20', teamA: 'Argentina',     teamB: 'Austria',        venue: 'Miami' },
-  { id: 'J4', group: 'J', matchday: 2, date: 'Jun 20', teamA: 'Algeria',       teamB: 'Jordan',          venue: 'Philadelphia' },
-  { id: 'J5', group: 'J', matchday: 3, date: 'Jun 24', teamA: 'Argentina',     teamB: 'Jordan',          venue: 'Dallas' },
-  { id: 'J6', group: 'J', matchday: 3, date: 'Jun 24', teamA: 'Algeria',       teamB: 'Austria',         venue: 'Toronto' },
+  { id: 'J1', group: 'J', matchday: 1, round: 'group', date: 'Jun 16', teamA: 'Argentina',     teamB: 'Algeria',        venue: 'Kansas City' },
+  { id: 'J2', group: 'J', matchday: 1, round: 'group', date: 'Jun 16', teamA: 'Austria',       teamB: 'Jordan',          venue: 'San Francisco' },
+  { id: 'J3', group: 'J', matchday: 2, round: 'group', date: 'Jun 20', teamA: 'Argentina',     teamB: 'Austria',        venue: 'Miami' },
+  { id: 'J4', group: 'J', matchday: 2, round: 'group', date: 'Jun 20', teamA: 'Algeria',       teamB: 'Jordan',          venue: 'Philadelphia' },
+  { id: 'J5', group: 'J', matchday: 3, round: 'group', date: 'Jun 24', teamA: 'Argentina',     teamB: 'Jordan',          venue: 'Dallas' },
+  { id: 'J6', group: 'J', matchday: 3, round: 'group', date: 'Jun 24', teamA: 'Algeria',       teamB: 'Austria',         venue: 'Toronto' },
   // Group K
-  { id: 'K1', group: 'K', matchday: 1, date: 'Jun 17', teamA: 'Portugal',      teamB: 'DR Congo',       venue: 'Houston' },
-  { id: 'K2', group: 'K', matchday: 1, date: 'Jun 17', teamA: 'Uzbekistan',    teamB: 'Colombia',       venue: 'Mexico City' },
-  { id: 'K3', group: 'K', matchday: 2, date: 'Jun 21', teamA: 'Portugal',      teamB: 'Uzbekistan',     venue: 'Boston' },
-  { id: 'K4', group: 'K', matchday: 2, date: 'Jun 21', teamA: 'DR Congo',      teamB: 'Colombia',       venue: 'Seattle' },
-  { id: 'K5', group: 'K', matchday: 3, date: 'Jun 25', teamA: 'Portugal',      teamB: 'Colombia',       venue: 'New York/NJ' },
-  { id: 'K6', group: 'K', matchday: 3, date: 'Jun 25', teamA: 'Uzbekistan',    teamB: 'DR Congo',       venue: 'Philadelphia' },
+  { id: 'K1', group: 'K', matchday: 1, round: 'group', date: 'Jun 17', teamA: 'Portugal',      teamB: 'DR Congo',       venue: 'Houston' },
+  { id: 'K2', group: 'K', matchday: 1, round: 'group', date: 'Jun 17', teamA: 'Uzbekistan',    teamB: 'Colombia',       venue: 'Mexico City' },
+  { id: 'K3', group: 'K', matchday: 2, round: 'group', date: 'Jun 21', teamA: 'Portugal',      teamB: 'Uzbekistan',     venue: 'Boston' },
+  { id: 'K4', group: 'K', matchday: 2, round: 'group', date: 'Jun 21', teamA: 'DR Congo',      teamB: 'Colombia',       venue: 'Seattle' },
+  { id: 'K5', group: 'K', matchday: 3, round: 'group', date: 'Jun 25', teamA: 'Portugal',      teamB: 'Colombia',       venue: 'New York/NJ' },
+  { id: 'K6', group: 'K', matchday: 3, round: 'group', date: 'Jun 25', teamA: 'Uzbekistan',    teamB: 'DR Congo',       venue: 'Philadelphia' },
   // Group L
-  { id: 'L1', group: 'L', matchday: 1, date: 'Jun 17', teamA: 'England',       teamB: 'Croatia',        venue: 'Dallas' },
-  { id: 'L2', group: 'L', matchday: 1, date: 'Jun 17', teamA: 'Ghana',         teamB: 'Panama',          venue: 'Toronto' },
-  { id: 'L3', group: 'L', matchday: 2, date: 'Jun 21', teamA: 'England',       teamB: 'Ghana',           venue: 'Atlanta' },
-  { id: 'L4', group: 'L', matchday: 2, date: 'Jun 21', teamA: 'Croatia',       teamB: 'Panama',          venue: 'Boston' },
-  { id: 'L5', group: 'L', matchday: 3, date: 'Jun 25', teamA: 'England',       teamB: 'Panama',          venue: 'Miami' },
-  { id: 'L6', group: 'L', matchday: 3, date: 'Jun 25', teamA: 'Croatia',       teamB: 'Ghana',           venue: 'New York/NJ' },
-  //r32
-  
+  { id: 'L1', group: 'L', matchday: 1, round: 'group', date: 'Jun 17', teamA: 'England',       teamB: 'Croatia',        venue: 'Dallas' },
+  { id: 'L2', group: 'L', matchday: 1, round: 'group', date: 'Jun 17', teamA: 'Ghana',         teamB: 'Panama',          venue: 'Toronto' },
+  { id: 'L3', group: 'L', matchday: 2, round: 'group', date: 'Jun 21', teamA: 'England',       teamB: 'Ghana',           venue: 'Atlanta' },
+  { id: 'L4', group: 'L', matchday: 2, round: 'group', date: 'Jun 21', teamA: 'Croatia',       teamB: 'Panama',          venue: 'Boston' },
+  { id: 'L5', group: 'L', matchday: 3, round: 'group', date: 'Jun 25', teamA: 'England',       teamB: 'Panama',          venue: 'Miami' },
+  { id: 'L6', group: 'L', matchday: 3, round: 'group', date: 'Jun 25', teamA: 'Croatia',       teamB: 'Ghana',           venue: 'New York/NJ' },
+
+  // ── Round of 32 ────────────────────────────────────────────────────────────
+  // Fixed slots per FIFA's official bracket (Match numbers M73-M88).
+  // teamA/teamB start as null — fill in real team names here once FIFA
+  // confirms the bracket after the group stage ends (~June 27-28).
+  // slotA/slotB are just human-readable labels shown until then.
+  { id: 'R32_M73', group: 'R32', matchday: 1, round: 'r32', date: 'Jun 28', teamA: null, teamB: null, venue: 'TBD', slotA: '2A', slotB: '2B' },
+  { id: 'R32_M74', group: 'R32', matchday: 1, round: 'r32', date: 'Jun 29', teamA: null, teamB: null, venue: 'TBD', slotA: '1E', slotB: '3rd A/B/C/D/F' },
+  { id: 'R32_M75', group: 'R32', matchday: 1, round: 'r32', date: 'Jun 29', teamA: null, teamB: null, venue: 'TBD', slotA: '1F', slotB: '2C' },
+  { id: 'R32_M76', group: 'R32', matchday: 1, round: 'r32', date: 'Jun 29', teamA: null, teamB: null, venue: 'TBD', slotA: '1C', slotB: '2F' },
+  { id: 'R32_M77', group: 'R32', matchday: 1, round: 'r32', date: 'Jun 30', teamA: null, teamB: null, venue: 'TBD', slotA: '1I', slotB: '3rd C/D/F/G/H' },
+  { id: 'R32_M78', group: 'R32', matchday: 1, round: 'r32', date: 'Jun 30', teamA: null, teamB: null, venue: 'TBD', slotA: '2E', slotB: '2I' },
+  { id: 'R32_M79', group: 'R32', matchday: 1, round: 'r32', date: 'Jun 30', teamA: 'Mexico', teamB: null, venue: 'TBD', slotA: '1A', slotB: '3rd C/E/F/H/I' },
+  { id: 'R32_M80', group: 'R32', matchday: 1, round: 'r32', date: 'Jul 01', teamA: null, teamB: null, venue: 'TBD', slotA: '1L', slotB: '3rd E/H/I/J/K' },
+  { id: 'R32_M81', group: 'R32', matchday: 1, round: 'r32', date: 'Jul 01', teamA: null, teamB: null, venue: 'TBD', slotA: '1D', slotB: '3rd B/E/F/I/J' },
+  { id: 'R32_M82', group: 'R32', matchday: 1, round: 'r32', date: 'Jul 01', teamA: null, teamB: null, venue: 'TBD', slotA: '1G', slotB: '3rd A/E/H/I/J' },
+  { id: 'R32_M83', group: 'R32', matchday: 1, round: 'r32', date: 'Jul 02', teamA: null, teamB: null, venue: 'TBD', slotA: '2K', slotB: '2L' },
+  { id: 'R32_M84', group: 'R32', matchday: 1, round: 'r32', date: 'Jul 02', teamA: null, teamB: null, venue: 'TBD', slotA: '1H', slotB: '2J' },
+  { id: 'R32_M85', group: 'R32', matchday: 1, round: 'r32', date: 'Jul 02', teamA: null, teamB: null, venue: 'TBD', slotA: '1B', slotB: '3rd E/F/G/I/J' },
+  { id: 'R32_M86', group: 'R32', matchday: 1, round: 'r32', date: 'Jul 03', teamA: null, teamB: null, venue: 'TBD', slotA: '1J', slotB: '2H' },
+  { id: 'R32_M87', group: 'R32', matchday: 1, round: 'r32', date: 'Jul 03', teamA: null, teamB: null, venue: 'TBD', slotA: '1K', slotB: '3rd D/E/I/J/L' },
+  { id: 'R32_M88', group: 'R32', matchday: 1, round: 'r32', date: 'Jul 03', teamA: null, teamB: null, venue: 'TBD', slotA: '2D', slotB: '2G' },
 ];
 
 // ── Base FIFA ratings (April 2026) ─────────────────────────────────────────
@@ -145,21 +165,19 @@ function expectedScore(rA: number, rB: number): number {
   return 1 / (1 + Math.pow(10, (rB - rA) / 400));
 }
 
-function calcPrediction(rA: number, rB: number) {
+function calcPrediction(rA: number, rB: number): { winA: number; draw: number; winB: number } {
   const expA = expectedScore(rA, rB);
   const expB = 1 - expA;
-
-  // Draw rate: 27% baseline, falls off gently with rating gap
-  const ratingGap = Math.abs(rA - rB);
-  const draw = 0.27 * Math.exp(-ratingGap / 800);
-  //                           ↑ 800 means a 550pt gap halves draw chance
-
-  const remaining = 1 - draw;
-  const winA = Math.round((expA * remaining) * 100);
-  const winB = Math.round((expB * remaining) * 100);
-  const drawFinal = 100 - winA - winB;
-
-  return { winA, draw: drawFinal, winB };
+  const drawBase = 0.25 * Math.exp(-4 * Math.pow(expA - 0.5, 2));
+  const winA = expA * (1 - drawBase * 0.5);
+  const winB = expB * (1 - drawBase * 0.5);
+  const draw = 1 - winA - winB;
+  const total = winA + draw + winB;
+  return {
+    winA: Math.round((winA / total) * 100),
+    draw: Math.round((draw / total) * 100),
+    winB: Math.round((winB / total) * 100),
+  };
 }
 
 // Actual score for Elo update: win=1, draw=0.5, loss=0
@@ -238,6 +256,9 @@ export const load = async () => {
   const predictions: Record<string, MatchPrediction> = {};
 
   for (const match of ALL_MATCHES) {
+    // Skip matches where teams aren't confirmed yet (e.g. unfilled R32 slots)
+    if (!match.teamA || !match.teamB) continue;
+
     const rA = liveRatings[match.teamA] ?? 1400;
     const rB = liveRatings[match.teamB] ?? 1400;
 
