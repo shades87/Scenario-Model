@@ -120,7 +120,7 @@
         <h1 class="h1 text-surface-950-50">WC 2026 Match Predictor</h1>
       </div>
       <p class="text-xs text-surface-500 mt-0.5 text-center">
-        Statistical model · Elo ratings · April 2026
+        Statistical model · Fifa ratings · April 2026
       </p>
     </div>
     <div class="flex gap-2">
@@ -327,7 +327,7 @@
                 <small class="font-bold">Draw</small>
               {/if}
             {/if}
-            <small class="opacity-60">Elo model · April 2026</small>
+            <small class="opacity-60">Fifa rankings model · April 2026</small>
           </footer>
         {/if}
 
