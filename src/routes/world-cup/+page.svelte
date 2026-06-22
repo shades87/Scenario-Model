@@ -132,7 +132,6 @@
   <!-- Nav now sits inside header, full width -->
   <nav class="bg-primary-300 border-b border-surface-200-800 px-6 py-3 flex gap-4 items-center flex-wrap">
     <div class="flex items-center gap-2">
-      <span class="text-xs font-medium uppercase tracking-widest text-white">Round</span>
       <div class="flex gap-1">
         {#each [['group','Group Stage'],['r32','Round of 32']] as [val, label] (val)}
           <button

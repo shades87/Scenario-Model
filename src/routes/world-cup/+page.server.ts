@@ -120,13 +120,13 @@ const ALL_MATCHES: Match[] = [
   // confirms the bracket after the group stage ends (~June 27-28).
   // slotA/slotB are just human-readable labels shown until then.
   { id: 'R32_M73', group: 'R32', matchday: 1, round: 'r32', date: 'Jun 28', teamA: null, teamB: null, venue: 'TBD', slotA: '2A', slotB: '2B' },
-  { id: 'R32_M74', group: 'R32', matchday: 1, round: 'r32', date: 'Jun 29', teamA: null, teamB: null, venue: 'TBD', slotA: '1E', slotB: '3rd A/B/C/D/F' },
+  { id: 'R32_M74', group: 'R32', matchday: 1, round: 'r32', date: 'Jun 29', teamA: 'Germany', teamB: null, venue: 'TBD', slotA: '1E', slotB: '3rd A/B/C/D/F' },
   { id: 'R32_M75', group: 'R32', matchday: 1, round: 'r32', date: 'Jun 29', teamA: null, teamB: null, venue: 'TBD', slotA: '1F', slotB: '2C' },
   { id: 'R32_M76', group: 'R32', matchday: 1, round: 'r32', date: 'Jun 29', teamA: null, teamB: null, venue: 'TBD', slotA: '1C', slotB: '2F' },
   { id: 'R32_M77', group: 'R32', matchday: 1, round: 'r32', date: 'Jun 30', teamA: null, teamB: null, venue: 'TBD', slotA: '1I', slotB: '3rd C/D/F/G/H' },
   { id: 'R32_M78', group: 'R32', matchday: 1, round: 'r32', date: 'Jun 30', teamA: null, teamB: null, venue: 'TBD', slotA: '2E', slotB: '2I' },
   { id: 'R32_M79', group: 'R32', matchday: 1, round: 'r32', date: 'Jun 30', teamA: 'Mexico', teamB: null, venue: 'TBD', slotA: '1A', slotB: '3rd C/E/F/H/I' },
-  { id: 'R32_M80', group: 'R32', matchday: 1, round: 'r32', date: 'Jul 01', teamA: null, teamB: null, venue: 'TBD', slotA: '1L', slotB: '3rd E/H/I/J/K' },
+  { id: 'R32_M80', group: 'R32', matchday: 1, round: 'r32', date: 'Jul 01', teamA: 'United States', teamB: null, venue: 'TBD', slotA: '1L', slotB: '3rd E/H/I/J/K' },
   { id: 'R32_M81', group: 'R32', matchday: 1, round: 'r32', date: 'Jul 01', teamA: null, teamB: null, venue: 'TBD', slotA: '1D', slotB: '3rd B/E/F/I/J' },
   { id: 'R32_M82', group: 'R32', matchday: 1, round: 'r32', date: 'Jul 01', teamA: null, teamB: null, venue: 'TBD', slotA: '1G', slotB: '3rd A/E/H/I/J' },
   { id: 'R32_M83', group: 'R32', matchday: 1, round: 'r32', date: 'Jul 02', teamA: null, teamB: null, venue: 'TBD', slotA: '2K', slotB: '2L' },
