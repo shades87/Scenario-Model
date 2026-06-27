@@ -19,6 +19,7 @@
   };
 
   // ── State ──────────────────────────────────────────────────────────────────
+  let selectedRound = $state<'group' | 'r32'>('group');
   let selectedGroup = $state<string>('A');
   let selectedMatchday = $state<string>('1');
 
@@ -26,10 +27,13 @@
   const predictions = $derived(data.predictions ?? {});
 
   const filteredMatches = $derived(
-    data.matches.filter(m =>
-      (selectedGroup === 'All' || m.group === selectedGroup) &&
-      (selectedMatchday === 'all' || String(m.matchday) === selectedMatchday)
-    )
+    selectedRound === 'r32'
+      ? data.matches.filter(m => m.round === 'r32')
+      : data.matches.filter(m =>
+          (m.round ?? 'group') === 'group' &&
+          (selectedGroup === 'All' || m.group === selectedGroup) &&
+          (selectedMatchday === 'all' || String(m.matchday) === selectedMatchday)
+        )
   );
 
   const scorecard = $derived(() => {
@@ -46,7 +50,8 @@
     return { correct, total: entries.length, pct: Math.round((correct / entries.length) * 100) };
   });
 
-  function predictedOutcome(p: MatchPrediction, m: Match): string {
+  function predictedOutcome(p: MatchPrediction | undefined, m: Match): string {
+    if (!p || !m.teamA || !m.teamB) return 'TBD';
     if (p.winA > p.draw && p.winA > p.winB) return m.teamA;
     if (p.winB > p.draw && p.winB > p.winA) return m.teamB;
     return 'Draw';
@@ -57,12 +62,13 @@
     const header = 'match_id,group,date,team_a,team_b,venue,rating_a,rating_b,win_a_pct,draw_pct,win_b_pct,predicted_outcome';
     const rows = filteredMatches.map(m => {
       const p = predictions[m.id];
+      if (!p) return `${m.id},${m.group},${m.date},${m.slotA ?? m.teamA ?? 'TBD'},${m.slotB ?? m.teamB ?? 'TBD'},${m.venue},,,,,,TBD`;
       return `${m.id},${m.group},${m.date},${m.teamA},${m.teamB},${m.venue},${p.ratingA},${p.ratingB},${p.winA},${p.draw},${p.winB},${predictedOutcome(p, m)}`;
     });
     const blob = new Blob([[header, ...rows].join('\n')], { type: 'text/csv' });
     const a = Object.assign(document.createElement('a'), {
       href: URL.createObjectURL(blob),
-      download: `wc2026_group${selectedGroup}_md${selectedMatchday}.csv`,
+      download: `wc2026_${selectedRound}_${selectedRound === 'group' ? selectedGroup + '_md' + selectedMatchday : 'all'}.csv`,
     });
     a.click();
     URL.revokeObjectURL(a.href);
@@ -71,6 +77,13 @@
   function exportJSON() {
     const payload = filteredMatches.map(m => {
       const p = predictions[m.id];
+      if (!p) {
+        return {
+          match_id: m.id, group: m.group, date: m.date,
+          team_a: m.slotA ?? m.teamA ?? 'TBD', team_b: m.slotB ?? m.teamB ?? 'TBD',
+          venue: m.venue, predicted_outcome: 'TBD',
+        };
+      }
       return {
         match_id: m.id, group: m.group, date: m.date,
         team_a: m.teamA, team_b: m.teamB, venue: m.venue,
@@ -82,7 +95,7 @@
     const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
     const a = Object.assign(document.createElement('a'), {
       href: URL.createObjectURL(blob),
-      download: `wc2026_group${selectedGroup}_md${selectedMatchday}.json`,
+      download: `wc2026_${selectedRound}_${selectedRound === 'group' ? selectedGroup + '_md' + selectedMatchday : 'all'}.json`,
     });
     a.click();
     URL.revokeObjectURL(a.href);
@@ -107,7 +120,7 @@
         <h1 class="h1 text-surface-950-50">WC 2026 Match Predictor</h1>
       </div>
       <p class="text-xs text-surface-500 mt-0.5 text-center">
-        Statistical model · Elo ratings · April 2026
+        Statistical model · Fifa ratings · April 2026
       </p>
     </div>
     <div class="flex gap-2">
@@ -119,36 +132,55 @@
   <!-- Nav now sits inside header, full width -->
   <nav class="bg-primary-300 border-b border-surface-200-800 px-6 py-3 flex gap-4 items-center flex-wrap">
     <div class="flex items-center gap-2">
-      <span class="text-xs font-medium uppercase tracking-widest text-white">Group</span>
-      <div class="flex gap-1 flex-wrap">
-        {#each GROUPS as g(g)}
-          <button
-            class="btn btn-sm rounded-full text-xs text-white font-medium"
-            class:preset-filled={selectedGroup === g}
-            class:preset-outlined-surface-300={selectedGroup !== g}
-            style={selectedGroup === g && g !== 'All' ? `background:${GROUP_COLORS[g]};border-color:${GROUP_COLORS[g]};color:white` : ''}
-            onclick={() => { selectedGroup = g; }}
-          >{g}</button>
-        {/each}
-      </div>
-    </div>
-    <div class="flex items-center gap-2">
-      <span class="text-xs font-medium uppercase tracking-widest text-white">Matchday</span>
       <div class="flex gap-1">
-        {#each [['1','MD 1'],['2','MD 2'],['3','MD 3'],['all','All']] as [val, label] (label)}
+        {#each [['group','Group Stage'],['r32','Round of 32']] as [val, label] (val)}
           <button
             class="btn btn-sm rounded-full text-xs font-medium border transition-all"
-            class:bg-surface-950-50={selectedMatchday === val}
-            class:text-surface-50-950={selectedMatchday === val}
-            class:border-surface-950-50={selectedMatchday === val}
-            class:bg-transparent={selectedMatchday !== val}
-            class:text-white={selectedMatchday !== val}
-            class:border-white={selectedMatchday !== val}
-            onclick={() => selectedMatchday = val}
+            class:bg-surface-950-50={selectedRound === val}
+            class:text-surface-50-950={selectedRound === val}
+            class:border-surface-950-50={selectedRound === val}
+            class:bg-transparent={selectedRound !== val}
+            class:text-white={selectedRound !== val}
+            class:border-white={selectedRound !== val}
+            onclick={() => selectedRound = val as 'group' | 'r32'}
           >{label}</button>
         {/each}
       </div>
     </div>
+
+    {#if selectedRound === 'group'}
+      <div class="flex items-center gap-2">
+        <span class="text-xs font-medium uppercase tracking-widest text-white">Group</span>
+        <div class="flex gap-1 flex-wrap">
+          {#each GROUPS as g(g)}
+            <button
+              class="btn btn-sm rounded-full text-xs text-white font-medium"
+              class:preset-filled={selectedGroup === g}
+              class:preset-outlined-surface-300={selectedGroup !== g}
+              style={selectedGroup === g && g !== 'All' ? `background:${GROUP_COLORS[g]};border-color:${GROUP_COLORS[g]};color:white` : ''}
+              onclick={() => { selectedGroup = g; }}
+            >{g}</button>
+          {/each}
+        </div>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="text-xs font-medium uppercase tracking-widest text-white">Matchday</span>
+        <div class="flex gap-1">
+          {#each [['1','MD 1'],['2','MD 2'],['3','MD 3'],['all','All']] as [val, label] (label)}
+            <button
+              class="btn btn-sm rounded-full text-xs font-medium border transition-all"
+              class:bg-surface-950-50={selectedMatchday === val}
+              class:text-surface-50-950={selectedMatchday === val}
+              class:border-surface-950-50={selectedMatchday === val}
+              class:bg-transparent={selectedMatchday !== val}
+              class:text-white={selectedMatchday !== val}
+              class:border-white={selectedMatchday !== val}
+              onclick={() => selectedMatchday = val}
+            >{label}</button>
+          {/each}
+        </div>
+      </div>
+    {/if}
   </nav>
 
 </header>
@@ -186,8 +218,9 @@
     {#each filteredMatches as match (match.id)}
       {@const p = predictions[match.id]}
       {@const actual = results[match.id]}
-      {@const pick = p.winA > p.draw && p.winA > p.winB ? 'A' : p.winB > p.draw && p.winB > p.winA ? 'B' : 'D'}
+      {@const pick = p ? (p.winA > p.draw && p.winA > p.winB ? 'A' : p.winB > p.draw && p.winB > p.winA ? 'B' : 'D') : null}
       {@const isCorrect = actual !== undefined && actual === pick}
+      {@const teamsKnown = !!match.teamA && !!match.teamB}
 
       <div class="card preset-filled-surface-100-900 border border-surface-200-800 divide-y overflow-hidden">
 
@@ -196,9 +229,11 @@
           <div class="flex items-center gap-2">
             <span
               class="text-xs font-medium px-2 py-0.5 rounded text-white"
-              style="background:{GROUP_COLORS[match.group]}"
+              style="background:{GROUP_COLORS[match.group] ?? '#6b7280'}"
             >{match.id}</span>
-            <h2 class="h6">{match.teamA} vs {match.teamB}</h2>
+            <h2 class="h6">
+              {teamsKnown ? `${match.teamA} vs ${match.teamB}` : `${match.slotA ?? '?'} vs ${match.slotB ?? '?'}`}
+            </h2>
           </div>
           <div class="flex items-center gap-2">
             <small class="opacity-60">{match.date} · {match.venue}</small>
@@ -210,81 +245,90 @@
           </div>
         </header>
 
-        <!-- Card body -->
-        <article class="py-3 px-4 space-y-4">
+        {#if !teamsKnown}
+          <!-- Slot not yet confirmed by FIFA -->
+          <article class="py-6 px-4 text-center">
+            <p class="text-sm text-surface-400">Teams not yet confirmed — bracket locks after the group stage ends.</p>
+          </article>
+        {:else}
+          <!-- Card body -->
+          <article class="py-3 px-4 space-y-4">
 
-          <!-- Team names + ratings -->
-          <div class="grid grid-cols-[1fr_auto_1fr] items-center gap-2">
-            <div>
-              <p class="text-sm font-medium text-surface-950-50">{match.teamA}</p>
-              <p class="text-xs text-surface-400">Elo {predictions[match.id]?.ratingA ?? '—'}</p>
-            </div>
-            <span class="text-xs text-surface-400 font-medium">vs</span>
-            <div class="text-right">
-              <p class="text-sm font-medium text-surface-950-50">{match.teamB}</p>
-              <p class="text-xs text-surface-400">Elo {predictions[match.id]?.ratingB ?? '—'}</p>
-            </div>
-          </div>
-
-          <!-- Probability bars -->
-          <div class="grid grid-cols-[1fr_64px_1fr] gap-3 items-end">
-
-            <!-- Win A -->
-            <div class="space-y-1">
-              <p class="text-xs text-surface-500">{match.teamA} win</p>
-              <p class="text-lg font-medium text-surface-950-50">{p.winA}%</p>
-              <div class="h-1.5 w-full rounded-full bg-surface-200-800 overflow-hidden">
-                <div
-                  class="h-full rounded-full transition-all"
-                  class:bg-success-500={p.winA > p.draw && p.winA > p.winB}
-                  class:bg-primary-500={!(p.winA > p.draw && p.winA > p.winB)}
-                  style="width:{p.winA}%"
-                ></div>
+            <!-- Team names + ratings -->
+            <div class="grid grid-cols-[1fr_auto_1fr] items-center gap-2">
+              <div>
+                <p class="text-sm font-medium text-surface-950-50">{match.teamA}</p>
+                <p class="text-xs text-surface-400">Elo {p?.ratingA ?? '—'}</p>
+              </div>
+              <span class="text-xs text-surface-400 font-medium">vs</span>
+              <div class="text-right">
+                <p class="text-sm font-medium text-surface-950-50">{match.teamB}</p>
+                <p class="text-xs text-surface-400">Elo {p?.ratingB ?? '—'}</p>
               </div>
             </div>
 
-            <!-- Draw -->
-            <div class="space-y-1 text-center">
-              <p class="text-xs text-surface-500">Draw</p>
-              <p class="text-lg font-medium text-surface-950-50">{p.draw}%</p>
-              <div class="h-1.5 w-full rounded-full bg-surface-200-800 overflow-hidden">
-                <div class="h-full rounded-full bg-surface-400 transition-all" style="width:{p.draw}%"></div>
+            {#if p}
+              <!-- Probability bars -->
+              <div class="grid grid-cols-[1fr_64px_1fr] gap-3 items-end">
+
+                <!-- Win A -->
+                <div class="space-y-1">
+                  <p class="text-xs text-surface-500">{match.teamA} win</p>
+                  <p class="text-lg font-medium text-surface-950-50">{p.winA}%</p>
+                  <div class="h-1.5 w-full rounded-full bg-surface-200-800 overflow-hidden">
+                    <div
+                      class="h-full rounded-full transition-all"
+                      class:bg-success-500={p.winA > p.draw && p.winA > p.winB}
+                      class:bg-primary-500={!(p.winA > p.draw && p.winA > p.winB)}
+                      style="width:{p.winA}%"
+                    ></div>
+                  </div>
+                </div>
+
+                <!-- Draw -->
+                <div class="space-y-1 text-center">
+                  <p class="text-xs text-surface-500">Draw</p>
+                  <p class="text-lg font-medium text-surface-950-50">{p.draw}%</p>
+                  <div class="h-1.5 w-full rounded-full bg-surface-200-800 overflow-hidden">
+                    <div class="h-full rounded-full bg-surface-400 transition-all" style="width:{p.draw}%"></div>
+                  </div>
+                </div>
+
+                <!-- Win B -->
+                <div class="space-y-1 text-right">
+                  <p class="text-xs text-surface-500">{match.teamB} win</p>
+                  <p class="text-lg font-medium text-surface-950-50">{p.winB}%</p>
+                  <div class="h-1.5 w-full rounded-full bg-surface-200-800 overflow-hidden">
+                    <div
+                      class="h-full rounded-full transition-all ml-auto"
+                      class:bg-success-500={p.winB > p.draw && p.winB > p.winA}
+                      class:bg-primary-500={!(p.winB > p.draw && p.winB > p.winA)}
+                      style="width:{p.winB}%"
+                    ></div>
+                  </div>
+                </div>
+
               </div>
-            </div>
-
-            <!-- Win B -->
-            <div class="space-y-1 text-right">
-              <p class="text-xs text-surface-500">{match.teamB} win</p>
-              <p class="text-lg font-medium text-surface-950-50">{p.winB}%</p>
-              <div class="h-1.5 w-full rounded-full bg-surface-200-800 overflow-hidden">
-                <div
-                  class="h-full rounded-full transition-all ml-auto"
-                  class:bg-success-500={p.winB > p.draw && p.winB > p.winA}
-                  class:bg-primary-500={!(p.winB > p.draw && p.winB > p.winA)}
-                  style="width:{p.winB}%"
-                ></div>
-              </div>
-            </div>
-
-          </div>
-
-        </article>
-
-        <!-- Card footer -->
-        <footer class="flex items-center justify-between px-4 py-3">
-          <small class="opacity-60">Model picks: <strong>{predictedOutcome(p, match)}</strong></small>
-          
-          {#if actual !== undefined}
-            {#if actual === 'A'}
-             <small class="font-bold">Winner: {match.teamA}</small>
-            {:else if actual === 'B'}
-              <small class="font-bold">Winner: {match.teamB}</small>
-            {:else}
-              <small class="font-bold">Draw</small>
             {/if}
-          {/if}
-          <small class="opacity-60">Elo model · April 2026</small>
-        </footer>
+
+          </article>
+
+          <!-- Card footer -->
+          <footer class="flex items-center justify-between px-4 py-3">
+            <small class="opacity-60">Model picks: <strong>{predictedOutcome(p, match)}</strong></small>
+
+            {#if actual !== undefined}
+              {#if actual === 'A'}
+               <small class="font-bold">Winner: {match.teamA}</small>
+              {:else if actual === 'B'}
+                <small class="font-bold">Winner: {match.teamB}</small>
+              {:else}
+                <small class="font-bold">Draw</small>
+              {/if}
+            {/if}
+            <small class="opacity-60">Fifa rankings model · April 2026</small>
+          </footer>
+        {/if}
 
       </div>
     {/each}
