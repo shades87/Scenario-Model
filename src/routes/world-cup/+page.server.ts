@@ -125,15 +125,15 @@ const ALL_MATCHES: Match[] = [
   { id: 'R32_M76', group: 'R32', matchday: 1, round: 'r32', date: 'Jun 29', teamA: 'Brazil', teamB: 'Japan', venue: 'Houston Stadium', slotA: '1C', slotB: '2F' },
   { id: 'R32_M77', group: 'R32', matchday: 1, round: 'r32', date: 'Jun 30', teamA: 'France', teamB: 'Sweden', venue: 'New York/New Jersey Stadium', slotA: '1I', slotB: '3rd C/D/F/G/H' },
   { id: 'R32_M78', group: 'R32', matchday: 1, round: 'r32', date: 'Jun 30', teamA: 'Ivory Coast', teamB: 'Norway', venue: 'Dallas Stadium', slotA: '2E', slotB: '2I' },
-  { id: 'R32_M79', group: 'R32', matchday: 1, round: 'r32', date: 'Jun 30', teamA: 'Mexico', teamB: null, venue: 'TBD', slotA: '1A', slotB: '3rd C/E/F/H/I' },
-  { id: 'R32_M80', group: 'R32', matchday: 1, round: 'r32', date: 'Jul 01', teamA: null, teamB: null, venue: 'TBD', slotA: '1L', slotB: '3rd E/H/I/J/K' },
+  { id: 'R32_M79', group: 'R32', matchday: 1, round: 'r32', date: 'Jun 30', teamA: 'Mexico', teamB: 'Ecuador', venue: 'TBD', slotA: '1A', slotB: '3rd C/E/F/H/I' },
+  { id: 'R32_M80', group: 'R32', matchday: 1, round: 'r32', date: 'Jul 01', teamA: 'England', teamB: 'DR Congo', venue: 'TBD', slotA: '1L', slotB: '3rd E/H/I/J/K' },
   { id: 'R32_M81', group: 'R32', matchday: 1, round: 'r32', date: 'Jul 01', teamA: 'United States', teamB: 'Bosnia', venue: 'San Francisco Bay Area Stadium', slotA: '1D', slotB: '3rd B/E/F/I/J' },
-  { id: 'R32_M82', group: 'R32', matchday: 1, round: 'r32', date: 'Jul 01', teamA: "Belgium", teamB: null, venue: 'TBD', slotA: '1G', slotB: '3rd A/E/H/I/J' },
-  { id: 'R32_M83', group: 'R32', matchday: 1, round: 'r32', date: 'Jul 02', teamA: null, teamB: null, venue: 'TBD', slotA: '2K', slotB: '2L' },
-  { id: 'R32_M84', group: 'R32', matchday: 1, round: 'r32', date: 'Jul 02', teamA: 'Spain', teamB: null, venue: 'Los Angeles Stadium', slotA: '1H', slotB: '2J' },
-  { id: 'R32_M85', group: 'R32', matchday: 1, round: 'r32', date: 'Jul 02', teamA: 'Switzerland', teamB: null, venue: 'BC Place Vancouver', slotA: '1B', slotB: '3rd E/F/G/I/J' },
+  { id: 'R32_M82', group: 'R32', matchday: 1, round: 'r32', date: 'Jul 01', teamA: "Belgium", teamB: 'Senegal', venue: 'TBD', slotA: '1G', slotB: '3rd A/E/H/I/J' },
+  { id: 'R32_M83', group: 'R32', matchday: 1, round: 'r32', date: 'Jul 02', teamA: 'France', teamB: 'Sweden', venue: 'TBD', slotA: '2K', slotB: '2L' },
+  { id: 'R32_M84', group: 'R32', matchday: 1, round: 'r32', date: 'Jul 02', teamA: 'Spain', teamB: 'Austria', venue: 'Los Angeles Stadium', slotA: '1H', slotB: '2J' },
+  { id: 'R32_M85', group: 'R32', matchday: 1, round: 'r32', date: 'Jul 02', teamA: 'Switzerland', teamB: 'Algeria', venue: 'BC Place Vancouver', slotA: '1B', slotB: '3rd E/F/G/I/J' },
   { id: 'R32_M86', group: 'R32', matchday: 1, round: 'r32', date: 'Jul 03', teamA: 'Argentina', teamB: 'Cabo Verde', venue: 'Miami Stadium', slotA: '1J', slotB: '2H' },
-  { id: 'R32_M87', group: 'R32', matchday: 1, round: 'r32', date: 'Jul 03', teamA: null, teamB: null, venue: 'TBD', slotA: '1K', slotB: '3rd D/E/I/J/L' },
+  { id: 'R32_M87', group: 'R32', matchday: 1, round: 'r32', date: 'Jul 03', teamA: 'Portugal', teamB: 'Croatia', venue: 'TBD', slotA: '1K', slotB: '3rd D/E/I/J/L' },
   { id: 'R32_M88', group: 'R32', matchday: 1, round: 'r32', date: 'Jul 03', teamA: 'Australia', teamB: 'Egypt', venue: 'Dallas Stadium', slotA: '2D', slotB: '2G' },
 ];
 
@@ -172,7 +172,7 @@ function calcPrediction(rA: number, rB: number): { winA: number; draw: number; w
   if (rA === rB) {
     return { winA: 33, draw: 34, winB: 33 };
   }
-  
+
   const expA = expectedScore(rA, rB);
   const expB = 1 - expA;
   const drawBase = 0.25 * Math.exp(-4 * Math.pow(expA - 0.5, 2));
