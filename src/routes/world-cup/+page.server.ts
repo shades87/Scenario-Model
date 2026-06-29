@@ -159,7 +159,7 @@ const ALL_MATCHES: Match[] = [
   { id: 'SF_M102', group: 'SF', matchday: 1, round: 'sf', date: 'Jul 16', teamA: null, teamB: null, venue: 'TBD', slotA: 'Winner M100', slotB: 'Winner M99' },
 
   // -- 3rd Place
-  { id: 'FINAL_M103', group: '3rd', matchday: 1, round: 'third', date: 'Jul 19', teamA: null, teamB: null, venue: 'TBD', slotA: 'Winner M102', slotB: 'Winner M101' },
+  { id: 'FINAL_M103', group: '3rd', matchday: 1, round: 'third', date: 'Jul 19', teamA: null, teamB: null, venue: 'TBD', slotA: 'Loser M102', slotB: 'Loser M101' },
 
 
   // ── Final ──────────────────────────────────────────────────────────────────
