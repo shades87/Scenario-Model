@@ -9,7 +9,7 @@ export interface Match {
   id: string;
   group: string;       // group letter for group stage; bracket label (e.g. "R32") for knockouts
   matchday: number;    // 1-3 for group stage; knockout round order otherwise
-  round: 'group' | 'r32' | 'r16' | 'qf' | 'sf' | 'final';
+  round: 'group' | 'r32' | 'r16' | 'qf' | 'sf' | 'third' | 'final';
   date: string;
   teamA: string | null; // null until the slot is filled in (e.g. pending 3rd-place draw)
   teamB: string | null;
@@ -135,6 +135,36 @@ const ALL_MATCHES: Match[] = [
   { id: 'R32_M86', group: 'R32', matchday: 1, round: 'r32', date: 'Jul 03', teamA: 'Argentina', teamB: 'Cabo Verde', venue: 'Miami Stadium', slotA: '1J', slotB: '2H' },
   { id: 'R32_M87', group: 'R32', matchday: 1, round: 'r32', date: 'Jul 03', teamA: 'Colombia', teamB: 'Ghana', venue: 'Kansas City Stadium', slotA: '1K', slotB: '3rd D/E/I/J/L' },
   { id: 'R32_M88', group: 'R32', matchday: 1, round: 'r32', date: 'Jul 03', teamA: 'Australia', teamB: 'Egypt', venue: 'Dallas Stadium', slotA: '2D', slotB: '2G' },
+
+    // ── Round of 16 ────────────────────────────────────────────────────────────
+  // Each R16 match pairs the winners of two specific R32 matches.
+  // Fill in teamA/teamB once the R32 results are known.
+  { id: 'R16_M89', group: 'R16', matchday: 1, round: 'r16', date: 'Jul 04', teamA: null, teamB: null, venue: 'TBD', slotA: 'Winner M74', slotB: 'Winner M73' },
+  { id: 'R16_M90', group: 'R16', matchday: 1, round: 'r16', date: 'Jul 04', teamA: null, teamB: null, venue: 'TBD', slotA: 'Winner M77', slotB: 'Winner M76' },
+  { id: 'R16_M91', group: 'R16', matchday: 1, round: 'r16', date: 'Jul 05', teamA: null, teamB: null, venue: 'TBD', slotA: 'Winner M78', slotB: 'Winner M75' },
+  { id: 'R16_M92', group: 'R16', matchday: 1, round: 'r16', date: 'Jul 05', teamA: null, teamB: null, venue: 'TBD', slotA: 'Winner M80', slotB: 'Winner M79' },
+  { id: 'R16_M93', group: 'R16', matchday: 1, round: 'r16', date: 'Jul 06', teamA: null, teamB: null, venue: 'TBD', slotA: 'Winner M82', slotB: 'Winner M81' },
+  { id: 'R16_M94', group: 'R16', matchday: 1, round: 'r16', date: 'Jul 06', teamA: null, teamB: null, venue: 'TBD', slotA: 'Winner M83', slotB: 'Winner M84' },
+  { id: 'R16_M95', group: 'R16', matchday: 1, round: 'r16', date: 'Jul 07', teamA: null, teamB: null, venue: 'TBD', slotA: 'Winner M86', slotB: 'Winner M85' },
+  { id: 'R16_M96', group: 'R16', matchday: 1, round: 'r16', date: 'Jul 07', teamA: null, teamB: null, venue: 'TBD', slotA: 'Winner M88', slotB: 'Winner M87' },
+ 
+  // ── Quarter-Finals ─────────────────────────────────────────────────────────
+  { id: 'QF_M97', group: 'QF', matchday: 1, round: 'qf', date: 'Jul 09', teamA: null, teamB: null, venue: 'TBD', slotA: 'Winner M90', slotB: 'Winner M89' },
+  { id: 'QF_M98', group: 'QF', matchday: 1, round: 'qf', date: 'Jul 10', teamA: null, teamB: null, venue: 'TBD', slotA: 'Winner M92', slotB: 'Winner M91' },
+  { id: 'QF_M99', group: 'QF', matchday: 1, round: 'qf', date: 'Jul 11', teamA: null, teamB: null, venue: 'TBD', slotA: 'Winner M94', slotB: 'Winner M93' },
+  { id: 'QF_M100', group: 'QF', matchday: 1, round: 'qf', date: 'Jul 12', teamA: null, teamB: null, venue: 'TBD', slotA: 'Winner M96', slotB: 'Winner M95' },
+ 
+  // ── Semi-Finals ────────────────────────────────────────────────────────────
+  { id: 'SF_M101', group: 'SF', matchday: 1, round: 'sf', date: 'Jul 15', teamA: null, teamB: null, venue: 'TBD', slotA: 'Winner M98', slotB: 'Winner M97' },
+  { id: 'SF_M102', group: 'SF', matchday: 1, round: 'sf', date: 'Jul 16', teamA: null, teamB: null, venue: 'TBD', slotA: 'Winner M100', slotB: 'Winner M99' },
+
+  // -- 3rd Place
+  { id: 'FINAL_M103', group: '3rd', matchday: 1, round: 'third', date: 'Jul 19', teamA: null, teamB: null, venue: 'TBD', slotA: 'Winner M102', slotB: 'Winner M101' },
+
+
+  // ── Final ──────────────────────────────────────────────────────────────────
+  { id: 'FINAL_M104', group: 'FINAL', matchday: 1, round: 'final', date: 'Jul 19', teamA: null, teamB: null, venue: 'TBD', slotA: 'Winner M102', slotB: 'Winner M101' },
+
 ];
 
 // ── Base FIFA ratings (April 2026) ─────────────────────────────────────────
