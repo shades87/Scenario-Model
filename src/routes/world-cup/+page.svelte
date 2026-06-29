@@ -359,7 +359,7 @@
       <div class="card preset-filled-surface-100-900 border border-surface-200-800 p-12 text-center text-surface-400 text-sm">
         No matches for this selection.
       </div>
-    {/if}
+    {/if} 
 
     <!-- Upload format hint 
     <div class="card preset-filled-surface-100-900 border border-surface-200-800 p-4 text-xs text-surface-400 space-y-1">
