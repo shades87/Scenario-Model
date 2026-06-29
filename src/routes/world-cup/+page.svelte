@@ -19,16 +19,17 @@
   };
 
   // ── State ──────────────────────────────────────────────────────────────────
-  let selectedRound = $state<'group' | 'r32'>('group');
+  let selectedStage = $state<'group' | 'knockout'>('group');
   let selectedGroup = $state<string>('A');
   let selectedMatchday = $state<string>('1');
+  let selectedKORound = $state<'r32' | 'r16' | 'qf' | 'sf' | 'third' | 'final'>('r32');
 
   const results = $derived(data.results ?? {});
   const predictions = $derived(data.predictions ?? {});
 
   const filteredMatches = $derived(
-    selectedRound === 'r32'
-      ? data.matches.filter(m => m.round === 'r32')
+    selectedStage === 'knockout'
+      ? data.matches.filter(m => m.round === selectedKORound)
       : data.matches.filter(m =>
           (m.round ?? 'group') === 'group' &&
           (selectedGroup === 'All' || m.group === selectedGroup) &&
@@ -66,9 +67,10 @@
       return `${m.id},${m.group},${m.date},${m.teamA},${m.teamB},${m.venue},${p.ratingA},${p.ratingB},${p.winA},${p.draw},${p.winB},${predictedOutcome(p, m)}`;
     });
     const blob = new Blob([[header, ...rows].join('\n')], { type: 'text/csv' });
+    const fileTag = selectedStage === 'knockout' ? selectedKORound : `group${selectedGroup}_md${selectedMatchday}`;
     const a = Object.assign(document.createElement('a'), {
       href: URL.createObjectURL(blob),
-      download: `wc2026_${selectedRound}_${selectedRound === 'group' ? selectedGroup + '_md' + selectedMatchday : 'all'}.csv`,
+      download: `wc2026_${fileTag}.csv`,
     });
     a.click();
     URL.revokeObjectURL(a.href);
@@ -93,9 +95,10 @@
       };
     });
     const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+    const fileTag = selectedStage === 'knockout' ? selectedKORound : `group${selectedGroup}_md${selectedMatchday}`;
     const a = Object.assign(document.createElement('a'), {
       href: URL.createObjectURL(blob),
-      download: `wc2026_${selectedRound}_${selectedRound === 'group' ? selectedGroup + '_md' + selectedMatchday : 'all'}.json`,
+      download: `wc2026_${fileTag}.json`,
     });
     a.click();
     URL.revokeObjectURL(a.href);
@@ -120,7 +123,7 @@
         <h1 class="h1 text-surface-950-50">WC 2026 Match Predictor</h1>
       </div>
       <p class="text-xs text-surface-500 mt-0.5 text-center">
-        Statistical model · Fifa ratings · April 2026
+        Statistical model · Elo ratings · April 2026
       </p>
     </div>
     <div class="flex gap-2">
@@ -132,23 +135,24 @@
   <!-- Nav now sits inside header, full width -->
   <nav class="bg-primary-300 border-b border-surface-200-800 px-6 py-3 flex gap-4 items-center flex-wrap">
     <div class="flex items-center gap-2">
+      <span class="text-xs font-medium uppercase tracking-widest text-white">Stage</span>
       <div class="flex gap-1">
-        {#each [['group','Group Stage'],['r32','Round of 32']] as [val, label] (val)}
+        {#each [['group','Group Stage'],['knockout','Knockout']] as [val, label] (val)}
           <button
             class="btn btn-sm rounded-full text-xs font-medium border transition-all"
-            class:bg-surface-950-50={selectedRound === val}
-            class:text-surface-50-950={selectedRound === val}
-            class:border-surface-950-50={selectedRound === val}
-            class:bg-transparent={selectedRound !== val}
-            class:text-white={selectedRound !== val}
-            class:border-white={selectedRound !== val}
-            onclick={() => selectedRound = val as 'group' | 'r32'}
+            class:bg-surface-950-50={selectedStage === val}
+            class:text-surface-50-950={selectedStage === val}
+            class:border-surface-950-50={selectedStage === val}
+            class:bg-transparent={selectedStage !== val}
+            class:text-white={selectedStage !== val}
+            class:border-white={selectedStage !== val}
+            onclick={() => selectedStage = val as 'group' | 'knockout'}
           >{label}</button>
         {/each}
       </div>
     </div>
 
-    {#if selectedRound === 'group'}
+    {#if selectedStage === 'group'}
       <div class="flex items-center gap-2">
         <span class="text-xs font-medium uppercase tracking-widest text-white">Group</span>
         <div class="flex gap-1 flex-wrap">
@@ -176,6 +180,24 @@
               class:text-white={selectedMatchday !== val}
               class:border-white={selectedMatchday !== val}
               onclick={() => selectedMatchday = val}
+            >{label}</button>
+          {/each}
+        </div>
+      </div>
+    {:else}
+      <div class="flex items-center gap-2">
+        <span class="text-xs font-medium uppercase tracking-widest text-white">Round</span>
+        <div class="flex gap-1 flex-wrap">
+          {#each [['r32','Round of 32'],['r16','Round of 16'],['qf','Quarter-Final'],['sf','Semi-Final'],['third','3rd Place'],['final','Final']] as [val, label] (val)}
+            <button
+              class="btn btn-sm rounded-full text-xs font-medium border transition-all"
+              class:bg-surface-950-50={selectedKORound === val}
+              class:text-surface-50-950={selectedKORound === val}
+              class:border-surface-950-50={selectedKORound === val}
+              class:bg-transparent={selectedKORound !== val}
+              class:text-white={selectedKORound !== val}
+              class:border-white={selectedKORound !== val}
+              onclick={() => selectedKORound = val as 'r32' | 'r16' | 'qf' | 'sf' | 'third' | 'final'}
             >{label}</button>
           {/each}
         </div>
@@ -246,9 +268,9 @@
         </header>
 
         {#if !teamsKnown}
-          <!-- Slot not yet confirmed by FIFA -->
+          <!-- Slot not yet confirmed -->
           <article class="py-6 px-4 text-center">
-            <p class="text-sm text-surface-400">Teams not yet confirmed — bracket locks after the group stage ends.</p>
+            <p class="text-sm text-surface-400">Teams not yet confirmed.</p>
           </article>
         {:else}
           <!-- Card body -->
@@ -326,7 +348,7 @@
                 <small class="font-bold">Draw</small>
               {/if}
             {/if}
-            <small class="opacity-60">Fifa rankings model · April 2026</small>
+            <small class="opacity-60">Elo model · April 2026</small>
           </footer>
         {/if}
 
@@ -337,7 +359,7 @@
       <div class="card preset-filled-surface-100-900 border border-surface-200-800 p-12 text-center text-surface-400 text-sm">
         No matches for this selection.
       </div>
-    {/if}
+    {/if} 
 
     <!-- Upload format hint 
     <div class="card preset-filled-surface-100-900 border border-surface-200-800 p-4 text-xs text-surface-400 space-y-1">

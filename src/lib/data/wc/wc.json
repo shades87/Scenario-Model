@@ -70,5 +70,6 @@
   {"match_id":"L5", "actual_outcome":"A"},
   {"match_id":"L6", "actual_outcome":"A"},
   {"match_id":"J5", "actual_outcome":"A"},
-  {"match_id":"J6", "actual_outcome":"D"}
+  {"match_id":"J6", "actual_outcome":"D"},
+  {"match_id":"R32_M73", "actual_outcome":"B"}
 ]
