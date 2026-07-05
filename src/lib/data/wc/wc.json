@@ -71,5 +71,22 @@
   {"match_id":"L6", "actual_outcome":"A"},
   {"match_id":"J5", "actual_outcome":"A"},
   {"match_id":"J6", "actual_outcome":"D"},
-  {"match_id":"R32_M73", "actual_outcome":"B"}
+  {"match_id":"R32_M73", "actual_outcome":"B"},
+  {"match_id":"R32_M74", "actual_outcome":"D"},
+  {"match_id":"R32_M75", "actual_outcome":"D"},
+  {"match_id":"R32_M76", "actual_outcome":"A" },
+  {"match_id":"R32_M77", "actual_outcome":"A"},
+  {"match_id":"R32_M78", "actual_outcome":"B"},
+  {"match_id":"R32_M79", "actual_outcome":"A"},
+  {"match_id":"R32_M80", "actual_outcome":"A"},
+  {"match_id":"R32_M81", "actual_outcome":"A"},
+  {"match_id":"R32_M82", "actual_outcome":"A"},
+  {"match_id":"R32_M83", "actual_outcome":"A"},
+  {"match_id":"R32_M84", "actual_outcome":"A"},
+  {"match_id":"R32_M85", "actual_outcome":"A"},
+  {"match_id":"R32_M86", "actual_outcome":"A"},
+  {"match_id":"R32_M87", "actual_outcome":"A"},
+  {"match_id":"R32_M88", "actual_outcome":"D"},
+  {"match_id":"R16_M89", "actual_outcome":"B"},
+  {"match_id":"R16_M90", "actual_outcome":"B"}
 ]

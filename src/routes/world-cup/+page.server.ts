@@ -139,17 +139,17 @@ const ALL_MATCHES: Match[] = [
     // ── Round of 16 ────────────────────────────────────────────────────────────
   // Each R16 match pairs the winners of two specific R32 matches.
   // Fill in teamA/teamB once the R32 results are known.
-  { id: 'R16_M89', group: 'R16', matchday: 1, round: 'r16', date: 'Jul 04', teamA: null, teamB: null, venue: 'TBD', slotA: 'Winner M74', slotB: 'Winner M73' },
-  { id: 'R16_M90', group: 'R16', matchday: 1, round: 'r16', date: 'Jul 04', teamA: null, teamB: null, venue: 'TBD', slotA: 'Winner M77', slotB: 'Winner M76' },
-  { id: 'R16_M91', group: 'R16', matchday: 1, round: 'r16', date: 'Jul 05', teamA: null, teamB: null, venue: 'TBD', slotA: 'Winner M78', slotB: 'Winner M75' },
-  { id: 'R16_M92', group: 'R16', matchday: 1, round: 'r16', date: 'Jul 05', teamA: null, teamB: null, venue: 'TBD', slotA: 'Winner M80', slotB: 'Winner M79' },
-  { id: 'R16_M93', group: 'R16', matchday: 1, round: 'r16', date: 'Jul 06', teamA: null, teamB: null, venue: 'TBD', slotA: 'Winner M82', slotB: 'Winner M81' },
-  { id: 'R16_M94', group: 'R16', matchday: 1, round: 'r16', date: 'Jul 06', teamA: null, teamB: null, venue: 'TBD', slotA: 'Winner M83', slotB: 'Winner M84' },
-  { id: 'R16_M95', group: 'R16', matchday: 1, round: 'r16', date: 'Jul 07', teamA: null, teamB: null, venue: 'TBD', slotA: 'Winner M86', slotB: 'Winner M85' },
-  { id: 'R16_M96', group: 'R16', matchday: 1, round: 'r16', date: 'Jul 07', teamA: null, teamB: null, venue: 'TBD', slotA: 'Winner M88', slotB: 'Winner M87' },
+  { id: 'R16_M89', group: 'R16', matchday: 1, round: 'r16', date: 'Jul 04', teamA: 'Paraguay', teamB: 'France', venue: 'Philadelphia Stadium', slotA: 'Winner M74', slotB: 'Winner M73' },
+  { id: 'R16_M90', group: 'R16', matchday: 1, round: 'r16', date: 'Jul 04', teamA: 'Canada', teamB: 'Morocco', venue: 'Houston Stadium', slotA: 'Winner M77', slotB: 'Winner M76' },
+  { id: 'R16_M91', group: 'R16', matchday: 1, round: 'r16', date: 'Jul 05', teamA: 'Brazil', teamB: 'Norway', venue: 'New York/New Jersey Stadium', slotA: 'Winner M78', slotB: 'Winner M75' },
+  { id: 'R16_M92', group: 'R16', matchday: 1, round: 'r16', date: 'Jul 05', teamA: 'Mexico', teamB: 'England', venue: 'Mexico City Stadium', slotA: 'Winner M80', slotB: 'Winner M79' },
+  { id: 'R16_M93', group: 'R16', matchday: 1, round: 'r16', date: 'Jul 06', teamA: 'Portugal', teamB: 'Spain', venue: 'Dallas Stadium', slotA: 'Winner M82', slotB: 'Winner M81' },
+  { id: 'R16_M94', group: 'R16', matchday: 1, round: 'r16', date: 'Jul 06', teamA: 'United States', teamB: 'Belgium', venue: 'Seattle Stadium', slotA: 'Winner M83', slotB: 'Winner M84' },
+  { id: 'R16_M95', group: 'R16', matchday: 1, round: 'r16', date: 'Jul 07', teamA: 'Argentina', teamB: 'Egypt', venue: 'Atlanta Stadium', slotA: 'Winner M86', slotB: 'Winner M85' },
+  { id: 'R16_M96', group: 'R16', matchday: 1, round: 'r16', date: 'Jul 07', teamA: 'Switzerland', teamB: 'Colombia', venue: 'BC Place Vancouver', slotA: 'Winner M88', slotB: 'Winner M87' },
  
   // ── Quarter-Finals ─────────────────────────────────────────────────────────
-  { id: 'QF_M97', group: 'QF', matchday: 1, round: 'qf', date: 'Jul 09', teamA: null, teamB: null, venue: 'TBD', slotA: 'Winner M90', slotB: 'Winner M89' },
+  { id: 'QF_M97', group: 'QF', matchday: 1, round: 'qf', date: 'Jul 09', teamA: 'France', teamB: 'Morocco', venue: 'Boston Stadium', slotA: 'Winner M90', slotB: 'Winner M89' },
   { id: 'QF_M98', group: 'QF', matchday: 1, round: 'qf', date: 'Jul 10', teamA: null, teamB: null, venue: 'TBD', slotA: 'Winner M92', slotB: 'Winner M91' },
   { id: 'QF_M99', group: 'QF', matchday: 1, round: 'qf', date: 'Jul 11', teamA: null, teamB: null, venue: 'TBD', slotA: 'Winner M94', slotB: 'Winner M93' },
   { id: 'QF_M100', group: 'QF', matchday: 1, round: 'qf', date: 'Jul 12', teamA: null, teamB: null, venue: 'TBD', slotA: 'Winner M96', slotB: 'Winner M95' },
