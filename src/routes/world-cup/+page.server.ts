@@ -150,9 +150,9 @@ const ALL_MATCHES: Match[] = [
  
   // ── Quarter-Finals ─────────────────────────────────────────────────────────
   { id: 'QF_M97', group: 'QF', matchday: 1, round: 'qf', date: 'Jul 09', teamA: 'France', teamB: 'Morocco', venue: 'Boston Stadium', slotA: 'Winner M90', slotB: 'Winner M89' },
-  { id: 'QF_M98', group: 'QF', matchday: 1, round: 'qf', date: 'Jul 10', teamA: null, teamB: null, venue: 'TBD', slotA: 'Winner M92', slotB: 'Winner M91' },
-  { id: 'QF_M99', group: 'QF', matchday: 1, round: 'qf', date: 'Jul 11', teamA: null, teamB: null, venue: 'TBD', slotA: 'Winner M94', slotB: 'Winner M93' },
-  { id: 'QF_M100', group: 'QF', matchday: 1, round: 'qf', date: 'Jul 12', teamA: null, teamB: null, venue: 'TBD', slotA: 'Winner M96', slotB: 'Winner M95' },
+  { id: 'QF_M98', group: 'QF', matchday: 1, round: 'qf', date: 'Jul 10', teamA: 'Spain', teamB: 'Belgium', venue: 'Los Angeles Stadium', slotA: 'Winner M92', slotB: 'Winner M91' },
+  { id: 'QF_M99', group: 'QF', matchday: 1, round: 'qf', date: 'Jul 11', teamA: 'Norway', teamB: 'England', venue: 'Miami Stadium', slotA: 'Winner M94', slotB: 'Winner M93' },
+  { id: 'QF_M100', group: 'QF', matchday: 1, round: 'qf', date: 'Jul 12', teamA: 'Argentina', teamB: 'Switzerland', venue: 'Kansas City Stadium', slotA: 'Winner M96', slotB: 'Winner M95' },
  
   // ── Semi-Finals ────────────────────────────────────────────────────────────
   { id: 'SF_M101', group: 'SF', matchday: 1, round: 'sf', date: 'Jul 15', teamA: null, teamB: null, venue: 'TBD', slotA: 'Winner M98', slotB: 'Winner M97' },
