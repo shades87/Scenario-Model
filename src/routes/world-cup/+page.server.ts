@@ -155,15 +155,15 @@ const ALL_MATCHES: Match[] = [
   { id: 'QF_M100', group: 'QF', matchday: 1, round: 'qf', date: 'Jul 12', teamA: 'Argentina', teamB: 'Switzerland', venue: 'Kansas City Stadium', slotA: 'Winner M96', slotB: 'Winner M95' },
  
   // ── Semi-Finals ────────────────────────────────────────────────────────────
-  { id: 'SF_M101', group: 'SF', matchday: 1, round: 'sf', date: 'Jul 15', teamA: null, teamB: null, venue: 'TBD', slotA: 'Winner M98', slotB: 'Winner M97' },
-  { id: 'SF_M102', group: 'SF', matchday: 1, round: 'sf', date: 'Jul 16', teamA: null, teamB: null, venue: 'TBD', slotA: 'Winner M100', slotB: 'Winner M99' },
+  { id: 'SF_M101', group: 'SF', matchday: 1, round: 'sf', date: 'Jul 15', teamA: 'France', teamB: 'Spain', venue: 'Dallas Stadium', slotA: 'Winner M98', slotB: 'Winner M97' },
+  { id: 'SF_M102', group: 'SF', matchday: 1, round: 'sf', date: 'Jul 16', teamA: 'England', teamB: 'Argentina', venue: 'Atlanta Stadium', slotA: 'Winner M100', slotB: 'Winner M99' },
 
   // -- 3rd Place
   { id: 'FINAL_M103', group: '3rd', matchday: 1, round: 'third', date: 'Jul 19', teamA: null, teamB: null, venue: 'TBD', slotA: 'Loser M102', slotB: 'Loser M101' },
 
 
   // ── Final ──────────────────────────────────────────────────────────────────
-  { id: 'FINAL_M104', group: 'FINAL', matchday: 1, round: 'final', date: 'Jul 19', teamA: null, teamB: null, venue: 'TBD', slotA: 'Winner M102', slotB: 'Winner M101' },
+  { id: 'FINAL_M104', group: 'FINAL', matchday: 1, round: 'final', date: 'Jul 19', teamA: null, teamB: null, venue: 'New York/New Jersey Stadium', slotA: 'Winner M102', slotB: 'Winner M101' },
 
 ];
 
