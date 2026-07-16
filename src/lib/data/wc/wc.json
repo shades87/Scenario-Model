@@ -98,5 +98,7 @@
   {"match_id":"QF_M97", "actual_outcome":"A"},
   {"match_id":"QF_M98", "actual_outcome":"A"},
   {"match_id":"QF_M99", "actual_outcome":"B"},
-  {"match_id":"QF_M100", "actual_outcome":"A"}
+  {"match_id":"QF_M100", "actual_outcome":"A"},
+  {"match_id":"SF_M101", "actual_outcome":"B"},
+  {"match_id":"SF_M102", "actual_outcome":"B"}
 ]
