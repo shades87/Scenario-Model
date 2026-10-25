@@ -106,7 +106,7 @@
       Seemingly paradoxically I think that it's also overestimating the chance of a hung parliament
     </li>
     <li>
-      Tweaks are needed to preference flows - on a 2PP of ALP 50 - 50 Coalition it seems to unrealistically favour one side by a large margin
+      Have tweaked the prediction file to fix an error that resulted in a phanton party geting 1-2% of the vote, fixed another bug that underestimated PHON's chances of winning seats where they did not run candidates in the previous election
     </li>
   </ul>
 </article>
