@@ -100,13 +100,16 @@
       100 of the 50 000 simulated elections are shown on a line graph, sorted from highest incumbant seats to least incumbant seats
     </li>
     <li>
-      This model is limited and likely under predicting crossbench seats
+      This model is limited and likely under predicting independent seats, over predicting PHON seats
     </li>
     <li>
       Seemingly paradoxically I think that it's also overestimating the chance of a hung parliament
     </li>
     <li>
       Have tweaked the prediction file to fix an error that resulted in a phantom party geting 1-2% of the vote, fixed another bug that underestimated PHON's chances of winning seats where they did not run candidates in the previous election
+    </li>
+    <li>
+      
     </li>
   </ul>
 </article>
