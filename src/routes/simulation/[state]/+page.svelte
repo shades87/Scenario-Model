@@ -97,7 +97,7 @@
       <p>The election is simulated 50K times adding in random polling errors</p>
     </li>
     <li>
-      100 simulated elections are shown on a line graph, sorted from highest incumbant seats to least incumbant seats
+      100 of the 50 000 simulated elections are shown on a line graph, sorted from highest incumbant seats to least incumbant seats
     </li>
     <li>
       This model is limited and likely under predicting crossbench seats
